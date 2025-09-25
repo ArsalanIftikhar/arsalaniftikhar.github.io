@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Workflow Automation - Arsalan Iftikhar</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-gray-900">⌂ Arsalan Iftikhar</a>
+                <a href="../projects.html" class="text-blue-600 hover:underline">← Back to Projects</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+
+            <!-- Project Title -->
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-4">AI-Powered Email Routing Workflow</h2>
+            <p class="text-xl text-gray-600 mb-8">An intelligent automation using n8n and OpenAI to automatically parse, categorise, and route incoming emails with reliability, consistency, and scalability.</p>
+
+            <!-- Project Meta -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 border-t border-b border-gray-200 py-6">
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Project Type</h4>
+                    <p class="text-lg font-bold text-gray-900">AI & Automation</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Core Technologies</h4>
+                    <p class="text-lg font-bold text-gray-900">n8n, OpenAI, Email APIs</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Sector</h4>
+                    <p class="text-lg font-bold text-gray-900">Cross-Industry</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Impact</h4>
+                    <p class="text-lg font-bold text-gray-900">Consistency & Scalability</p>
+                </div>
+            </div>
+
+            <!-- The Business Challenge -->
+            <section class="mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">The Business Challenge</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Organisations receive large volumes of inbound messages daily — whether customer support requests, HR enquiries, or operational reports. Manually triaging these is time-consuming, inconsistent, and can expose sensitive data if staff rely on consumer AI tools. A scalable, automated, and secure solution is needed to categorise, prioritise, and route communications effectively.
+                </p>
+            </section>
+
+            <!-- The Solution -->
+            <section class="mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">The Solution: An AI-Powered Triage Agent</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    I built a prototype workflow in n8n that integrates with OpenAI to reliably parse and route incoming emails. The workflow enforces structured prompts, validates schema outputs, and applies routing logic to ensure scalability and security. This approach demonstrates how automation and LLMs can be combined to streamline everyday business processes.
+                </p>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h4 class="text-2xl font-bold text-gray-800 mb-4">The Automated Workflow:</h4>
+                    <div class="space-y-6">
+                        
+                        <div class="p-4 border-l-4 border-blue-600">
+                            <h5 class="text-xl font-semibold mb-2">1. Trigger & Data Capture</h5>
+                            <p class="text-gray-600">The workflow is triggered by new incoming emails (but could equally be CRM updates, form submissions, or file drops). Key details such as subject, sender, and body text are captured and parsed into variables.</p>
+                        </div>
+
+                        <div class="p-4 border-l-4 border-green-600">
+                            <h5 class="text-xl font-semibold mb-2">2. AI Categorisation & Prioritisation</h5>
+                            <p class="text-gray-600">The message data is passed to an OpenAI model with a structured prompt enforcing JSON-style outputs. This ensures reliable categorisation, prioritisation, and summarisation while balancing creativity and determinism through controlled temperature settings.</p>
+                        </div>
+
+                        <div class="p-4 border-l-4 border-yellow-600">
+                            <h5 class="text-xl font-semibold mb-2">3. Schema Validation & Error Handling</h5>
+                            <p class="text-gray-600">Generated outputs are validated against a defined schema. Invalid responses are flagged and reprocessed, ensuring robustness and preventing malformed data from progressing further into the workflow.</p>
+                        </div>
+                        
+                        <div class="p-4 border-l-4 border-purple-600">
+                            <h5 class="text-xl font-semibold mb-2">4. Conditional Routing & Response</h5>
+                            <p class="text-gray-600">Based on categorisation, the workflow applies conditional logic to route messages to the appropriate team or generate an automated response to the sender, ensuring fast and consistent communication.</p>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- Workflow Image -->
+                <div class="mt-8">
+                    <img src="../projects/n8n/n8n_workflow.PNG" alt="n8n Workflow for Parent Communication" class="w-full rounded-lg shadow-md">
+                </div>
+            </section>
+            
+            <!-- Key Outcomes -->
+            <section>
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Key Outcomes & Business Impact</h3>
+                <ul class="list-disc list-inside space-y-3 text-gray-700 leading-relaxed">
+                    <li><strong class="font-semibold text-gray-900">Consistency:</strong> Every message is categorised and prioritised against the same rules, reducing human bias and error.</li>
+                    <li><strong class="font-semibold text-gray-900">Security:</strong> Managed integrations ensure data is handled safely within organisational systems, avoiding risky use of consumer AI tools.</li>
+                    <li><strong class="font-semibold text-gray-900">Scalability:</strong> One workflow can handle thousands of requests with minimal intervention, making it suitable for high-volume environments.</li>
+                    <li><strong class="font-semibold text-gray-900">Flexibility:</strong> The trigger and routing logic can be adapted for multiple domains — customer support, HR, compliance, or operations.</li>
+                    <li><strong class="font-semibold text-gray-900">Exploration & Innovation:</strong> This prototype highlighted the practical potential of combining workflow automation with AI for real-world business processes.</li>
+                </ul>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12 py-6">
+        <div class="container mx-auto text-center text-gray-500">
+            <p>&copy; 2025 Arsalan Iftikhar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

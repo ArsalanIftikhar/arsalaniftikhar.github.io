@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Data Analysis - Arsalan Iftikhar</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-gray-900">⌂ Arsalan Iftikhar</a>
+                <a href="../projects.html" class="text-blue-600 hover:underline">← Back to Projects</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content --> 
+    <main class="container mx-auto px-6 py-12">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg">
+
+        <!-- Project Title -->
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Premier League 21/22 — Shooting Data Analysis (Python)</h2>
+        <p class="text-xl text-gray-600 mb-8">A reproducible exploratory notebook analysing shot, xG and finishing performance across the 2021/22 Premier League season using Python, pandas and matplotlib.</p>
+
+        <!-- Project Meta -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 border-t border-b border-gray-200 py-6">
+        <div>
+            <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Project Type</h4>
+            <p class="text-lg font-bold text-gray-900">Data Analysis</p>
+        </div>
+        <div>
+            <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Core Technologies</h4>
+            <p class="text-lg font-bold text-gray-900">Python, pandas, matplotlib, seaborn</p>
+        </div>
+        <div>
+            <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Domain</h4>
+            <p class="text-lg font-bold text-gray-900">Sports Analytics</p>
+        </div>
+        <div>
+            <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Impact</h4>
+            <p class="text-lg font-bold text-gray-900">Performance Insights & Scouting</p>
+        </div>
+        </div>
+
+        <!-- Intro -->
+        <section class="mb-10">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Overview</h3>
+        <p class="text-gray-700 leading-relaxed">
+            This notebook loads fbref-derived shooting data for the 2021/22 Premier League, cleans and filters players with a reasonable shot volume, and explores relationships between shots, xG and goals. Visual outputs (scatter plots, pies) illustrate positional differences, finishing efficiency and the link between shot distance and chance quality.
+        </p>
+        </section>
+
+        <!-- Data Loading & Cleaning -->
+        <section class="mb-10">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Loading & Cleaning</h3>
+        <p class="text-gray-700 leading-relaxed mb-3">
+            Data was ingested from an Excel export into a pandas DataFrame. Basic checks (row count, dtypes, descriptive statistics) confirmed the dataset integrity. For analysis we applied a volume filter to remove players with very low shot counts (to avoid noise from small-sample extremes).
+        </p>
+
+        <div class="bg-gray-50 border border-gray-300 rounded-lg p-4 my-4">
+            <h4 class="text-lg font-semibold mb-2">Representative Python snippet</h4>
+            <pre class="whitespace-pre-wrap font-mono text-sm text-gray-800"><code>
+    # imports & load
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
+    epl_df = pd.read_excel('epl_data.xlsx')
+
+    # filter: at least 15 shots and >0.7 shots per 90
+    cln_df = epl_df[(epl_df['Sh'] >= 15) & (epl_df['Sh/90'] > 0.7)]
+            </code></pre>
+        </div>
+        </section>
+
+        <!-- Exploratory Analysis -->
+        <section class="mb-10">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Exploration & Key Findings</h3>
+
+        <div class="bg-gray-100 p-6 rounded-lg mb-6">
+            <h4 class="text-2xl font-bold text-gray-800 mb-3">Top performers & finishing efficiency</h4>
+            <p class="text-gray-700 leading-relaxed mb-3">
+            We computed G − xG for each player to identify over- and under-performers. The top scorers not only had high volume but collectively showed a positive G − xG, suggesting above-average finishing ability compared to the modelled expectation.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+            <div>
+                <img src="../projects/football/figure_shot_distance.png" alt="Shot distance vs npxG/shot" class="w-full rounded-lg shadow-sm mb-2">
+                <p class="text-sm text-center text-gray-500">Average shot distance vs non-penalty xG/shot (negative slope); further shots = lower xG/shot</p>
+            </div>
+            <div>
+                <img src="../projects/football/figure_xg_goals.png" alt="Shots vs Goals scatter" class="w-full rounded-lg shadow-sm mb-2">
+                <p class="text-sm text-center text-gray-500">xG vs goals (positive relationship); xG vs goals shows tight correlation signalling xG validity</p>
+            </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg mb-6">
+            <h4 class="text-2xl font-bold text-gray-800 mb-3">Positional & age breakdowns</h4>
+            <p class="text-gray-700 leading-relaxed">
+            Position-level aggregation shows forwards account for the largest share of shots, while midfielders form the largest group of players. Age-band charts indicate most players fall within the 24–29 bracket.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mt-4">
+            <div>
+                <img src="../projects/football/age.png" alt="Age breakdown" class="w-full rounded-lg shadow-sm mb-2">
+            </div>
+            <div>
+                <img src="../projects/football/position.png" alt="Position breakdown" class="w-full rounded-lg shadow-sm mb-2">
+            </div>
+            </div>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg">
+            <h4 class="text-2xl font-bold text-gray-800 mb-3">Representative analysis snippets</h4>
+            <p class="text-gray-700 leading-relaxed mb-2">Correlation check and an example scatter plot:</p>
+
+            <pre class="whitespace-pre-wrap font-mono text-sm text-gray-800 bg-white border border-gray-200 rounded p-3 mb-3"><code>
+    # quick correlation matrix
+    corr = cln_df.corr()
+    display(corr['Gls'].sort_values(ascending=False).head(10))
+
+    # scatter: distance vs npxG/shot
+    plt.scatter(cln_df['Dist'], cln_df['npxG/Sh'])
+    plt.xlabel('Average shot distance')
+    plt.ylabel('Non-penalty xG per shot')
+    plt.title('Distance vs npxG/shot')
+    plt.show()
+            </code></pre>
+
+        </div>
+        </section>
+
+        <!-- Top scorers -->
+        <section class="mb-10">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Top Scorers & xG Performance</h3>
+        <p class="text-gray-700 leading-relaxed mb-4">
+            The notebook extracts the top 10 goal scorers and inspects their shot volume, xG and finishing delta. Notably, top scorers showed a cumulative G − xG advantage versus the rest of the sample, emphasising finishing skill as a differentiator.
+        </p>
+
+        <div class="bg-gray-50 border border-gray-300 rounded-lg p-4">
+            <pre class="whitespace-pre-wrap font-mono text-sm text-gray-800"><code>
+    # top scorers table
+    top_scorers = cln_df[['Player','Pos','Age','90s','Gls','Sh','SoT%','PK','xG']].nlargest(10,'Gls')
+    display(top_scorers)
+
+    # total G-xG for top 10
+    round(cln_df.nlargest(10,'Gls')['G-xG'].sum(), 1)
+            </code></pre>
+        </div>
+
+        </section>
+
+        <!-- Conclusions & implications -->
+        <section>
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Conclusions & Practical Takeaways</h3>
+        <ul class="list-disc list-inside space-y-3 text-gray-700 leading-relaxed">
+            <li><strong class="font-semibold text-gray-900">xG is a reliable predictor:</strong> xG closely tracks goals across players — useful for scouting and performance evaluation.</li>
+            <li><strong class="font-semibold text-gray-900">Volume matters, but so does quality:</strong> top scorers combine high shot volume with superior finishing (positive G − xG).</li>
+            <li><strong class="font-semibold text-gray-900">Tactical applications:</strong> coaches can prioritise creating higher-quality chances (closer / central) and instruct defenders to force shots from distance to reduce opponent xG.</li>
+            <li><strong class="font-semibold text-gray-900">Limitations:</strong> league-level averages mask player-specific contexts; single-player longitudinal data would enable richer, actionable scouting insights.</li>
+        </ul>
+        </section>
+
+        <!-- Visuals note -->
+        <section class="mt-8">
+        <p class="text-sm text-gray-500">Note: several charts were generated in the notebook (scatterplots, pies and correlation heatmaps). Representative images are embedded above; full code and notebook are available on request / in the project repository.</p>
+        </section>
+
+    </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12 py-6">
+        <div class="container mx-auto text-center text-gray-500">
+            <p>&copy; 2025 Arsalan Iftikhar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

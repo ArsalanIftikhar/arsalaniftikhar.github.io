@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Device Usage Analysis - Arsalan Iftikhar</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-gray-900">⌂ Arsalan Iftikhar</a>
+                <a href="../projects.html" class="text-blue-600 hover:underline">← Back to Projects</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content --> 
+    <main class="container mx-auto px-6 py-12">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg">
+
+        <!-- Project Title -->
+        <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Smart Device Usage Analysis — Bellabeat Case Study</h2>
+        <p class="text-xl text-gray-600 mb-8">Exploratory analysis of Fitbit-style device telemetry to discover usage patterns, evaluate wellness behaviours, and recommend product & marketing actions for a health-focused wearables brand.</p>
+
+        <!-- Project Meta -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 border-t border-b border-gray-200 py-6">
+        <div>
+            <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Project Type</h4>
+            <p class="text-lg font-bold text-gray-900">Data Analysis & Insights</p>
+        </div>
+        <div>
+            <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Core Technologies</h4>
+            <p class="text-lg font-bold text-gray-900">BigQuery, Excel, SQL</p>
+        </div>
+        <div>
+            <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Sector</h4>
+            <p class="text-lg font-bold text-gray-900">Marketing</p>
+        </div>
+        <div>
+            <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Impact</h4>
+            <p class="text-lg font-bold text-gray-900">Product Insights & Targeting</p>
+        </div>
+        </div>
+
+        <!-- Background & Goals -->
+        <section class="mb-12">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Background & Goals</h3>
+        <p class="text-gray-700 leading-relaxed mb-4">
+            Bellabeat produces health-focused consumer products (wearable trackers, smart water bottles, and an app). The goal of this analysis was to identify usage trends from device telemetry that could inform marketing strategy and product nudges — e.g., which users are highly engaged, where activity and sleep patterns sit relative to public health recommendations, and what high-value messaging could increase engagement or subscription uptake.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+            The dataset used is a public, CC0-licensed Fitbit-style data collection covering device telemetry for ~30 users across ~31 days (multiple CSV files). The scope focused on daily activity, daily sleep, and hourly steps/calories/intensity.
+        </p>
+        </section>
+
+        <!-- Data Preparation -->
+        <section class="mb-12">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Data Preparation & Validation</h3>
+        <p class="text-gray-700 leading-relaxed mb-4">
+            Files were downloaded locally and inspected in Excel for initial cleaning, then uploaded to Google BigQuery for analysis. The ROCCC checklist (Reliable, Original, Comprehensive, Current, Cited) was applied: the data proved original and largely reliable, though the sample size and lack of demographics limited generalisability.
+        </p>
+
+        <ul class="list-disc list-inside space-y-2 text-gray-700 mb-6">
+            <li>Selected tables: <strong>daily_activity, daily_sleep, hourly_calories, hourly_intensity, hourly_steps</strong>.</li>
+            <li>Clean-up steps included date formatting (dd/mm/yyyy), time formatting, duplicate removal, and normalising numeric types.</li>
+            <li>Uploaded clean CSVs to BigQuery and ran aggregation queries to count distinct users, days tracked, and per-user summaries.</li>
+        </ul>
+        </section>
+
+        <!-- Analysis -->
+        <section class="mb-12">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Analysis & Findings</h3>
+
+        <div class="bg-gray-100 p-6 rounded-lg mb-6">
+            <h4 class="text-2xl font-bold text-gray-800 mb-4">User Coverage & Engagement</h4>
+            <p class="text-gray-700 leading-relaxed mb-3">
+            After deduplication and date correction, 33 unique device IDs were present in most tables (daily_sleep tracked fewer users). Most users recorded activity on the majority of the 31-day window: ~82% missed three or fewer days, indicating generally high engagement with the devices (see Figure 1).
+            </p>
+            <img src="../projects/smart_device/figure1.png" alt="Figure 1 - Usage breakdown pie chart" class="max-w-xl mx-auto rounded-lg shadow-md">
+            <p class="text-sm text-center text-gray-500">Figure 1 — Distribution of users by % days tracked (low / moderate / high usage).</p>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg mb-6">
+            <h4 class="text-2xl font-bold text-gray-800 mb-4">Activity vs. NHS Guidelines</h4>
+            <p class="text-gray-700 leading-relaxed mb-3">
+            Using Fitbit category logic, weekly moderate activity was computed as 7 * (avg(VeryActiveMinutes + FairlyActiveMinutes)), and vigorous as 7 * avg(VeryActiveMinutes). A SQL aggregation showed how many users met the NHS guidance (150 minutes moderate or 75 minutes vigorous per week). Results indicate a majority met these thresholds (Figure 2).
+            </p>
+            <img src="../projects/smart_device/figure2.png" alt="Figure 2 - NHS recommendation bar chart" class="max-w-xl mx-auto rounded-lg shadow-md">
+            <p class="text-sm text-center text-gray-500">Figure 2 — Count of users meeting NHS weekly activity recommendations (moderate / vigorous).</p>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg mb-6">
+            <h4 class="text-2xl font-bold text-gray-800 mb-4">Daily Steps Distribution</h4>
+            <p class="text-gray-700 leading-relaxed mb-3">
+            Users were bucketed by average daily steps: inactive &lt;5k, less active 5–7.5k, somewhat active 7.5–10k, active 10–12.5k, very active &gt;12.5k. Most users fell below the 10,000-step guideline; only 7 users averaged ≥10,000 steps. However, 12 users reached 10,000 steps on at least one-third of their tracked days, signalling potential for behavioural nudges (see Figure 3).
+            </p>
+
+            <img src="../projects/smart_device/figure3.png" alt="Figure 3 - Steps category pie chart" class="max-w-xl mx-auto rounded-lg shadow-md">
+            <p class="text-sm text-center text-gray-500 mt-2">Figure 3 — Users grouped by average daily steps category.</p>
+            <!-- Code Block for Figure 3 -->
+            <div class="bg-gray-50 border border-gray-300 rounded-lg p-4 my-6">
+            <h3 class="text-lg font-semibold mb-2">SQL Query used to derive Figure 3</h3>
+            <pre class="whitespace-pre-wrap font-mono text-sm text-gray-800">
+            SELECT Id, 
+                avg(TotalSteps) AS avg_total_steps,
+                CASE
+                    WHEN avg(TotalSteps) < 5000 THEN 'inactive'
+                    WHEN avg(TotalSteps) BETWEEN 5000 AND 7500 THEN 'less active'
+                    WHEN avg(TotalSteps) BETWEEN 7500 AND 10000 THEN 'somewhat active'
+                    WHEN avg(TotalSteps) BETWEEN 10000 AND 12500 THEN 'active'
+                    WHEN avg(TotalSteps) >= 12500 THEN 'very active'
+                END user_activity
+            FROM `southern-camera-336517.fitbit_tracker_data.daily_activity`
+            GROUP BY Id
+            LIMIT 1000;
+            </pre>
+            </div>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg">
+            <h4 class="text-2xl font-bold text-gray-800 mb-4">Steps vs Sleep Correlation</h4>
+            <p class="text-gray-700 leading-relaxed mb-3">
+            Joining average daily steps with average nightly sleep produced a scatter plot revealing a cluster around ~8 hours sleep and ~10,000 steps — the public health targets. Most users sit below one or both targets; this suggests simultaneous opportunities to encourage both better sleep hygiene and daily activity (Figure 4).
+            </p>
+            <img src="../projects/smart_device/figure4.png" alt="Figure 4 - Steps vs Sleep scatter plot" class="max-w-xl mx-auto rounded-lg shadow-md">
+            <p class="text-sm text-center text-gray-500 mt-2">Figure 4 — Average daily steps vs average nightly sleep per user.</p>
+            <!-- Code Block for Figure 4 -->
+            <div class="bg-gray-50 border border-gray-300 rounded-lg p-4 my-6">
+            <h3 class="text-lg font-semibold mb-2">SQL Query used to derive Figure 4</h3>
+            <pre class="whitespace-pre-wrap font-mono text-sm text-gray-800">
+            SELECT steps.Id,
+                avg(steps.TotalSteps) AS avg_total_steps,
+                avg(sleep.TotalMinutesAsleep) AS avg_total_minutes_asleep
+            FROM `southern-camera-336517.fitbit_tracker_data.daily_activity` AS steps
+            INNER JOIN `southern-camera-336517.fitbit_tracker_data.daily_sleep` AS sleep
+                    ON steps.Id = sleep.Id
+            GROUP BY steps.Id;
+            </pre>
+            </div>
+        </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section class="mb-12">
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Actions & Recommendations</h3>
+        <ul class="list-disc list-inside space-y-3 text-gray-700 leading-relaxed">
+            <li><strong class="font-semibold text-gray-900">Daily nudges:</strong> Push morning reminders and incremental step notifications (e.g., every 2,500 steps) to encourage progress toward 10,000 steps.</li>
+            <li><strong class="font-semibold text-gray-900">Battery & engagement reminders:</strong> Send end-of-day prompts to recharge devices and short tips to encourage consistent tracking.</li>
+            <li><strong class="font-semibold text-gray-900">Education on active minutes:</strong> Provide in-app content explaining 'VeryActive' vs 'FairlyActive' minutes and why they matter to wellbeing.</li>
+            <li><strong class="font-semibold text-gray-900">Targeted marketing:</strong> Prioritise product upsell and membership offers to highly engaged tracker users — they are more likely to value additional wellness services.</li>
+        </ul>
+        </section>
+
+        <!-- Limitations & Further Research -->
+        <section>
+        <h3 class="text-3xl font-bold text-gray-900 mb-4">Limitations & Further Research</h3>
+        <p class="text-gray-700 leading-relaxed mb-4">
+            This exploratory analysis is constrained by a small sample size, limited collection window, and absence of demographic attributes (gender, age, location). These limitations reduce the strength of product-specific recommendations for Bellabeat’s female-focused market.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+            Suggested next steps: run a larger, gender-focused data collection, incorporate geographic and age metadata, and augment telemetry with short user surveys to surface motivations and barriers (the "why" behind the telemetry). These steps will unlock richer segmentation and more effective product & marketing strategies.
+        </p>
+        </section>
+
+    </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12 py-6">
+        <div class="container mx-auto text-center text-gray-500">
+            <p>&copy; 2025 Arsalan Iftikhar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

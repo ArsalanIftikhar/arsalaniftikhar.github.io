@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Data Dashboard - Arsalan Iftikhar</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="../index.html" class="text-2xl font-bold text-gray-900">⌂ Arsalan Iftikhar</a>
+                <a href="../projects.html" class="text-blue-600 hover:underline">← Back to Projects</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+
+        <div class="bg-white p-8 rounded-xl shadow-lg">
+
+            <!-- Project Title -->
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Sales Analytics Dashboard</h2>
+            <p class="text-xl text-gray-600 mb-8">A Power BI dashboard that transforms raw sales data into executive KPIs and actionable insights.</p>
+
+            <!-- Project Meta -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 border-t border-b border-gray-200 py-6">
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Context</h4>
+                    <p class="text-lg font-bold text-gray-900">Interview Technical Task</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Role</h4>
+                    <p class="text-lg font-bold text-gray-900">Power BI Developer</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Tools Used</h4>
+                    <p class="text-lg font-bold text-gray-900">Power BI, DAX, Power Query / M, Star Schema</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Transactions Analysed</h4>
+                    <p class="text-lg font-bold text-gray-900">~500k</p>
+                </div>
+            </div>
+
+            <!-- Project Overview -->
+            <section class="mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Project Overview</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    This project was completed as a technical assessment: the brief was to take multiple disconnected CSVs containing sales, product, customer and employee data and convert them into a single, reliable, and interactive Power BI report. The primary goals were to demonstrate robust data modelling (star schema), advanced DAX measures for business metrics, and a user-friendly report UX that enables rapid decision making.
+                </p>
+            </section>
+
+            <!-- The Business Challenge -->
+            <section class="mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">The Business Challenge</h3>
+                <p class="text-gray-700 leading-relaxed">
+                    Sales and commercial teams needed a single source of truth but data was spread across multiple CSV files (sales transactions, products, categories, customers, cities/countries, and employees). This fragmentation created a number of analytical pain points:
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700 mt-4">
+                    <li>Difficulty understanding product mix and which SKUs drive the majority of revenue.</li>
+                    <li>Hard to compare salesperson performance and spot coaching or incentive opportunities.</li>
+                    <li>No quick way to measure the impact of discounting on realised revenue versus list price.</li>
+                    <li>Time-consuming manual consolidation for month-over-month or YTD trend analysis.</li>
+                </ul>
+            </section>
+
+            <!-- The Solution -->
+            <section class="mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">My Solution: An Integrated Sales Reporting Dashboard</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    I delivered a compact, board-ready Power BI report built on a performant data model and expressive DAX measures. The approach focused on two pillars:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Data Modeling -->
+                    <div class="bg-gray-100 p-6 rounded-lg">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-3">1. Data Modeling: The Star Schema</h4>
+                        <p class="text-gray-700 mb-4">
+                            The backbone of the report is a star schema to ensure reliable measures and fast queries.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>Fact Table:</strong> FactSales containing transactional rows (quantity, discount, transaction number, sales date).</li>
+                            <li><strong>Dimension Tables:</strong> DimProduct (Product + Category denormalised), DimCustomer (customer + city/country flattened), DimEmployee (salesperson), and a dedicated DimDate table for time intelligence.</li>
+                            <li><strong>Relationships:</strong> Clean, single-direction relationships from each dimension to the fact table to preserve predictable filter behavior and performance.</li>
+                        </ul>
+                    </div>
+                    <!-- Dashboard Development -->
+                    <div class="bg-gray-100 p-6 rounded-lg">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-3">2. Dashboard Development</h4>
+                        <p class="text-gray-700 mb-4">
+                           The front-end is designed for rapid insight discovery and drill-down analysis for commercial stakeholders.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li><strong>KPI Cards:</strong> High-level metrics such as Total Sales, Orders, Avg Order Value (AOV), and Discount % are surfaced for immediate executive view.</li>
+                            <li><strong>Visualisations:</strong> Monthly trend lines, Top N product bars, Product → Category matrix with % of category, and Sales Team leaderboard help explain performance drivers.</li>
+                            <li><strong>Interactive Filters & Tooltips:</strong> Slicers for date range, category, price band and salesperson are synced across pages; report-page tooltips show this/last month deltas and top contributors on hover.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Data Model & Technical Implementation -->
+            <section class="mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Data Model & Technical Implementation</h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    To make the analytics robust and maintainable, I included clear technical artefacts: a visual model view showing the star schema, organised measure folders for governance, and a two-layer Power Query structure (staging + final queries). Screenshots below provide visual evidence of the implementation and are accompanied by short explanations.
+                </p>
+
+                <!-- Model View Screenshot -->
+                <div class="mb-8">
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Model View (Star Schema)</h4>
+                    <p class="text-gray-700 mb-4">
+                        The model view image shows the FactSales table in the centre with dimension tables around it. This visualization demonstrates the single-direction relationships and where the date table is marked as the official date table for time intelligence.
+                    </p>
+                    <div class="mt-6 flex flex-col items-center">
+                        <img src="../projects/sales_analysis/model_view.png" 
+                            alt="Screenshot of the Power BI Model View showing the star schema" 
+                            class="rounded-lg shadow-2xl border border-gray-200 transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+
+                <!-- Measures Folders Screenshot -->
+                <div class="mb-8">
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Measures Organisation</h4>
+                    <p class="text-gray-700 mb-4">
+                        Measures are grouped into display folders (Core KPIs, Time Intelligence, Pricing & Discounting, Operational Throughput, Product Mix, Sales Team). This organisation helps stakeholders and future maintainers find and understand business logic faster.
+                    </p>
+                    <div class="mt-6 flex flex-col items-center">
+                            <img src="../projects/sales_analysis/measures_folders.png" 
+                                 alt="Screenshot of measures organised into display folders in Power BI" 
+                                 class="rounded-lg shadow-2xl border border-gray-200 transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+
+                <!-- Power Query Screenshot -->
+                <div class="mb-8">
+                    <h4 class="text-2xl font-bold text-gray-800 mb-3">Power Query: Staging & Final Queries</h4>
+                    <p class="text-gray-700 mb-4">
+                        The queries pane demonstrates a two-layer approach: raw CSV imports (stg*) are used for initial cleansing and type-setting, and final referenced queries (Dim* / Fact*) are built on top for loading into the model. Staging queries are disabled for load to keep the model tidy while preserving lineage.
+                    </p>
+                    <div class="mt-6 flex flex-col items-center">
+                            <img src="../projects/sales_analysis/powerquery_queries.png" 
+                                 alt="Screenshot of Power Query showing staging and final queries" 
+                                 class="rounded-lg shadow-2xl border border-gray-200 transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Preview -->
+            <section class="mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-4 text-center">Dashboard Preview</h3>
+                <div class="mt-6 flex flex-col items-center">
+                    <a href="../projects/sales_analysis/sales_dashboard.pdf" 
+                   target="_blank" 
+                   title="Click to view the full PDF dashboard" 
+                   class="flex flex-col items-center">
+                    <img src="../projects/sales_analysis/dashboard_preview.png" 
+                         alt="Screenshot of the Sales Analytics Dashboard" 
+                         class="rounded-lg shadow-2xl border border-gray-200 transform hover:scale-105 transition-transform duration-300">
+                    <span class="text-center text-gray-600 mt-4">Click to view the full PDF in a new tab.</span>
+                </a>
+            </div>
+        </section>
+
+            <!-- Key Features & Insights -->
+            <section>
+                <h3 class="text-3xl font-bold text-gray-900 mb-4">Key Features & Actionable Insights</h3>
+                <ul class="list-disc list-inside space-y-3 text-gray-700 leading-relaxed">
+                    <li><strong class="font-semibold text-gray-900">Sales Health Overview:</strong> A single pane summarising revenue, order volume, average order value, and discount impact.</li>
+                    <li><strong class="font-semibold text-gray-900">Product Mix & Concentration:</strong> Quickly identifies which categories and products contribute the most to revenue and where concentration risk exists.</li>
+                    <li><strong class="font-semibold text-gray-900">Discount & Pricing Analysis:</strong> Contrast realised revenue against gross list value to quantify the exact impact of discounts and identify outlier behaviour by product or salesperson.</li>
+                    <li><strong class="font-semibold text-gray-900">Sales Team Performance:</strong> Leaderboards, MoM deltas and throughput metrics (orders per day) enable targeted coaching and incentive design.</li>
+                </ul>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12 py-6">
+        <div class="container mx-auto text-center text-gray-500">
+            <p>&copy; 2025 Arsalan Iftikhar. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
