@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience | Arsalan Iftikhar - Senior MI Analyst</title>
-    <meta name="description" content="Professional experience of Arsalan Iftikhar across GXO Logistics and NexAura, aligned to CV wording.">
+    <meta name="description" content="Professional experience of Arsalan Iftikhar with GXO Senior MI Analyst leadership and concluded NexAura BI, Data & AI consulting engagement.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Experience | Arsalan Iftikhar - Senior MI Analyst">
-    <meta property="og:description" content="Professional experience of Arsalan Iftikhar across GXO Logistics and NexAura, aligned to CV wording.">
+    <meta property="og:description" content="Professional experience of Arsalan Iftikhar with GXO Senior MI Analyst leadership and concluded NexAura BI, Data & AI consulting engagement.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/experience.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;700;800&display=swap');
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
             --primary-color: #1f2937;
             --accent-color: #0066cc;
@@ -22,8 +27,11 @@
             --bg-light: #f8f9fa;
             --bg-white: #ffffff;
             --border-color: #e5e7eb;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #0066cc 0%, #004499 100%);
             --section-padding: 4rem 2rem;
         }
+
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
@@ -31,6 +39,7 @@
             background: var(--bg-white);
             padding-top: 80px;
         }
+
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -39,17 +48,85 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: box-shadow 0.3s ease;
         }
-        nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .nav-brand { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--primary-color); text-decoration: none; }
-        .nav-links { display: flex; gap: 2rem; list-style: none; }
-        .nav-links a { color: var(--text-dark); text-decoration: none; font-weight: 500; }
 
-        section { padding: var(--section-padding); max-width: 1200px; margin: 0 auto; }
-        .section-title { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; text-align: center; margin-bottom: 1rem; color: var(--primary-color); }
-        .section-subtitle { text-align: center; color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem; }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-        .timeline { position: relative; padding-left: 3rem; margin-top: 2rem; }
+        .nav-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        section {
+            padding: var(--section-padding);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+            margin-top: 2rem;
+        }
+
         .timeline:before {
             content: '';
             position: absolute;
@@ -59,14 +136,21 @@
             width: 2px;
             background: linear-gradient(to bottom, var(--accent-color), transparent);
         }
+
         .timeline-item {
             position: relative;
             margin-bottom: 2rem;
             background: var(--bg-white);
-            padding: 1.75rem;
+            padding: 2rem;
             border-radius: 16px;
             border: 1px solid var(--border-color);
+            transition: all 0.3s;
         }
+
+        .timeline-item:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
         .timeline-item:before {
             content: '';
             position: absolute;
@@ -79,22 +163,97 @@
             border: 3px solid var(--bg-white);
             box-shadow: 0 0 0 3px var(--bg-light);
         }
-        .timeline-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: .5rem; flex-wrap: wrap; gap: .5rem; }
-        .timeline-header h3 { color: var(--primary-color); font-size: 1.35rem; }
-        .timeline-date { color: var(--text-light); font-size: 0.9rem; background: var(--bg-light); padding: 0.25rem 0.75rem; border-radius: 20px; white-space: nowrap; }
-        .company { color: var(--accent-color); font-weight: 600; margin-bottom: .9rem; font-size: 1.02rem; }
-        .timeline-item ul { list-style-type: disc; padding-left: 20px; color: var(--text-light); }
-        .timeline-item ul li { margin-bottom: 0.55rem; }
 
-        footer { background: var(--primary-color); color: white; text-align: center; padding: 2rem; }
-        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
-        .footer-links a { color: rgba(255,255,255,0.85); text-decoration: none; }
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
 
-        .mobile-menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-        .mobile-menu-toggle span { display: block; width: 25px; height: 3px; background: var(--text-dark); margin: 5px 0; }
+        .timeline-header h3 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+        }
+
+        .timeline-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            background: var(--bg-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .company {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .timeline-item ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            color: var(--text-light);
+        }
+
+        .timeline-item ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
 
         @media (max-width: 768px) {
-            .mobile-menu-toggle { display: block; }
+            .mobile-menu-toggle {
+                display: block;
+            }
+
             .nav-links {
                 display: none;
                 position: absolute;
@@ -106,26 +265,34 @@
                 padding: 1rem;
                 box-shadow: 0 10px 20px rgba(0,0,0,0.1);
             }
-            .nav-links.active { display: flex; }
-            .timeline { padding-left: 2rem; }
-            .timeline-item { padding: 1.25rem; }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .timeline {
+                padding-left: 2rem;
+            }
         }
     </style>
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
     <header>
         <nav>
             <a href="index.html" class="nav-brand">⌂ Arsalan Iftikhar</a>
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
-                <span></span><span></span><span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="approach.html">My Approach</a></li>
+                <li><a href="approach.html">Approach</a></li>
                 <li><a href="insights/">Insights</a></li>
-                <li><a href="index.html">Connect</a></li>
+                <li><a href="/index.html#connect">Connect</a></li>
             </ul>
         </nav>
     </header>
@@ -133,50 +300,49 @@
     <main>
         <section id="experience">
             <h2 class="section-title">Professional Journey</h2>
+            <p class="section-subtitle">Senior BI delivery with hands-on data engineering and stakeholder leadership</p>
+
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-header">
                         <h3>Senior MI Analyst</h3>
-                        <span class="timeline-date">Jan 2026 – Present</span>
+                        <span class="timeline-date">Feb 2026 - Present</span>
                     </div>
-                    <div class="company">GXO Logistics  Bradford, UK</div>
+                    <div class="company">GXO Logistics | Bradford, UK</div>
                     <ul>
-                        <li>Migration and modernisation of reporting datasets into Microsoft Fabric, moving legacy logic toward scalable Lakehouse patterns and improving reliability of refresh and definitions.</li>
-                        <li>Development and maintenance of ingestion and transformation pipelines using PySpark (notebooks) and SQL.</li>
-                        <li>Creation and maintenance of ERDs and data flow diagrams to document entities, keys, and metric logic; use of Miro to collaborate with stakeholders and align on definitions.</li>
-                        <li>Optimisation of Power BI semantic models and DAX measures (using DAX Studio) to improve report responsiveness and refresh performance.</li>
-                        <li>Contribution to delivery practices including documentation, basic CI/CD workflows (version control, PRs), and operational runbooks to improve reliability and reduce single points of failure.</li>
-                        <li>Leverage of Copilot in Visual Studio to speed up development tasks (boilerplate, refactors, documentation drafts) while validating logic and edge cases.</li>
+                        <li><strong>Modernisation leadership:</strong> Leading migration of reporting datasets into Microsoft Fabric to establish scalable, supportable BI delivery patterns.</li>
+                        <li><strong>Pipeline development:</strong> Building PySpark + SQL transformations in notebooks and pipeline workflows to improve data readiness for operational reporting.</li>
+                        <li><strong>Model architecture:</strong> Producing data modelling artefacts, ERDs, and data-flow documentation to strengthen shared understanding between analytics and operations teams.</li>
+                        <li><strong>Semantic model performance:</strong> Optimising Power BI semantic models and DAX logic using DAX Studio to improve report responsiveness and model maintainability.</li>
+                        <li><strong>Delivery hygiene:</strong> Maintaining runbooks, technical documentation, and practical workflow standards that support handover quality and sustainable change delivery.</li>
+                        <li><strong>Stakeholder alignment:</strong> Translating operational requirements into KPI definitions and reporting logic aligned to decision-making needs.</li>
                     </ul>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-header">
-                        <h3>BI, Data &amp; AI Consultant (Project-based)</h3>
-                        <span class="timeline-date">Jul 2025 – Jan 2026</span>
+                        <h3>BI, Data &amp; AI Consultant</h3>
+                        <span class="timeline-date">Jul 2025 - Jan 2026</span>
                     </div>
-                    <div class="company">NexAura  Remote</div>
+                    <div class="company">NexAura | Remote (Engagement concluded)</div>
                     <ul>
-                        <li>Co-lead in delivery of an AI QA and coaching tool for call centres: ingest calls, run transcription, use LLM to evaluate against a QA rubric (opening, tone, etc.), and surface agent/team performance in dashboards.</li>
-                        <li>Translation of client QA and operational requirements into scoring logic, KPI definitions, and reporting views; alignment of stakeholders on what “good” looks like and how it is measured.</li>
-                        <li>Support in the data and workflow layer (ingestion patterns, data modelling/ERDs, validation checks) to ensure outputs are consistent and audit-friendly.</li>
-                        <li>Production of client-facing documentation and delivery artefacts (process maps, SOPs, KPI dictionaries) to enable adoption and reduce handover risk.</li>
-                        <li>Conclusion of engagement after MVP delivery, documentation and Handover (Jan 2026).</li>
+                        <li><strong>MVP delivery:</strong> Delivered an AI QA and coaching MVP for call-centre operations, covering call ingestion, transcription, rubric-based scoring, and dashboarded outputs.</li>
+                        <li><strong>KPI and scoring design:</strong> Worked with QA and operations stakeholders to define practical KPI logic, evaluation rubrics, and coaching-oriented scorecards.</li>
+                        <li><strong>Audit-ready controls:</strong> Implemented validation checks and transparent output structures to support reviewability and confidence in scoring outcomes.</li>
+                        <li><strong>Structured handover:</strong> Engagement concluded in Jan 2026 after MVP delivery, documentation completion, and handover to internal teams.</li>
                     </ul>
                 </div>
 
                 <div class="timeline-item">
                     <div class="timeline-header">
-                        <h3>Data Analyst (MI)</h3>
-                        <span class="timeline-date">Aug 2022 – Aug 2024</span>
+                        <h3>MI/Data Analyst</h3>
+                        <span class="timeline-date">Aug 2022 - Aug 2024</span>
                     </div>
-                    <div class="company">GXO Logistics  Bradford, UK</div>
+                    <div class="company">GXO Logistics | Bradford, UK</div>
                     <ul>
-                        <li>Design and delivery of Power BI dashboards for operational performance, labour productivity, and throughput in large-scale warehouse operations.</li>
-                        <li>Maintenance of SQL datasets and dimensional models (fact/dimension tables).</li>
-                        <li>Cleaning and standardisation of multisource data (APIs, csv/txt files, relational databases, cloud platforms, ect.).</li>
-                        <li>Automating refresh and ingestion using SSIS, reducing manual reporting effort and improving timeliness.</li>
-                        <li>Partnering with operations managers and senior stakeholders to define KPIs, explain insights, and support decision-making.</li>
+                        <li><strong>Operational reporting:</strong> Built and maintained dashboards and SQL-backed datasets for logistics performance tracking.</li>
+                        <li><strong>Automation:</strong> Reduced manual reporting effort through practical automation across recurring data and reporting tasks.</li>
+                        <li><strong>Stakeholder partnership:</strong> Worked directly with operations and management teams to refine requirements and improve decision support.</li>
                     </ul>
                 </div>
             </div>
@@ -184,25 +350,29 @@
     </main>
 
     <footer>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="projects.html">Projects</a>
-            <a href="approach.html">My Approach</a>
-            <a href="insights/">Insights</a>
-            <a href="https://www.linkedin.com/in/arsalaniftikhar1/" target="_blank">LinkedIn</a>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html#about">About</a>
+                <a href="projects.html">Projects</a>
+                <a href="approach.html">Approach</a>
+                <a href="insights/">Insights</a>
+                <a href="https://www.linkedin.com/in/arsalaniftikhar1/" target="_blank">LinkedIn</a>
+            </div>
+            <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
         </div>
-        <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuToggle = document.getElementById('mobileMenuToggle');
             const navLinks = document.getElementById('navLinks');
+
             mobileMenuToggle.addEventListener('click', function() {
                 this.classList.toggle('active');
                 navLinks.classList.toggle('active');
             });
         });
     </script>
+    <script src="assets/js/site.js"></script>
 </body>
 </html>

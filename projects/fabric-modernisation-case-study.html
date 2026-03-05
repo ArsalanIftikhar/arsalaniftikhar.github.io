@@ -4,172 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabric Modernisation Case Study | Arsalan Iftikhar</title>
-    <meta name="description" content="Case study: contributing to Microsoft Fabric reporting modernisation with reconciliation controls, semantic model tuning, and practical delivery artefacts.">
+    <meta name="description" content="Case study: modernising legacy reporting into Microsoft Fabric with semantic model optimisation, DAX tuning, and reliability controls.">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Fabric Modernisation Case Study | Arsalan Iftikhar">
-    <meta property="og:description" content="How I contributed scoped Fabric modernisation components with pragmatic controls, ERD documentation, and DAX performance reviews.">
+    <meta property="og:description" content="How legacy reporting was modernised into Fabric with better KPI consistency, reconciliation checks, and semantic model performance tuning.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/projects/fabric-modernisation-case-study.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;700;800&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#1f2937;--muted:#6b7280;--bg:#f8f9fa;--card:#fff;--border:#e5e7eb}
+        body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--primary);padding-top:80px;line-height:1.65}
+        header{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);box-shadow:0 1px 3px rgba(0,0,0,.08);z-index:1000}
+        nav{max-width:1200px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
+        .nav-brand{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.4rem;color:var(--primary);text-decoration:none}
+        .nav-links{display:flex;gap:1.5rem;list-style:none}.nav-links a{text-decoration:none;color:var(--primary);font-weight:500}
+        main{max-width:1000px;margin:0 auto;padding:3rem 2rem 4rem}
+        .case-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem}
+        h1{font-family:'Montserrat',sans-serif;font-size:2rem;margin-bottom:.5rem}
+        .meta{color:var(--muted);margin-bottom:1.2rem}
+        .section{padding:1rem 0;border-top:1px solid var(--border)}
+        .section:first-of-type{border-top:none;padding-top:0}
+        .section h2{font-size:1.2rem;margin-bottom:.6rem}
+        ul{padding-left:1.2rem}
+        .todo-shot{margin-top:.8rem;padding:.8rem;border:1px dashed #9ca3af;background:#f3f4f6;border-radius:10px;color:#4b5563;font-size:.95rem}
+        footer{background:var(--primary);color:white;text-align:center;padding:2rem}
+        .footer-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem}
+        .footer-links a{color:rgba(255,255,255,.85);text-decoration:none}
+    </style>
     <link rel="stylesheet" href="../assets/css/site.css">
 </head>
-<body class="case-study-body">
-    <header>
-        <nav>
-            <a class="nav-brand" href="../index.html">⌂ Arsalan Iftikhar</a>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
-                <span></span><span></span><span></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="../experience.html">Experience</a></li>
-                <li><a href="../projects.html">Projects</a></li>
-                <li><a href="../approach.html">My Approach</a></li>
-                <li><a href="../insights/">Insights</a></li>
-            </ul>
-        </nav>
-    </header>
+<body>
+<header><nav><a class="nav-brand" href="../index.html">⌂ Arsalan Iftikhar</a><ul class="nav-links"><li><a href="../experience.html">Experience</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../approach.html">Approach</a></li><li><a href="../insights/">Insights</a></li><li><a href="/index.html#connect">Connect</a></li></ul></nav></header>
+<main>
+    <article class="case-card">
+        <h1>GXO Fabric Modernisation Case Study</h1>
+        <p class="meta">Role: Senior MI Analyst (GXO Logistics) | Focus: BI modernisation, semantic model performance, and reporting reliability.</p>
 
-    <main class="case-study-main">
-        <section class="cs-hero">
-            <h1>GXO Fabric Modernisation Case Study</h1>
-            <p>Scoped contribution to dataset modernisation in Microsoft Fabric, focused on reliability, semantic clarity, and practical controls.</p>
+        <section class="section">
+            <h2>Context / problem</h2>
+            <p>Legacy reporting workflows had grown uneven over time, with inconsistent KPI definitions and duplicated business logic across multiple reporting assets. The objective was to modernise these datasets into Microsoft Fabric while reducing ambiguity in definitions and improving maintainability.</p>
         </section>
 
-        <section class="cs-summary-band" aria-label="Case study summary">
-            <article>
-                <h2>Context</h2>
-                <p>Migration and modernisation of legacy reporting datasets in a live operational environment.</p>
-            </article>
-            <article>
-                <h2>Role</h2>
-                <p>Senior MI Analyst, contributing BI and data engineering components.</p>
-            </article>
-            <article>
-                <h2>Tools / Stack</h2>
-                <p>Microsoft Fabric, Lakehouse patterns, PySpark notebooks, SQL, Power BI semantic model, DAX Studio.</p>
-            </article>
-            <article>
-                <h2>Ownership / Scope</h2>
-                <p>Within my scope: ERD maintenance, data-flow documentation, reconciliation checks, DAX performance review, and runbook support.</p>
-            </article>
-            <article>
-                <h2>Constraints</h2>
-                <p>No disruption to operational reporting, evolving KPI definitions, and governance requirements on documentation and controls.</p>
-            </article>
-        </section>
-
-        <section class="cs-section">
-            <h2>Problem</h2>
-            <p>Reporting logic had developed across legacy assets over time, creating inconsistency in metric definitions and duplicated transformation logic. The workstream required modernisation toward maintainable Fabric patterns while preserving day-to-day reporting continuity.</p>
-        </section>
-
-        <section class="cs-section">
-            <h2>Constraints</h2>
+        <section class="section">
+            <h2>Stakeholders &amp; constraints</h2>
             <ul>
-                <li>Operational stakeholders required uninterrupted reporting during transition phases.</li>
-                <li>KPI expectations changed as teams aligned on definitions across functions.</li>
-                <li>Documentation needed to be audit-friendly and suitable for handover.</li>
-                <li>Decisions on refresh and retention were made with wider team input; I supported these decisions within my remit.</li>
+                <li>Operational leaders requiring reliable day-to-day performance reporting.</li>
+                <li>MI/BI users needing trusted definitions and better report responsiveness.</li>
+                <li>Constraints included continuity of reporting, controlled rollout, and non-confidential working practices suitable for enterprise governance.</li>
             </ul>
         </section>
 
-        <section class="cs-section">
-            <h2>My Approach</h2>
+        <section class="section">
+            <h2>Approach</h2>
             <ul>
-                <li>Contributed to migration activities by helping move legacy logic toward layered Lakehouse-aligned patterns.</li>
-                <li>Delivered components such as ERD maintenance and data-flow diagrams to keep entity, key, and metric logic visible.</li>
-                <li>Partnered with stakeholders to align KPI interpretation and keep documentation current as logic evolved.</li>
-                <li>Supported ingestion and transformation work in PySpark notebooks and SQL for stable reporting inputs.</li>
+                <li>Introduced clear layering from source-aligned extracts to transformed analytical tables.</li>
+                <li>Built and documented transformations in repeatable patterns.</li>
+                <li>Produced ERDs and data-flow documentation to clarify dependencies and ownership.</li>
+                <li>Implemented reconciliation checks between source, transformed, and semantic outputs.</li>
             </ul>
-
-            <figure class="evidence-diagram">
-                <svg viewBox="0 0 860 250" role="img" aria-label="Generic architecture showing layering and reconciliation checks">
-                    <rect x="20" y="40" width="180" height="70" rx="10"></rect>
-                    <text x="110" y="78" text-anchor="middle">Source systems</text>
-
-                    <rect x="240" y="40" width="180" height="70" rx="10"></rect>
-                    <text x="330" y="78" text-anchor="middle">Ingestion layer</text>
-
-                    <rect x="460" y="40" width="180" height="70" rx="10"></rect>
-                    <text x="550" y="78" text-anchor="middle">Transform layer</text>
-
-                    <rect x="680" y="40" width="160" height="70" rx="10"></rect>
-                    <text x="760" y="78" text-anchor="middle">Semantic layer</text>
-
-                    <line x1="200" y1="75" x2="240" y2="75"></line>
-                    <line x1="420" y1="75" x2="460" y2="75"></line>
-                    <line x1="640" y1="75" x2="680" y2="75"></line>
-
-                    <rect x="300" y="150" width="260" height="70" rx="10"></rect>
-                    <text x="430" y="176" text-anchor="middle">Reconciliation checks</text>
-                    <text x="430" y="198" text-anchor="middle">(source vs transformed vs semantic)</text>
-
-                    <line x1="330" y1="110" x2="360" y2="150"></line>
-                    <line x1="550" y1="110" x2="500" y2="150"></line>
-                </svg>
-                <figcaption>Example artefact: Layering + semantic layer + reconciliation checks (non-confidential placeholder).</figcaption>
-            </figure>
         </section>
 
-        <section class="cs-section">
-            <h2>Validation / controls</h2>
-            <ul>
-                <li>Implemented reconciliation checks across source, transformed, and semantic outputs for key metrics.</li>
-                <li>Supported control routines for refresh exceptions and threshold variances.</li>
-                <li>Contributed to runbook updates so checks and escalation paths were usable by the wider team.</li>
-            </ul>
-            <div class="evidence-placeholder">Example artefact: Fabric pipeline diagram (non-confidential placeholder).</div>
+        <section class="section">
+            <h2>Semantic model + DAX performance pass</h2>
+            <p>The semantic layer was reviewed for relationship clarity, reusable measure structure, and DAX efficiency. DAX Studio was used to evaluate query behavior and support measure tuning decisions before release.</p>
         </section>
 
-        <section class="cs-section">
-            <h2>Semantic model &amp; DAX performance pass</h2>
-            <ul>
-                <li>Reviewed semantic relationships and measure structure to keep logic maintainable.</li>
-                <li>Used DAX Studio to review query behaviour and support targeted measure tuning.</li>
-                <li>Shared optimisation notes with trade-offs so improvements were clear and repeatable.</li>
-            </ul>
-            <div class="evidence-placeholder">Example artefact: DAX Studio performance notes (placeholder).</div>
-        </section>
-
-        <section class="cs-section">
+        <section class="section">
             <h2>Outcomes</h2>
             <ul>
-                <li>Improved reliability through clearer data flow, documented definitions, and practical reconciliation controls.</li>
-                <li>Supported more consistent KPI interpretation by keeping ERDs, data flow, and metric documentation aligned.</li>
-                <li>Contributed to delivery hygiene through runbook and documentation updates that reduce single points of failure.</li>
+                <li>Improved reporting reliability through clearer data flow and reconciliation controls.</li>
+                <li>Faster path from data updates to stakeholder insight through more consistent modelling patterns.</li>
+                <li>Reduced manual effort by removing duplicated logic and improving delivery documentation.</li>
             </ul>
+            <div class="todo-shot"><strong>TODO screenshot placeholder:</strong> Add Fabric pipeline / semantic model screenshot (non-confidential) before publishing.</div>
+            <div class="todo-shot"><strong>TODO screenshot placeholder:</strong> Add DAX Studio performance check screenshot with sensitive values removed.</div>
         </section>
-
-        <section class="cs-section">
-            <h2>Next steps</h2>
-            <ul>
-                <li>Continue incremental migration of legacy logic into standardised Fabric patterns.</li>
-                <li>Expand control coverage for additional high-impact metrics.</li>
-                <li>Revisit semantic model hotspots periodically using DAX Studio as usage patterns evolve.</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-links">
-            <a href="../index.html">Home</a>
-            <a href="../projects.html">Projects</a>
-            <a href="../approach.html">My Approach</a>
-            <a href="../insights/">Insights</a>
-        </div>
-        <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const navLinks = document.getElementById('navLinks');
-            if (mobileMenuToggle && navLinks) {
-                mobileMenuToggle.addEventListener('click', function () {
-                    this.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                });
-            }
-        });
-    </script>
+    </article>
+</main>
+<footer><div class="footer-links"><a href="../index.html">Home</a><a href="../projects.html">Projects</a><a href="../approach.html">Approach</a><a href="../insights/">Insights</a><a href="/index.html#connect">Connect</a></div><p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p></footer>
+<script src="../assets/js/site.js"></script>
 </body>
 </html>

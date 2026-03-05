@@ -10,6 +10,47 @@
     <meta property="og:description" content="How Arsalan Iftikhar runs discovery, KPI stewardship, semantic modelling, reliability checks, and delivery hygiene for senior BI outcomes.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/approach.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-color: #1f2937;
+            --accent-color: #0066cc;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+        }
+        body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--text-dark); background: var(--bg-light); padding-top: 80px; }
+        header {
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+        }
+        nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--primary-color); text-decoration: none; }
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-dark); text-decoration: none; font-weight: 500; }
+        main { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem 4rem; }
+        .hero { text-align: center; margin-bottom: 2rem; }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .hero p { color: var(--text-light); max-width: 900px; margin: 0 auto; }
+        .approach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--bg-white); border: 1px solid var(--border-color); border-radius: 14px; padding: 1.5rem; }
+        .card h2 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--primary-color); }
+        .card ul { padding-left: 1.2rem; color: var(--text-light); }
+        .card li { margin-bottom: 0.5rem; }
+        footer { background: var(--primary-color); color: white; text-align: center; padding: 2rem; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .footer-links a { color: rgba(255,255,255,0.85); text-decoration: none; }
+        .mobile-menu-toggle { display: none; background: none; border: none; cursor: pointer; }
+        .mobile-menu-toggle span { display: block; width: 25px; height: 3px; background: var(--text-dark); margin: 5px 0; }
+        @media (max-width: 768px) {
+            .mobile-menu-toggle { display: block; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: white; flex-direction: column; padding: 1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+            .nav-links.active { display: flex; }
+        }
+    </style>
     <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
@@ -23,199 +64,68 @@
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="approach.html">My Approach</a></li>
+                <li><a href="approach.html">Approach</a></li>
                 <li><a href="insights/">Insights</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="/index.html#connect">Connect</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <h1>Senior BI Delivery Sequence</h1>
-            <p>This is the sequence I use for BI delivery: tight framing, governed metric ownership, disciplined model design, and controlled release so teams can trust and run the solution after handover.</p>
+            <h1>How I Approach Senior BI Delivery</h1>
+            <p>I run BI work as a product: clear problem framing, governed metrics, performant semantic models, and delivery standards that teams can maintain after handover.</p>
         </section>
 
-        <section class="timeline" aria-label="BI delivery playbook timeline">
-            <article class="timeline-phase">
-                <span class="phase-marker" aria-hidden="true"></span>
-                <div class="phase-title">
-                    <span class="phase-number">Phase 1</span>
-                    <h2>Discovery &amp; framing</h2>
-                </div>
-                <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
-                    <ul>
-                        <li>Stakeholder goals, decision points, and current reporting pain points.</li>
-                        <li>Source system inventory, data refresh expectations, and ownership contacts.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
-                    <ul>
-                        <li>Agreed problem statement, delivery scope, and phase-level timeline.</li>
-                        <li>Draft data-flow diagram showing source to semantic layer movement.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
-                    <ul>
-                        <li>Pitfall: Vague asks become moving targets. Mitigation: lock outcomes and non-goals in writing before build starts.</li>
-                        <li>Pitfall: Assumed data availability. Mitigation: validate source fields and latency early with data owners.</li>
-                    </ul>
-                </div>
+        <section class="approach-grid">
+            <article class="card">
+                <h2>Discovery &amp; requirements</h2>
+                <ul>
+                    <li>Start with operational questions, decision points, and audience-specific pain points.</li>
+                    <li>Translate non-technical needs into measurable KPI definitions, with clear expected actions.</li>
+                    <li>Align scope early on data availability, timeliness, and acceptable trade-offs.</li>
+                </ul>
             </article>
 
-            <article class="timeline-phase">
-                <span class="phase-marker" aria-hidden="true"></span>
-                <div class="phase-title">
-                    <span class="phase-number">Phase 2</span>
-                    <h2>KPI definition &amp; stewardship</h2>
-                </div>
-                <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
-                    <ul>
-                        <li>Business definitions for each KPI, including grain, owner, and action expected.</li>
-                        <li>Policy or finance rules that influence numerator, denominator, and exclusions.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
-                    <ul>
-                        <li>Baseline metric dictionary with formula logic, filter assumptions, and data lineage notes.</li>
-                        <li>Simple KPI change-control log so definition updates are explicit and approved.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
-                    <ul>
-                        <li>Pitfall: Multiple versions of the same KPI. Mitigation: one owned definition and one semantic implementation.</li>
-                        <li>Pitfall: KPI drift after release. Mitigation: route all logic changes through the change log and sign-off.</li>
-                    </ul>
-                </div>
+            <article class="card">
+                <h2>KPI stewardship</h2>
+                <ul>
+                    <li>Maintain a metric dictionary covering business definition, formula, grain, and owner.</li>
+                    <li>Use simple change control for KPI updates so logic changes are visible and approved.</li>
+                    <li>Prevent definition drift by tying dashboards back to one agreed metric source.</li>
+                </ul>
             </article>
 
-            <article class="timeline-phase">
-                <span class="phase-marker" aria-hidden="true"></span>
-                <div class="phase-title">
-                    <span class="phase-number">Phase 3</span>
-                    <h2>Data modelling &amp; semantic layer design</h2>
-                </div>
-                <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
-                    <ul>
-                        <li>Confirmed KPI logic, source relationships, and known dimensional hierarchies.</li>
-                        <li>Constraints on refresh windows, security expectations, and data retention.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
-                    <ul>
-                        <li>ERD for fact/dimension structure and semantic model boundaries.</li>
-                        <li>Documented data-flow diagram and semantic layer naming conventions.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
-                    <ul>
-                        <li>Pitfall: Modelling for visuals instead of maintainability. Mitigation: enforce star-schema patterns and conformed dimensions.</li>
-                        <li>Pitfall: Security retrofitted late. Mitigation: design and test row-level security with real user roles upfront.</li>
-                    </ul>
-                </div>
+            <article class="card">
+                <h2>Data modelling &amp; semantic layer</h2>
+                <ul>
+                    <li>Model around star-schema principles to keep joins predictable and report logic simpler.</li>
+                    <li>Design semantic models for performance and maintainability, not only first delivery speed.</li>
+                    <li>Apply RLS intentionally and use repeatable DAX design patterns for consistency.</li>
+                </ul>
             </article>
 
-            <article class="timeline-phase">
-                <span class="phase-marker" aria-hidden="true"></span>
-                <div class="phase-title">
-                    <span class="phase-number">Phase 4</span>
-                    <h2>Build &amp; validation (reconciliation checks + controls)</h2>
-                </div>
-                <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
-                    <ul>
-                        <li>Approved model structure and KPI definitions from earlier phases.</li>
-                        <li>Control totals or trusted reports for baseline comparison.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
-                    <ul>
-                        <li>Reconciliation checks between source, transformed, and semantic outputs.</li>
-                        <li>Validation controls for refresh exceptions, threshold breaches, and issue triage.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
-                    <ul>
-                        <li>Pitfall: Reporting logic accepted without controls. Mitigation: publish reconciliation results with each release candidate.</li>
-                        <li>Pitfall: Quiet refresh failures. Mitigation: implement alerting and escalation paths in the runbook.</li>
-                    </ul>
-                </div>
+            <article class="card">
+                <h2>Reliability &amp; quality</h2>
+                <ul>
+                    <li>Run reconciliation checks between source, transformed, and semantic layers.</li>
+                    <li>Monitor refresh behaviour and exceptions to catch issues before stakeholder escalation.</li>
+                    <li>Validate refresh outputs against known control totals and operational expectations.</li>
+                </ul>
             </article>
 
-            <article class="timeline-phase">
-                <span class="phase-marker" aria-hidden="true"></span>
-                <div class="phase-title">
-                    <span class="phase-number">Phase 5</span>
-                    <h2>Performance pass (semantic model + DAX Studio)</h2>
-                </div>
-                <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
-                    <ul>
-                        <li>Representative user scenarios, filter paths, and high-cost visuals.</li>
-                        <li>Baseline timings from model view and DAX Studio query traces.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
-                    <ul>
-                        <li>Performance tuning notes covering model optimisations, measure rewrites, and trade-offs.</li>
-                        <li>Updated semantic model checklist with accepted thresholds for refresh and query times.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
-                    <ul>
-                        <li>Pitfall: Tuning only once and too late. Mitigation: run performance passes before UAT and before production release.</li>
-                        <li>Pitfall: Over-optimised complexity. Mitigation: keep measure patterns readable and document why any advanced pattern is used.</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="timeline-phase">
-                <span class="phase-marker" aria-hidden="true"></span>
-                <div class="phase-title">
-                    <span class="phase-number">Phase 6</span>
-                    <h2>Release, handover &amp; iteration</h2>
-                </div>
-                <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
-                    <ul>
-                        <li>UAT feedback, production readiness checks, and stakeholder sign-off.</li>
-                        <li>Support model, ownership map, and expected cadence for enhancement reviews.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
-                    <ul>
-                        <li>Release notes, runbook, and handover pack with owners, SLAs, and rollback guidance.</li>
-                        <li>Iteration backlog prioritised by business value and data quality risk.</li>
-                    </ul>
-                </div>
-                <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
-                    <ul>
-                        <li>Pitfall: Knowledge trapped with the build team. Mitigation: walkthroughs and shared runbook ownership before go-live.</li>
-                        <li>Pitfall: No post-release learning loop. Mitigation: schedule a 30-day review to tighten controls and prioritise next increments.</li>
-                    </ul>
-                </div>
+            <article class="card">
+                <h2>Delivery hygiene</h2>
+                <ul>
+                    <li>Maintain concise technical documentation, ERDs, data-flow notes, and runbooks.</li>
+                    <li>Use PR-based workflows and peer review habits to reduce avoidable production errors.</li>
+                    <li>Promote review culture where logic decisions are explicit and easy to trace.</li>
+                </ul>
             </article>
         </section>
 
-        <section class="cta-card" aria-label="Playbook call to action">
-            <h2>Want the full playbook?</h2>
-            <p>I can share the complete delivery checklist and templates I use with teams.</p>
-            <a href="assets/cv/Arsalan-Iftikhar-CV.txt" class="btn">View CV (placeholder)</a>
+        <section class="hero" style="margin-top: 1.5rem;">
+            <p>Want to discuss a reporting problem? <a href="/index.html#connect">Connect.</a></p>
         </section>
     </main>
 
@@ -224,7 +134,7 @@
             <a href="index.html">Home</a>
             <a href="experience.html">Experience</a>
             <a href="projects.html">Projects</a>
-            <a href="approach.html">My Approach</a>
+            <a href="approach.html">Approach</a>
             <a href="insights/">Insights</a>
         </div>
         <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
@@ -240,5 +150,6 @@
             });
         });
     </script>
+    <script src="assets/js/site.js"></script>
 </body>
 </html>
