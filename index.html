@@ -62,6 +62,10 @@
         .cert-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
         .cert-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-align: center; min-width: 220px; }
         .cert-card img { max-height: 120px; margin-bottom: .6rem; }
+        .cert-link { text-decoration: none; color: inherit; display: block; }
+        .lift-on-hover { transition: transform 200ms ease, box-shadow 200ms ease; }
+        .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,.12); }
+        @media (prefers-reduced-motion: reduce) { .lift-on-hover { transition: none; } .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform: none; } }
 
         #connect { background: #fff; }
         .connect-card { border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
@@ -94,7 +98,7 @@
                 <li><a href="projects.html">Projects</a></li>
                 <li><a href="approach.html">My Approach</a></li>
                 <li><a href="insights/">Insights</a></li>
-                <li><a href="#connect">Connect</a></li>
+                <li><a href="index.html#connect">Connect</a></li>
             </ul>
         </nav>
     </header>
@@ -108,7 +112,7 @@
             <a href="experience.html" class="btn btn-primary">View Experience</a>
             <a href="projects.html" class="btn btn-secondary">View Projects</a>
             <a href="approach.html" class="btn btn-secondary">My Approach</a>
-            <a href="experience.html" class="btn btn-secondary">CV &amp; Contact</a>
+            <a href="index.html#connect" class="btn btn-secondary">CV &amp; Contact</a>
         </div>
     </section>
 
@@ -175,10 +179,12 @@
         <h2 class="section-title">Certifications</h2>
         <p class="section-sub">Formal foundations that support practical analytics delivery.</p>
         <div class="cert-grid">
-            <article class="cert-card">
-                <img src="assets/certifications/google-data-analytics.png" alt="Google Data Analytics Certificate">
-                <p>Google Data Analytics</p>
-            </article>
+            <a class="cert-link lift-on-hover" href="https://www.credly.com/badges/f85f09da-2bb3-43bc-8443-0504abf94f56" target="_blank" rel="noopener noreferrer">
+                <article class="cert-card">
+                    <img src="assets/certifications/google-data-analytics.png" alt="Google Data Analytics Certificate">
+                    <p>Google Data Analytics</p>
+                </article>
+            </a>
         </div>
     </section>
 
