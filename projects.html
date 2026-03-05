@@ -4,8 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arsalan Iftikhar - Projects Gallery</title>
-    <meta name="description" content="A gallery of data analytics, automation, and machine learning projects by Arsalan Iftikhar.">
+    <title>Projects | Arsalan Iftikhar - BI & Data Case Studies</title>
+    <meta name="description" content="Flagship BI case studies and analytics projects spanning Fabric modernisation, AI QA coaching workflows, Power BI, SQL, and automation.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Projects | Arsalan Iftikhar - BI & Data Case Studies">
+    <meta property="og:description" content="Flagship BI case studies and analytics projects spanning Fabric modernisation, AI QA coaching workflows, Power BI, SQL, and automation.">
+    <meta property="og:url" content="https://arsalaniftikhar.github.io/projects.html">
+    <meta property="og:site_name" content="Arsalan Iftikhar">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;700;800&display=swap');
 
@@ -248,6 +253,27 @@
             font-size: 0.85rem;
         }
 
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            background: #f3f4f6;
+            color: var(--text-dark);
+        }
+
+        .badge-impact { background: #ecfeff; border-color: #a5f3fc; color: #155e75; }
+        .badge-stack { background: #eef2ff; border-color: #c7d2fe; color: #3730a3; }
+        .badge-role { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+
         .project-link {
             color: var(--accent-color);
             text-decoration: none;
@@ -351,6 +377,7 @@
 
         }
     </style>
+    <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
     <header>
@@ -365,7 +392,9 @@
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="experience.html">Experience</a></li>
                 <li><a href="projects.html">Projects</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="approach.html">Approach</a></li>
+                <li><a href="insights/">Insights</a></li>
+                <li><a href="/index.html#connect">Connect</a></li>
             </ul>
         </nav>
     </header>
@@ -374,7 +403,7 @@
         <section id="projects" class="projects-section">
             <div class="projects-container">
                 <h2 class="section-title">Projects Gallery</h2>
-                <p class="section-subtitle">Enterprise solutions and technical articles that drive real business impact</p>
+                <p class="section-subtitle">A selection of BI and analytics work aligned with my current Senior MI Analyst focus at GXO Logistics.</p>
                 
                 <div class="projects-filter">
                     <button class="filter-btn active" data-filter="all">All Projects</button>
@@ -387,6 +416,56 @@
     
                 <div class="projects-grid">
                     
+                    <div class="project-card" data-category="powerbi automation" onclick="window.location.href='projects/fabric-modernisation-case-study.html'">
+                        <div class="project-image">
+                            <span style="font-size: 4rem;">🏗️📊</span>
+                            <span class="project-type">Flagship Case Study</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>GXO Fabric Modernisation</h3>
+                            <p>Modernised legacy reporting patterns into Microsoft Fabric with clearer KPI logic, stronger documentation, and a semantic model performance pass.</p>
+                            <div class="badge-row">
+                                <span class="badge badge-impact">Impact: Reliability uplift</span>
+                                <span class="badge badge-impact">Impact: Faster time-to-insight</span>
+                            </div>
+                            <div class="badge-row">
+                                <span class="badge badge-stack">Stack: Fabric</span>
+                                <span class="badge badge-stack">Stack: PySpark + SQL</span>
+                                <span class="badge badge-stack">Stack: Power BI + DAX Studio</span>
+                            </div>
+                            <div class="badge-row">
+                                <span class="badge badge-role">My role: Senior MI Analyst</span>
+                                <span class="badge badge-role">Ownership: Discovery → semantic tuning</span>
+                            </div>
+                            <a href="projects/fabric-modernisation-case-study.html" class="project-link">View Case Study →</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-category="automation ml" onclick="window.location.href='projects/ai-qa-coaching-case-study.html'">
+                        <div class="project-image">
+                            <span style="font-size: 4rem;">🎧🤖</span>
+                            <span class="project-type">Flagship Case Study</span>
+                        </div>
+                        <div class="project-content">
+                            <h3>AI QA & Coaching MVP (Call Centre)</h3>
+                            <p>Delivered a consulting MVP for ingest, transcription, rubric scoring, and QA/coaching dashboards with audit-friendly validation checks.</p>
+                            <div class="badge-row">
+                                <span class="badge badge-impact">Impact: Scalable QA visibility</span>
+                                <span class="badge badge-impact">Impact: Reduced manual review load</span>
+                            </div>
+                            <div class="badge-row">
+                                <span class="badge badge-stack">Stack: AI transcription</span>
+                                <span class="badge badge-stack">Stack: Rubric scoring</span>
+                                <span class="badge badge-stack">Stack: BI dashboards</span>
+                            </div>
+                            <div class="badge-row">
+                                <span class="badge badge-role">My role: BI, Data & AI Consultant</span>
+                                <span class="badge badge-role">Ownership: KPI design + handover</span>
+                            </div>
+                            <a href="projects/ai-qa-coaching-case-study.html" class="project-link">View Case Study →</a>
+                        </div>
+                    </div>
+
                     <div class="project-card" data-category="powerbi" onclick="window.location.href='projects/sales_analysis_case_study.html'">
                         <div class="project-image">
                             <img src="projects/sales_analysis/sales_analysis_project_image.webp" alt="Sales Analysis Project">
@@ -501,6 +580,8 @@
             <div class="footer-links">
                 <a href="index.html#about">About</a>
                 <a href="experience.html">Experience</a>
+                <a href="approach.html">Approach</a>
+                <a href="insights/">Insights</a>
                 <a href="https://www.linkedin.com/in/arsalaniftikhar1/" target="_blank">LinkedIn</a>
             </div>
             <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
@@ -578,6 +659,7 @@
 
         });
     </script>
+    <script src="assets/js/site.js"></script>
 </body>
 
 </html>

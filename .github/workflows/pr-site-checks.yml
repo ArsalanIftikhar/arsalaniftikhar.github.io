@@ -1,0 +1,28 @@
+name: PR Site Checks
+
+on:
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Link check (local HTML, PR-safe)
+        uses: lycheeverse/lychee-action@v2.4.0
+        with:
+          args: >-
+            --verbose
+            --no-progress
+            --root-dir "${{ github.workspace }}"
+            --exclude "^https?://(localhost|127\.0\.0\.1)(:\d+)?/"
+            --exclude "https://www.linkedin.com/*"
+            --exclude "https://linkedin.com/*"
+            --accept "200,201,202,204,206,301,302,303,307,308,429"
+            --max-retries 3
+            --retry-wait-time 2
+            --timeout 20
+            "./**/*.html"
