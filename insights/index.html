@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arsalan Iftikhar - Insights</title>
+    <meta name="description" content="Practical BI and data engineering notes from Arsalan Iftikhar.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;700;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary-color:#1f2937; --text-light:#6b7280; --bg-light:#f8f9fa; --bg-white:#fff; --border:#e5e7eb; }
+        body { font-family:'Poppins',sans-serif; background:var(--bg-light); color:var(--primary-color); padding-top:80px; }
+        header { position:fixed; top:0; width:100%; background:rgba(255,255,255,0.95); box-shadow:0 1px 3px rgba(0,0,0,0.08); z-index:1000; }
+        nav { max-width:1200px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+        .nav-brand { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.5rem; color:var(--primary-color); text-decoration:none; }
+        .nav-links { display:flex; gap:2rem; list-style:none; }
+        .nav-links a { text-decoration:none; color:var(--primary-color); font-weight:500; }
+        main { max-width:1000px; margin:0 auto; padding:3rem 2rem 4rem; }
+        h1 { font-family:'Montserrat',sans-serif; font-size:2.3rem; margin-bottom:0.75rem; }
+        .subtitle { color:var(--text-light); margin-bottom:2rem; }
+        .post { background:var(--bg-white); border:1px solid var(--border); border-radius:14px; padding:1.25rem; margin-bottom:1rem; }
+        .post a { color:var(--primary-color); font-size:1.2rem; font-weight:600; text-decoration:none; }
+        .post p { color:var(--text-light); margin-top:0.5rem; }
+        footer { background:var(--primary-color); color:#fff; text-align:center; padding:2rem; }
+        .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .footer-links a { color:rgba(255,255,255,0.85); text-decoration:none; }
+        .mobile-menu-toggle { display:none; background:none; border:none; cursor:pointer; }
+        .mobile-menu-toggle span { display:block; width:25px; height:3px; background:var(--primary-color); margin:5px 0; }
+        @media (max-width:768px){ .mobile-menu-toggle{display:block;} .nav-links{display:none; position:absolute; top:100%; left:0; right:0; background:white; flex-direction:column; padding:1rem;} .nav-links.active{display:flex;} }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="nav-brand">⌂ Arsalan Iftikhar</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../experience.html">Experience</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../approach.html">Approach</a></li>
+                <li><a href="index.html">Insights</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Insights</h1>
+        <p class="subtitle">Practical notes on BI delivery, semantic modelling, and Fabric migration from a Senior MI Analyst perspective.</p>
+
+        <article class="post">
+            <a href="fabric-migration-notes.html">Fabric migration notes: patterns, pitfalls, and a practical playbook</a>
+            <p>A concise field guide to moving reporting workloads into Microsoft Fabric without losing metric integrity or refresh reliability.</p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../experience.html">Experience</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../approach.html">Approach</a>
+            <a href="index.html">Insights</a>
+        </div>
+        <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+            mobileMenuToggle.addEventListener('click', function () {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
