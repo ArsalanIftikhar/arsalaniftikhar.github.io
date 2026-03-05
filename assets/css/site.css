@@ -188,6 +188,30 @@ main {
     font-weight: 600;
 }
 
+
+.lift-on-hover {
+    transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.lift-on-hover:hover,
+.lift-on-hover:focus-visible,
+.lift-on-hover:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lift-on-hover {
+        transition: none;
+    }
+
+    .lift-on-hover:hover,
+    .lift-on-hover:focus-visible,
+    .lift-on-hover:focus-within {
+        transform: none;
+    }
+}
+
 footer {
     background: var(--primary-color);
     color: white;
@@ -273,13 +297,16 @@ footer {
     max-width: 1000px;
 }
 
-.cs-hero,
-.cs-section,
-.cs-summary-band {
+.cs-container {
     background: var(--bg-white);
     border: 1px solid var(--border-color);
     border-radius: 14px;
     padding: 1.35rem;
+}
+
+.cs-hero,
+.cs-section,
+.cs-summary-band {
     margin-bottom: 1rem;
 }
 
