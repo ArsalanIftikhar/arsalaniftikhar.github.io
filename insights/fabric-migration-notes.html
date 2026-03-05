@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabric Migration Notes | Arsalan Iftikhar</title>
+    <meta name="description" content="Practical Microsoft Fabric migration notes covering architecture patterns, governance implications, pitfalls, and reconciliation-led playbooks.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fabric Migration Notes | Arsalan Iftikhar">
+    <meta property="og:description" content="Practical Microsoft Fabric migration notes covering architecture patterns, governance implications, pitfalls, and reconciliation-led playbooks.">
+    <meta property="og:url" content="https://arsalaniftikhar.github.io/insights/fabric-migration-notes.html">
+    <meta property="og:site_name" content="Arsalan Iftikhar">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;700;800&display=swap');
+        * { margin:0; padding:0; box-sizing:border-box; }
+        :root { --primary:#1f2937; --muted:#6b7280; --bg:#f8f9fa; --card:#fff; --border:#e5e7eb; }
+        body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--primary); padding-top:80px; }
+        header { position:fixed; top:0; width:100%; background:rgba(255,255,255,0.95); box-shadow:0 1px 3px rgba(0,0,0,0.08); z-index:1000; }
+        nav { max-width:1200px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+        .nav-brand { font-family:'Montserrat',sans-serif; font-size:1.5rem; font-weight:700; text-decoration:none; color:var(--primary); }
+        .nav-links { display:flex; gap:2rem; list-style:none; }
+        .nav-links a { text-decoration:none; color:var(--primary); font-weight:500; }
+        main { max-width:900px; margin:0 auto; padding:3rem 2rem 4rem; }
+        h1 { font-family:'Montserrat',sans-serif; font-size:2.2rem; margin-bottom:0.75rem; }
+        .lead { color:var(--muted); margin-bottom:1.75rem; }
+        section { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:1.4rem; margin-bottom:1rem; }
+        h2 { margin-bottom:0.75rem; font-size:1.25rem; }
+        p, li { color:var(--muted); }
+        ul { padding-left:1.2rem; }
+        li { margin-bottom:0.45rem; }
+        footer { background:var(--primary); color:white; text-align:center; padding:2rem; }
+        .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .footer-links a { color:rgba(255,255,255,0.85); text-decoration:none; }
+        .mobile-menu-toggle { display:none; background:none; border:none; cursor:pointer; }
+        .mobile-menu-toggle span { display:block; width:25px; height:3px; background:var(--primary); margin:5px 0; }
+        @media (max-width:768px){ .mobile-menu-toggle{display:block;} .nav-links{display:none; position:absolute; top:100%; left:0; right:0; background:white; flex-direction:column; padding:1rem;} .nav-links.active{display:flex;} }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="nav-brand">⌂ Arsalan Iftikhar</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../experience.html">Experience</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../approach.html">Approach</a></li>
+                <li><a href="index.html">Insights</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Fabric migration notes: patterns, pitfalls, and a practical playbook</h1>
+        <p class="lead">These are the practical patterns I use when modernising reporting workloads into Fabric while protecting KPI trust and stakeholder confidence.</p>
+
+        <section>
+            <h2>What changes in Fabric in practical terms</h2>
+            <ul>
+                <li>Work moves from isolated report-centric logic to shared pipeline and model patterns.</li>
+                <li>Lineage becomes a day-to-day dependency: upstream changes must be visible before they impact business views.</li>
+                <li>Governance matters earlier: naming, ownership, and workspace standards reduce ambiguity as the platform scales.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Common pitfalls to avoid</h2>
+            <ul>
+                <li><strong>Key/grain mismatch:</strong> fact and dimension tables look connected but represent different business grains.</li>
+                <li><strong>Duplicated logic:</strong> business rules copied into multiple notebooks and DAX measures, creating inconsistency.</li>
+                <li><strong>Refresh bottlenecks:</strong> dependencies or heavy transformations cause late or partial refresh outcomes.</li>
+                <li><strong>Metric drift:</strong> KPI definitions evolve informally and report outputs diverge across teams.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>My migration playbook</h2>
+            <ul>
+                <li>Create ERDs and data-flow documentation before major model changes so dependencies are explicit.</li>
+                <li>Run reconciliation checks between source, transformed, and semantic layers to confirm parity.</li>
+                <li>Finish with a semantic model performance pass (relationship structure, measure patterns, and DAX tuning).</li>
+                <li>Document runbooks and ownership so support teams can operate the solution confidently post-handover.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../experience.html">Experience</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../approach.html">Approach</a>
+            <a href="index.html">Insights</a>
+        </div>
+        <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+            mobileMenuToggle.addEventListener('click', function () {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

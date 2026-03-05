@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabric Modernisation Case Study | Arsalan Iftikhar</title>
+    <meta name="description" content="Case study: modernising legacy reporting into Microsoft Fabric with semantic model optimisation, DAX tuning, and reliability controls.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fabric Modernisation Case Study | Arsalan Iftikhar">
+    <meta property="og:description" content="How legacy reporting was modernised into Fabric with better KPI consistency, reconciliation checks, and semantic model performance tuning.">
+    <meta property="og:url" content="https://arsalaniftikhar.github.io/projects/fabric-modernisation-case-study.html">
+    <meta property="og:site_name" content="Arsalan Iftikhar">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;700;800&display=swap');
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#1f2937;--accent:#0066cc;--muted:#6b7280;--bg:#f8f9fa;--card:#fff;--border:#e5e7eb}
+        body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--primary);padding-top:80px;line-height:1.6}
+        header{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);box-shadow:0 1px 3px rgba(0,0,0,.08);z-index:1000}
+        nav{max-width:1200px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
+        .nav-brand{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.4rem;color:var(--primary);text-decoration:none}
+        .nav-links{display:flex;gap:1.5rem;list-style:none}.nav-links a{text-decoration:none;color:var(--primary);font-weight:500}
+        main{max-width:1000px;margin:0 auto;padding:3rem 2rem 4rem}
+        .hero{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.5rem;margin-bottom:1rem}
+        h1{font-family:'Montserrat',sans-serif;font-size:2rem;margin-bottom:.6rem}
+        .meta{color:var(--muted);font-size:.95rem}
+        .section{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.4rem;margin-bottom:1rem}
+        .section h2{font-size:1.25rem;margin-bottom:.6rem}
+        ul{padding-left:1.2rem}
+        .todo-shot{margin-top:.8rem;padding:.8rem;border:1px dashed #9ca3af;background:#f3f4f6;border-radius:10px;color:#4b5563;font-size:.95rem}
+        .footer-links{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem}
+        footer{background:var(--primary);color:white;text-align:center;padding:2rem}
+        .footer-links a{color:rgba(255,255,255,.85);text-decoration:none}
+    </style>
+</head>
+<body>
+<header><nav><a class="nav-brand" href="../index.html">⌂ Arsalan Iftikhar</a><ul class="nav-links"><li><a href="../experience.html">Experience</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../approach.html">Approach</a></li><li><a href="../insights/">Insights</a></li></ul></nav></header>
+<main>
+    <section class="hero">
+        <h1>GXO Fabric Modernisation Case Study</h1>
+        <p class="meta">Role: Senior MI Analyst (GXO Logistics) | Focus: BI modernisation, semantic model performance, and reporting reliability.</p>
+    </section>
+
+    <section class="section">
+        <h2>Context / problem</h2>
+        <p>Legacy reporting workflows had grown uneven over time, with inconsistent KPI definitions and duplicated business logic across multiple reporting assets. The objective was to modernise these datasets into Microsoft Fabric while reducing ambiguity in definitions and improving maintainability.</p>
+    </section>
+
+    <section class="section">
+        <h2>Stakeholders &amp; constraints</h2>
+        <ul>
+            <li>Operational leaders requiring reliable day-to-day performance reporting.</li>
+            <li>MI/BI users needing trusted definitions and better report responsiveness.</li>
+            <li>Constraints included continuity of reporting, controlled rollout, and non-confidential working practices suitable for enterprise governance.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Approach</h2>
+        <ul>
+            <li>Introduced clear layering from source-aligned extracts to transformed analytical tables.</li>
+            <li>Built and documented transformations in repeatable patterns.</li>
+            <li>Produced ERDs and data-flow documentation to clarify dependencies and ownership.</li>
+            <li>Implemented reconciliation checks between source, transformed, and semantic outputs.</li>
+        </ul>
+    </section>
+
+    <section class="section">
+        <h2>Semantic model + DAX performance pass</h2>
+        <p>The semantic layer was reviewed for relationship clarity, reusable measure structure, and DAX efficiency. DAX Studio was used to evaluate query behavior and support measure tuning decisions before release.</p>
+    </section>
+
+    <section class="section">
+        <h2>Outcomes</h2>
+        <ul>
+            <li>Improved reporting reliability through clearer data flow and reconciliation controls.</li>
+            <li>Faster path from data updates to stakeholder insight through more consistent modelling patterns.</li>
+            <li>Reduced manual effort by removing duplicated logic and improving delivery documentation.</li>
+        </ul>
+        <div class="todo-shot"><strong>TODO screenshot placeholder:</strong> Add Fabric pipeline / semantic model screenshot (non-confidential) before publishing.</div>
+        <div class="todo-shot"><strong>TODO screenshot placeholder:</strong> Add DAX Studio performance check screenshot with sensitive values removed.</div>
+    </section>
+</main>
+<footer><div class="footer-links"><a href="../index.html">Home</a><a href="../projects.html">Projects</a><a href="../approach.html">Approach</a><a href="../insights/">Insights</a></div><p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p></footer>
+</body>
+</html>
