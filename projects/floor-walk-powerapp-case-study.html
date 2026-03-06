@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floor Walk Power App Case Study | Arsalan Iftikhar</title>
+    <meta name="description" content="Flagship case study: digitising floor walk capture with Power Apps, SharePoint List governance controls, and Power BI trend visibility.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Floor Walk Power App Case Study | Arsalan Iftikhar">
+    <meta property="og:description" content="How floor walk checks were standardised through a governed Power App and turned into actionable trend analysis in Power BI.">
+    <meta property="og:url" content="https://arsalaniftikhar.github.io/projects/floor-walk-powerapp-case-study.html">
+    <meta property="og:site_name" content="Arsalan Iftikhar">
+    <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body class="case-study-body">
+    <header>
+        <nav>
+            <a class="nav-brand" href="../index.html">⌂ Arsalan Iftikhar</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../experience.html">Experience</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../approach.html">My Approach</a></li>
+                <li><a href="../insights/">Insights</a></li>
+                <li><a href="../index.html#connect">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="case-study-main">
+        <article class="cs-container">
+            <section class="cs-hero">
+                <h1>Floor Walk Power App Case Study</h1>
+                <p>Process digitisation and governance-first delivery to replace inconsistent floor walk capture with structured operational data and reliable trend visibility.</p>
+            </section>
+
+            <section class="cs-summary-band" aria-label="Case study summary">
+                <article>
+                    <h2>Context</h2>
+                    <p>Operational floor walk checks were being captured manually with inconsistent structure and limited historical comparability.</p>
+                </article>
+                <article>
+                    <h2>Stakeholders</h2>
+                    <p>Site operations leads, area supervisors, continuous improvement partners, and BI consumers tracking issue trends.</p>
+                </article>
+                <article>
+                    <h2>My role &amp; scope</h2>
+                    <p>Senior MI Analyst delivering process design inputs, data model standards, governance controls, and reporting outputs.</p>
+                </article>
+                <article>
+                    <h2>Stack</h2>
+                    <p>Power Apps (Canvas), SharePoint List, Power Query, Power BI semantic model, Power BI reporting.</p>
+                </article>
+                <article>
+                    <h2>Controls</h2>
+                    <p>Required fields, controlled categories, location naming standards, timestamp capture, and ownership/accountability fields.</p>
+                </article>
+                <article>
+                    <h2>Outcome</h2>
+                    <p>Improved visibility of recurring floor issues, reduced manual collation, and better action tracking through standardised capture.</p>
+                </article>
+            </section>
+
+            <section class="cs-section">
+                <h2>Problem &amp; context</h2>
+                <p>Floor walk findings were previously recorded in ad-hoc formats across teams. This created inconsistency in issue labels, location naming, and ownership detail, making it difficult to compare periods or identify repeat problems reliably. Reporting was possible, but heavily manual and prone to interpretation drift.</p>
+            </section>
+
+            <section class="cs-section">
+                <h2>Design goals</h2>
+                <ul>
+                    <li><strong>Standardisation:</strong> establish one practical structure for issue capture across shifts and areas.</li>
+                    <li><strong>Adoption:</strong> keep data entry simple enough for regular operational use.</li>
+                    <li><strong>Accountability:</strong> retain clear ownership and actionability at record level.</li>
+                    <li><strong>Governance:</strong> protect data quality so trends can be trusted over time.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Solution</h2>
+                <p>The solution used a Power Apps Canvas app for guided floor walk capture, writing to a SharePoint List with standardised fields. Power Query shaped and validated list data for analytics usage before loading into a Power BI semantic model and dashboards for trend review.</p>
+
+                <figure class="evidence-diagram">
+                    <svg viewBox="0 0 980 240" role="img" aria-label="Floor walk data flow from Power App to Power BI">
+                        <rect x="20" y="70" width="170" height="72" rx="10"></rect>
+                        <text x="105" y="112" text-anchor="middle">Power App</text>
+
+                        <rect x="220" y="70" width="190" height="72" rx="10"></rect>
+                        <text x="315" y="112" text-anchor="middle">SharePoint List</text>
+
+                        <rect x="440" y="70" width="170" height="72" rx="10"></rect>
+                        <text x="525" y="112" text-anchor="middle">Power Query</text>
+
+                        <rect x="640" y="70" width="170" height="72" rx="10"></rect>
+                        <text x="725" y="112" text-anchor="middle">Semantic model</text>
+
+                        <rect x="840" y="70" width="120" height="72" rx="10"></rect>
+                        <text x="900" y="112" text-anchor="middle">Power BI</text>
+
+                        <line x1="190" y1="106" x2="220" y2="106"></line>
+                        <line x1="410" y1="106" x2="440" y2="106"></line>
+                        <line x1="610" y1="106" x2="640" y2="106"></line>
+                        <line x1="810" y1="106" x2="840" y2="106"></line>
+                    </svg>
+                    <figcaption>High-level delivery pattern used for operational capture and BI trend visibility.</figcaption>
+                </figure>
+            </section>
+
+            <section class="cs-section">
+                <h2>Data quality &amp; governance controls</h2>
+                <ul>
+                    <li>Required fields for issue type, area/location, severity context, and owner.</li>
+                    <li>Controlled category values to reduce reporting noise from free-text variants.</li>
+                    <li>Consistent location naming conventions to prevent duplicate location labels.</li>
+                    <li>Automated timestamp capture to support daily/weekly/monthly trend slices.</li>
+                    <li>Ownership and status fields to improve follow-up accountability.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Adoption approach</h2>
+                <p>Adoption was handled pragmatically: keep the form concise, align fields to existing floor walk behaviour, and gather supervisor feedback during pilot usage before broader rollout. The objective was reliable repeat usage, not feature-heavy complexity. Short guidance notes and clear field labels supported consistency without over-engineering training.</p>
+            </section>
+
+            <section class="cs-section">
+                <h2>Reporting outcomes</h2>
+                <p>With standardised capture in place, reporting shifted from reactive collation to trend-led insight. Typical views included:</p>
+                <ul>
+                    <li>Recurring issue patterns by aisle, zone, or product family.</li>
+                    <li>Hotspot identification where repeated observations clustered by location.</li>
+                    <li>Repeat categories across shifts and teams, highlighting process control gaps.</li>
+                    <li>Time-based trends showing whether issue frequency was stabilising or re-emerging.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Outcomes</h2>
+                <ul>
+                    <li>Improved visibility into floor walk findings through consistent historical records.</li>
+                    <li>Reduced manual effort previously required to consolidate operational checks.</li>
+                    <li>Standardised process and data definitions across contributing teams.</li>
+                    <li>More actionable review conversations supported by clearer trend evidence.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Next steps</h2>
+                <ul>
+                    <li>Introduce SLA-style follow-up tracking for higher-severity categories.</li>
+                    <li>Add simple exception alerts for repeated issues above agreed thresholds.</li>
+                    <li>Periodically review controlled category sets to keep definitions current.</li>
+                </ul>
+            </section>
+
+            <p><a href="../projects.html" class="btn">Back to projects</a></p>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../experience.html">Experience</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../approach.html">My Approach</a>
+            <a href="../insights/">Insights</a>
+        </div>
+        <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            if (mobileMenuToggle && navLinks) {
+                mobileMenuToggle.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
