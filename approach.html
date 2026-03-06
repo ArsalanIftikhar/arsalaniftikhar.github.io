@@ -85,6 +85,50 @@
                         <li>Baseline metric dictionary with formula logic, filter assumptions, and data lineage notes.</li>
                         <li>Simple KPI change-control log so definition updates are explicit and approved.</li>
                     </ul>
+
+                    <aside class="metric-dictionary-callout" aria-label="Example metric dictionary excerpt">
+                        <h3>Example: Metric dictionary excerpt</h3>
+                        <div class="metric-table-wrap">
+                            <table class="metric-table">
+                                <thead>
+                                    <tr>
+                                        <th>Metric name</th>
+                                        <th>Definition</th>
+                                        <th>Grain</th>
+                                        <th>Owner</th>
+                                        <th>Refresh cadence</th>
+                                        <th>Notes / caveats</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Labour Productivity</td>
+                                        <td>Total processed units divided by paid labour hours.</td>
+                                        <td>Site-day</td>
+                                        <td>Operations MI</td>
+                                        <td>Daily</td>
+                                        <td>Exclude agency onboarding shifts from baseline comparisons.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Throughput</td>
+                                        <td>Confirmed outbound units completed within the reporting window.</td>
+                                        <td>Shift-site</td>
+                                        <td>Warehouse Ops</td>
+                                        <td>Hourly</td>
+                                        <td>Late source postings can affect same-day cut-off values.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SLA Compliance</td>
+                                        <td>Orders completed within agreed SLA threshold ÷ total eligible orders.</td>
+                                        <td>Site-day</td>
+                                        <td>Service Delivery</td>
+                                        <td>Daily</td>
+                                        <td>Only customer-facing order classes are counted as eligible.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </aside>
                 </div>
                 <div class="phase-block">
                     <h3>Common pitfalls + mitigation</h3>

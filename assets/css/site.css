@@ -159,6 +159,50 @@ main {
     margin-bottom: 0.35rem;
 }
 
+.metric-dictionary-callout {
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: #f9fbff;
+    padding: 0.9rem;
+}
+
+.metric-dictionary-callout h3 {
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    margin-bottom: 0.55rem;
+}
+
+.metric-table-wrap {
+    overflow-x: auto;
+}
+
+.metric-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 760px;
+}
+
+.metric-table th,
+.metric-table td {
+    border: 1px solid var(--border-color);
+    text-align: left;
+    padding: 0.5rem 0.55rem;
+    vertical-align: top;
+    font-size: 0.86rem;
+}
+
+.metric-table th {
+    color: var(--text-dark);
+    background: #eef4ff;
+    font-weight: 600;
+}
+
+.metric-table td {
+    color: var(--text-light);
+    background: var(--bg-white);
+}
+
 .cta-card {
     background: var(--bg-white);
     border: 1px solid var(--border-color);
