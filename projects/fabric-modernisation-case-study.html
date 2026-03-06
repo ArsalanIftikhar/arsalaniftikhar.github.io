@@ -11,6 +11,22 @@
     <meta property="og:url" content="https://arsalaniftikhar.github.io/projects/fabric-modernisation-case-study.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <link rel="stylesheet" href="../assets/css/site.css">
+    <style>
+        .cs-code {
+            margin-top: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background: #111827;
+            color: #e5e7eb;
+            padding: 0.85rem;
+            overflow-x: auto;
+            font-size: 0.84rem;
+            line-height: 1.45;
+        }
+        .cs-code code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+    </style>
 </head>
 <body class="case-study-body">
     <header>
@@ -61,7 +77,8 @@
 
         <section class="cs-section">
             <h2>Problem</h2>
-            <p>Reporting logic had developed across legacy assets over time, creating inconsistency in metric definitions and duplicated transformation logic. The workstream required modernisation toward maintainable Fabric patterns while preserving day-to-day reporting continuity.</p>
+            <p>Reporting logic had developed across legacy assets over time, creating inconsistency in metric definitions and duplicated transformation logic. The modernisation workstream needed a reliable one-source-of-truth model so KPI definitions were consistent, duplicated report logic was reduced, and downstream reporting aligned to a governed semantic layer rather than report-by-report interpretation.</p>
+            <p>Because reporting requirements spanned multiple warehouses, the model also needed standardisation across sites: conformed entities and keys, consistent grain, and comparable reporting outputs regardless of source location.</p>
         </section>
 
         <section class="cs-section">
@@ -78,10 +95,54 @@
             <h2>My Approach</h2>
             <ul>
                 <li>Contributed to migration activities by helping move legacy logic toward layered Lakehouse-aligned patterns.</li>
-                <li>Delivered components such as ERD maintenance and data-flow diagrams to keep entity, key, and metric logic visible.</li>
+                <li>Delivered within scope: ERD maintenance and data-flow diagrams to keep entity, key, and metric logic visible.</li>
+                <li>Supported standardisation across warehouses by implementing components such as conformed keys, consistent grains, and shared transformation rules for comparable reporting.</li>
                 <li>Partnered with stakeholders to align KPI interpretation and keep documentation current as logic evolved.</li>
                 <li>Supported ingestion and transformation work in PySpark notebooks and SQL for stable reporting inputs.</li>
             </ul>
+
+            <h3>Grounded example: PySpark transform (anonymised)</h3>
+            <p>This simplified pattern reflects the type of transformation component delivered within scope: standardise core fields, preserve latest records, and write audited silver outputs for governed semantic consumption.</p>
+            <pre class="cs-code"><code>from pyspark.sql import functions as F
+from pyspark.sql.window import Window
+
+bronze_df = spark.table("lakehouse.bronze_ops_events")
+
+typed_df = (
+    bronze_df
+    .select(
+        F.col("site_id").cast("string").alias("site_id"),
+        F.to_date("event_date").alias("event_date"),
+        F.col("entity_key").cast("string").alias("entity_key"),
+        F.trim(F.upper(F.col("category"))).alias("category_std"),
+        F.col("status").cast("string").alias("status"),
+        F.col("source_updated_ts").cast("timestamp").alias("source_updated_ts")
+    )
+    .filter(
+        F.col("site_id").isNotNull() &
+        F.col("event_date").isNotNull() &
+        F.col("entity_key").isNotNull()
+    )
+)
+
+window_spec = Window.partitionBy("site_id", "event_date", "entity_key").orderBy(F.col("source_updated_ts").desc_nulls_last())
+
+deduped_df = (
+    typed_df
+    .withColumn("rn", F.row_number().over(window_spec))
+    .filter(F.col("rn") == 1)
+    .drop("rn")
+    .withColumn("record_hash", F.sha2(F.concat_ws("|", "site_id", "event_date", "entity_key", "category_std", "status"), 256))
+    .withColumn("ingested_at_utc", F.current_timestamp())
+    .withColumn("pipeline_run_id", F.lit("${run_id}"))
+)
+
+(deduped_df
+    .write
+    .mode("overwrite")
+    .format("delta")
+    .option("overwriteSchema", "true")
+    .saveAsTable("lakehouse.silver_ops_events"))</code></pre>
 
             <figure class="evidence-diagram">
                 <svg viewBox="0 0 860 250" role="img" aria-label="Generic architecture showing layering and reconciliation checks">
@@ -136,7 +197,8 @@
             <h2>Outcomes</h2>
             <ul>
                 <li>Improved reliability through clearer data flow, documented definitions, and practical reconciliation controls.</li>
-                <li>Supported more consistent KPI interpretation by keeping ERDs, data flow, and metric documentation aligned.</li>
+                <li>Supported a stronger one-source-of-truth operating model by reducing duplicated logic and aligning teams to governed semantic definitions.</li>
+                <li>Supported more comparable multi-site reporting through conformed keys and consistent grain conventions.</li>
                 <li>Contributed to delivery hygiene through runbook and documentation updates that reduce single points of failure.</li>
             </ul>
         </section>
