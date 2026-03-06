@@ -13,7 +13,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;700;800&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root { --primary-color:#1f2937; --text-light:#6b7280; --bg-light:#f8f9fa; --bg-white:#fff; --border:#e5e7eb; }
+        :root { --primary-color:#1f2937; --accent-color:#0066cc; --text-light:#6b7280; --bg-light:#f8f9fa; --bg-white:#fff; --border-color:#e5e7eb; }
         body { font-family:'Poppins',sans-serif; background:var(--bg-light); color:var(--primary-color); padding-top:80px; }
         header { position:fixed; top:0; width:100%; background:rgba(255,255,255,0.95); box-shadow:0 1px 3px rgba(0,0,0,0.08); z-index:1000; }
         nav { max-width:1200px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
@@ -23,7 +23,22 @@
         main { max-width:1000px; margin:0 auto; padding:3rem 2rem 4rem; }
         h1 { font-family:'Montserrat',sans-serif; font-size:2.3rem; margin-bottom:0.75rem; }
         .subtitle { color:var(--text-light); margin-bottom:2rem; }
-        .post { background:var(--bg-white); border:1px solid var(--border); border-radius:14px; padding:1.25rem; margin-bottom:1rem; }
+        .post { background:var(--bg-white); border:1px solid var(--border-color); border-radius:14px; padding:1.25rem; margin-bottom:1rem; }
+        .post-meta { display:flex; align-items:center; gap:0.75rem; margin-bottom:0.35rem; }
+        .post-category {
+            display:inline-flex;
+            align-items:center;
+            border:1px solid var(--border-color);
+            border-radius:999px;
+            background:var(--bg-light);
+            color:var(--accent-color);
+            font-size:0.74rem;
+            font-weight:600;
+            letter-spacing:0.02em;
+            padding:0.2rem 0.6rem;
+            line-height:1.2;
+            white-space:nowrap;
+        }
         .lift-on-hover { transition: transform 200ms ease, box-shadow 200ms ease; }
         .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform: translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,.12); }
         @media (prefers-reduced-motion: reduce) { .lift-on-hover { transition:none; } .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform:none; } }
@@ -34,7 +49,7 @@
         .footer-links a { color:rgba(255,255,255,0.85); text-decoration:none; }
         .mobile-menu-toggle { display:none; background:none; border:none; cursor:pointer; }
         .mobile-menu-toggle span { display:block; width:25px; height:3px; background:var(--primary-color); margin:5px 0; }
-        @media (max-width:768px){ .mobile-menu-toggle{display:block;} .nav-links{display:none; position:absolute; top:100%; left:0; right:0; background:white; flex-direction:column; padding:1rem;} .nav-links.active{display:flex;} }
+        @media (max-width:768px){ .mobile-menu-toggle{display:block;} .nav-links{display:none; position:absolute; top:100%; left:0; right:0; background:white; flex-direction:column; padding:1rem;} .nav-links.active{display:flex;} .post-meta{gap:0.5rem;} .post a{font-size:1.1rem;} }
     </style>
 </head>
 <body>
@@ -58,8 +73,20 @@
         <p class="subtitle">Practical notes on BI delivery, semantic modelling, and Fabric migration from a Senior MI Analyst perspective.</p>
 
         <article class="post lift-on-hover">
+            <div class="post-meta">
+                <span class="post-category">Platform</span>
+            </div>
             <a href="fabric-migration-notes.html">Fabric migration notes: patterns, pitfalls, and a practical playbook</a>
             <p>A concise field guide to moving reporting workloads into Microsoft Fabric without losing metric integrity or refresh reliability.</p>
+        </article>
+
+
+        <article class="post lift-on-hover">
+            <div class="post-meta">
+                <span class="post-category">Apps</span>
+            </div>
+            <a href="power-apps-notes.html">Power Apps notes: practical delivery with SharePoint List storage and Power Query ingestion</a>
+            <p>A practitioner guide to designing governed Power Apps forms and preparing reliable SharePoint List data for Power BI reporting.</p>
         </article>
     </main>
 
