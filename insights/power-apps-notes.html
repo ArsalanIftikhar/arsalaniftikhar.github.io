@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power Apps Notes | Arsalan Iftikhar</title>
-    <meta name="description" content="Senior practitioner notes on using Power Apps with SharePoint Lists and Power Query ingestion into Power BI.">
+    <title>Power Apps Delivery Notes | Arsalan Iftikhar</title>
+    <meta name="description" content="Applied Power Apps + SharePoint + Power Query notes for governed operational capture and BI-ready reporting data.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Power Apps Notes | Arsalan Iftikhar">
-    <meta property="og:description" content="Senior practitioner notes on using Power Apps with SharePoint Lists and Power Query ingestion into Power BI.">
+    <meta property="og:title" content="Power Apps Delivery Notes | Arsalan Iftikhar">
+    <meta property="og:description" content="Applied Power Apps + SharePoint + Power Query notes for governed operational capture and BI-ready reporting data.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/insights/power-apps-notes.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <style>
@@ -20,14 +20,13 @@
         .nav-brand{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:700;text-decoration:none;color:var(--primary)}
         .nav-links{display:flex;gap:2rem;list-style:none}.nav-links a{text-decoration:none;color:var(--primary);font-weight:500}
         main{max-width:960px;margin:0 auto;padding:3rem 2rem 4rem}
-        h1{font-family:'Montserrat',sans-serif;font-size:2.2rem;margin-bottom:.6rem}
-        .lead{color:var(--muted);margin-bottom:1.1rem}
-        section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem;margin-bottom:1rem}
-        h2{font-size:1.2rem;margin-bottom:.6rem}
-        h3{font-size:1rem;margin:.8rem 0 .4rem}
-        p,li{color:var(--muted)} ul{padding-left:1.2rem} li{margin-bottom:.35rem}
-        .note{border-left:4px solid var(--accent);background:#eff6ff;padding:.7rem .85rem;border-radius:8px;color:#1e3a8a;margin-top:.7rem}
-        .playbook li{margin-bottom:.5rem}
+        h1{font-family:'Montserrat',sans-serif;font-size:2rem;margin-bottom:.6rem}.lead{color:var(--muted);margin-bottom:1rem}
+        .summary-panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin-bottom:1rem}
+        .summary-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.9rem}
+        .summary-item h2{font-size:.95rem;margin-bottom:.3rem}.summary-item p{font-size:.9rem;color:var(--muted)}
+        section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem;margin-bottom:1rem}
+        h2{font-size:1.12rem;margin-bottom:.55rem}
+        p,li{color:var(--muted)} ul{padding-left:1.15rem} li{margin-bottom:.32rem}
         footer{background:var(--primary);color:#fff;text-align:center;padding:2rem}
         .footer-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1rem}
         .footer-links a{color:rgba(255,255,255,.85);text-decoration:none}
@@ -37,128 +36,63 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="../index.html" class="nav-brand">⌂ Arsalan Iftikhar</a>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="../index.html">About</a></li>
-                <li><a href="../experience.html">Experience</a></li>
-                <li><a href="../projects.html">Projects</a></li>
-                <li><a href="../approach.html">My Approach</a></li>
-                <li><a href="index.html">Insights</a></li>
-                <li><a href="../index.html#connect">Connect</a></li>
-            </ul>
-        </nav>
-    </header>
+<header><nav>
+    <a href="../index.html" class="nav-brand">⌂ Arsalan Iftikhar</a>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks"><li><a href="../index.html">Home</a></li><li><a href="../experience.html">Experience</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../approach.html">My Approach</a></li><li><a href="index.html">Insights</a></li><li><a href="../index.html#connect">Connect</a></li></ul>
+</nav></header>
 
-    <main>
-        <h1>Power Apps delivery notes: using SharePoint Lists for operational capture and Power Query for BI ingestion</h1>
-        <p class="lead">Power Apps can be a strong option when teams need fast, governed process digitisation. The value comes from disciplined form design, stable list structures, and a reporting model that anticipates real operational behaviour.</p>
+<main>
+    <h1>Power Apps operational capture notes (for BI-ready reporting)</h1>
+    <p class="lead">Applied notes from process-digitisation delivery where adoption, governed capture, and reporting readiness all matter.</p>
 
-        <section>
-            <h2>What Power Apps is</h2>
-            <p>Power Apps is Microsoft’s low-code application platform for building business apps quickly, especially where teams need structured data capture, approval-style workflows, and close integration with Microsoft 365. In most delivery settings, the app itself is only one part of the solution; data standards and reporting readiness determine whether it remains useful after launch.</p>
-        </section>
+    <section class="summary-panel" aria-label="Applied summary">
+        <article class="summary-item"><h2>Where I apply this</h2><p>Warehouse and operations workflows moving from paper/spreadsheet capture to digital forms.</p></article>
+        <article class="summary-item"><h2>What problem this avoids</h2><p>Double handling, inconsistent categories, and weak ownership fields that break reliable reporting.</p></article>
+        <article class="summary-item"><h2>Why it matters in practice</h2><p>If capture is not governed at source, BI outputs become cleanup exercises instead of decision support.</p></article>
+    </section>
 
-        <section>
-            <h2>Why organisations use it</h2>
-            <ul>
-                <li><strong>Process digitisation:</strong> replace email and spreadsheet workflows with structured, auditable submission paths.</li>
-                <li><strong>Standardisation:</strong> enforce consistent field definitions across teams and regions.</li>
-                <li><strong>Adoption:</strong> deliver a familiar interface for non-technical users with low training overhead.</li>
-                <li><strong>Governance:</strong> improve traceability through explicit ownership, permissions, and controlled changes.</li>
-            </ul>
-            <p class="note">Senior teams typically get best outcomes when the app backlog is managed like a product, not treated as an ad-hoc form project.</p>
-        </section>
+    <section>
+        <h2>Design pattern that works</h2>
+        <ul>
+            <li><strong>Power Apps:</strong> low-friction mobile capture aligned to real operational behaviour.</li>
+            <li><strong>SharePoint List:</strong> simple controlled storage with practical administration.</li>
+            <li><strong>Power Query:</strong> shaping and validation before semantic/report use.</li>
+            <li><strong>Power BI:</strong> repeatable review of trend, recurrence, and ownership signals.</li>
+        </ul>
+    </section>
 
-        <section>
-            <h2>Core concepts that matter in delivery</h2>
-            <h3>Canvas app as the user layer</h3>
-            <p>The Canvas app should prioritise usability and clear intent: users must understand what to enter, why it matters, and what happens next.</p>
-            <h3>SharePoint List as the operational store</h3>
-            <p>For lightweight operational processes, a SharePoint List can provide enough structure, permission control, and integration speed to launch quickly.</p>
-            <h3>Form design and validation rules</h3>
-            <p>Validation should live close to entry: required fields, controlled choices, sensible defaults, and conditional logic that blocks incomplete records.</p>
-            <h3>Permissions and ownership</h3>
-            <p>Separate submitter permissions from admin/editor roles. Define named owners for schema changes, data quality, and service continuity.</p>
-            <h3>Environments and solutions (light-touch)</h3>
-            <p>Even for smaller builds, keep a simple Dev-to-Prod path and package app components in a solution to reduce accidental drift.</p>
-        </section>
+    <section>
+        <h2>Minimum governance controls</h2>
+        <ul>
+            <li>Required fields for category, location, owner, status, and timestamps.</li>
+            <li>Controlled value lists to prevent category drift and naming noise.</li>
+            <li>Clear role boundaries for submitter vs maintainer/admin changes.</li>
+        </ul>
+    </section>
 
-        <section>
-            <h2>When SharePoint List is a good fit—and when it starts to strain</h2>
-            <h3>Good fit</h3>
-            <ul>
-                <li>Moderate record volumes and straightforward relational requirements.</li>
-                <li>Well-defined form-driven processes with manageable field counts.</li>
-                <li>Teams that need quick delivery with M365-native governance controls.</li>
-            </ul>
-            <h3>Early strain signals</h3>
-            <ul>
-                <li>Rapid growth in volume, history depth, or concurrent usage.</li>
-                <li>Frequent schema changes driven by unclear process ownership.</li>
-                <li>Complex logic requiring many dependent lists or pseudo-relational workarounds.</li>
-                <li>Rising governance burden around permissions and inconsistent metadata.</li>
-            </ul>
-            <p class="note">If strain signals persist, plan a controlled migration path rather than extending the list model indefinitely.</p>
-        </section>
+    <section>
+        <h2>Early strain signals</h2>
+        <ul>
+            <li>Rapid schema changes without ownership discipline.</li>
+            <li>High growth in history/volume with increasing refresh or maintenance friction.</li>
+            <li>Rising use of free text where controlled dimensions are needed.</li>
+        </ul>
+    </section>
 
-        <section>
-            <h2>Power Query ingestion considerations for Power BI</h2>
-            <ul>
-                <li><strong>Refresh cadence:</strong> align refresh frequency to operational decision cycles, not just technical limits.</li>
-                <li><strong>Schema change resilience:</strong> handle added/renamed fields with explicit transformation steps and defensive checks.</li>
-                <li><strong>Null and type handling:</strong> normalise blanks, enforce data types early, and avoid ambiguous date/text conversions.</li>
-                <li><strong>Data quality controls:</strong> surface invalid categories, missing owners, and stale records as measurable exceptions.</li>
-                <li><strong>Model readiness:</strong> shape list data into reporting-friendly structures rather than exposing raw operational columns directly.</li>
-            </ul>
-        </section>
+    <section>
+        <h2>What this demonstrates</h2>
+        <p>Practical BI judgement: choose lightweight tools that fit operations, but design them with enough control to support trusted reporting at scale.</p>
+    </section>
+</main>
 
-        <section>
-            <h2>Common pitfalls</h2>
-            <ul>
-                <li>Overuse of free-text fields where controlled vocabularies are required.</li>
-                <li>Category values drifting over time due to missing master definitions.</li>
-                <li>Critical fields left optional, creating reporting gaps and rework.</li>
-                <li>No clear owner for data dictionary, validation logic, and release decisions.</li>
-                <li>Business definitions not documented, resulting in conflicting KPI interpretations.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Delivery playbook checklist</h2>
-            <ul class="playbook">
-                <li><strong>1) Discovery:</strong> define process purpose, stakeholders, ownership, and minimum viable data model.</li>
-                <li><strong>2) Form design:</strong> draft user flows, controlled fields, and help text before building screens.</li>
-                <li><strong>3) Validation:</strong> enforce required fields, conditional rules, and permission boundaries.</li>
-                <li><strong>4) Rollout:</strong> pilot with representative users, capture defects, and formalise release notes.</li>
-                <li><strong>5) Monitoring and adoption:</strong> track completion quality, cycle time, and user behaviour signals.</li>
-                <li><strong>6) Reporting:</strong> build Power Query transformations and BI outputs against governed definitions.</li>
-            </ul>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-links">
-            <a href="../index.html">Home</a>
-            <a href="../experience.html">Experience</a>
-            <a href="../projects.html">Projects</a>
-            <a href="../approach.html">My Approach</a>
-            <a href="index.html">Insights</a>
-        </div>
-        <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const navLinks = document.getElementById('navLinks');
-            mobileMenuToggle.addEventListener('click', function () {
-                this.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-        });
-    </script>
+<footer><div class="footer-links"><a href="../index.html">Home</a><a href="../experience.html">Experience</a><a href="../projects.html">Projects</a><a href="../approach.html">My Approach</a><a href="index.html">Insights</a></div><p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p></footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuToggle.addEventListener('click', function () { this.classList.toggle('active'); navLinks.classList.toggle('active'); });
+    });
+</script>
 </body>
 </html>
