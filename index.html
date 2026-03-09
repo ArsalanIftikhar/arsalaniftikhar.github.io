@@ -63,9 +63,13 @@
         .case-card p { margin-bottom: .85rem; }
         .case-link { color: var(--accent); text-decoration: none; font-weight: 600; }
 
-        #stack-focus { background: #fff; }
-        .stack-inline { display: flex; flex-wrap: wrap; justify-content: center; gap: .65rem; }
-        .stack-inline span { border: 1px solid var(--border); border-radius: 999px; padding: .45rem .9rem; font-weight: 500; background: var(--bg); }
+        .stack-strip { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+        .stack-inline { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }
+        .stack-inline span { border: 1px solid var(--border); border-radius: 999px; padding: .35rem .75rem; font-size: .86rem; font-weight: 500; background: var(--bg); }
+
+        #featured-insights { background: var(--bg); }
+        .insight-card h3 { margin-bottom: .35rem; }
+        .insight-card p { margin-bottom: .85rem; }
 
         #connect { background: #fff; }
         .connect-card { border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
@@ -115,7 +119,6 @@
             <span>Trusted Reporting</span>
             <span>Governed Metrics</span>
             <span>Scalable BI Products</span>
-            <span>Power BI / SQL / Microsoft Fabric</span>
         </div>
         <div class="cta-buttons">
             <a href="projects.html" class="btn btn-primary">View Case Studies</a>
@@ -166,6 +169,17 @@
         </div>
     </section>
 
+    <section class="stack-strip" aria-label="Core BI stack inline strip">
+        <div class="stack-inline">
+            <span>Power BI</span>
+            <span>SQL</span>
+            <span>Microsoft Fabric</span>
+            <span>PySpark</span>
+            <span>Semantic Modelling</span>
+            <span>KPI Governance</span>
+        </div>
+    </section>
+
     <section id="featured">
         <h2 class="section-title">Featured Case Studies</h2>
         <p class="section-sub">Three representative projects covering modernisation, automation, and decision-support analytics.</p>
@@ -188,15 +202,25 @@
         </div>
     </section>
 
-    <section id="stack-focus">
-        <h2 class="section-title">Core BI Stack</h2>
-        <p class="section-sub">Primary technologies used for governed reporting and scalable analytics delivery.</p>
-        <div class="stack-inline">
-            <span>Microsoft Fabric</span>
-            <span>Power BI</span>
-            <span>SQL</span>
-            <span>Power Apps</span>
-            <span>Power Automate</span>
+    <section id="featured-insights">
+        <h2 class="section-title">Featured Insights</h2>
+        <p class="section-sub">Applied professional notes that show delivery judgement in modern BI programmes.</p>
+        <div class="cards">
+            <article class="card insight-card">
+                <h3>Fabric Modernisation Notes</h3>
+                <p>Practical migration decisions for protecting metric trust, reducing logic sprawl, and keeping reporting stable through transition.</p>
+                <a class="case-link" href="insights/fabric-migration-notes.html">Read insight →</a>
+            </article>
+            <article class="card insight-card">
+                <h3>Documentation &amp; Visibility Controls</h3>
+                <p>Minimum delivery artefacts that prevent KPI drift, strengthen ownership clarity, and improve handover reliability.</p>
+                <a class="case-link" href="insights/documentation-visibility.html">Read insight →</a>
+            </article>
+            <article class="card insight-card">
+                <h3>SQL Reliability Patterns</h3>
+                <p>Applied query patterns for lifecycle chaining and validation checks that improve semantic correctness in BI pipelines.</p>
+                <a class="case-link" href="insights/advanced-sql-patterns.html">Read insight →</a>
+            </article>
         </div>
     </section>
 
