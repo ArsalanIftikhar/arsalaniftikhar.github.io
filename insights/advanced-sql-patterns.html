@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advanced SQL Patterns | Arsalan Iftikhar</title>
-    <meta name="description" content="Senior practitioner notes on advanced SQL patterns for operational analytics with anonymised, real-world query structures.">
+    <meta name="description" content="Supporting SQL note: practical reliability patterns for lifecycle chaining, validation logic, and latest-event selection in BI pipelines.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Advanced SQL Patterns | Arsalan Iftikhar">
-    <meta property="og:description" content="Anonymised SQL patterns for lifecycle chaining, validation rules, and window functions in operational BI work.">
+    <meta property="og:description" content="Supporting SQL note: practical reliability patterns for lifecycle chaining, validation logic, and latest-event selection in BI pipelines.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/insights/advanced-sql-patterns.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <style>
@@ -20,15 +20,14 @@
         .nav-brand{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:700;text-decoration:none;color:var(--primary)}
         .nav-links{display:flex;gap:2rem;list-style:none}.nav-links a{text-decoration:none;color:var(--primary);font-weight:500}
         main{max-width:960px;margin:0 auto;padding:3rem 2rem 4rem}
-        h1{font-family:'Montserrat',sans-serif;font-size:2.2rem;margin-bottom:.6rem}
-        .lead{color:var(--muted);margin-bottom:1.1rem}
-        section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem;margin-bottom:1rem}
-        h2{font-size:1.2rem;margin-bottom:.6rem}
-        h3{font-size:1rem;margin:.8rem 0 .4rem}
-        p,li{color:var(--muted)} ul{padding-left:1.2rem} li{margin-bottom:.35rem}
-        .note{border-left:4px solid var(--accent);background:#eff6ff;padding:.7rem .85rem;border-radius:8px;color:#1e3a8a;margin-top:.7rem}
-        pre{margin-top:.8rem;border:1px solid var(--border);border-radius:10px;background:#111827;color:#e5e7eb;padding:.85rem;overflow-x:auto;font-size:.84rem;line-height:1.45}
-        code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+        h1{font-family:'Montserrat',sans-serif;font-size:2rem;margin-bottom:.6rem}.lead{color:var(--muted);margin-bottom:1rem}
+        .summary-panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin-bottom:1rem}
+        .summary-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.9rem}
+        .summary-item h2{font-size:.95rem;margin-bottom:.3rem}.summary-item p{font-size:.9rem;color:var(--muted)}
+        section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem;margin-bottom:1rem}
+        h2{font-size:1.12rem;margin-bottom:.55rem} h3{font-size:1rem;margin:.7rem 0 .35rem}
+        p,li{color:var(--muted)} ul{padding-left:1.15rem} li{margin-bottom:.32rem}
+        pre{background:#111827;color:#e5e7eb;border-radius:10px;padding:.8rem;overflow:auto;font-size:.84rem;margin-top:.55rem}
         footer{background:var(--primary);color:#fff;text-align:center;padding:2rem}
         .footer-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1rem}
         .footer-links a{color:rgba(255,255,255,.85);text-decoration:none}
@@ -38,157 +37,67 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="../index.html" class="nav-brand">⌂ Arsalan Iftikhar</a>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="../index.html">About</a></li>
-                <li><a href="../experience.html">Experience</a></li>
-                <li><a href="../projects.html">Projects</a></li>
-                <li><a href="../approach.html">My Approach</a></li>
-                <li><a href="index.html">Insights</a></li>
-                <li><a href="../index.html#connect">Connect</a></li>
-            </ul>
-        </nav>
-    </header>
+<header><nav>
+    <a href="../index.html" class="nav-brand">⌂ Arsalan Iftikhar</a>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks"><li><a href="../index.html">Home</a></li><li><a href="../experience.html">Experience</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../approach.html">My Approach</a></li><li><a href="index.html">Insights</a></li><li><a href="../index.html#connect">Connect</a></li></ul>
+</nav></header>
 
-    <main>
-        <h1>Advanced SQL patterns for operational analytics</h1>
-        <p class="lead">In operational BI, “advanced SQL” is less about clever syntax and more about query structures that preserve business meaning under scale: clear grain control, defensible joins, and checks that surface hidden rule breaks before they become KPI errors.</p>
+<main>
+    <h1>SQL reliability patterns for operational analytics</h1>
+    <p class="lead">Supporting technical note: SQL patterns I use to preserve business meaning and reduce reporting defects in BI pipelines.</p>
 
-        <section>
-            <h2>Pattern 1: lifecycle chaining (receipt → putaway) with CTEs</h2>
-            <p>This pattern links two process stages while preserving event grain. The objective is to identify whether each receipt event was followed by a valid putaway event within an expected time window.</p>
-            <pre><code>WITH receipt_events AS (
-    SELECT
-        r.site_id,
-        r.product_id,
-        r.unit_id,
-        CAST(r.event_ts AS DATE) AS event_date,
-        r.event_ts AS receipt_ts
-    FROM ops_receipt_events r
-    WHERE r.event_ts &gt;= DATE '2025-01-01'
-      AND r.event_ts &lt; DATE '2025-02-01'
-),
-putaway_events AS (
-    SELECT
-        p.site_id,
-        p.unit_id,
-        p.location_code,
-        p.event_ts AS putaway_ts
-    FROM ops_putaway_events p
-    WHERE p.event_ts &gt;= DATE '2025-01-01'
-      AND p.event_ts &lt; DATE '2025-02-03'
-),
-chained AS (
-    SELECT
-        r.site_id,
-        r.product_id,
-        r.unit_id,
-        r.event_date,
-        r.receipt_ts,
-        MIN(p.putaway_ts) AS first_putaway_ts
-    FROM receipt_events r
-    LEFT JOIN putaway_events p
-      ON p.site_id = r.site_id
-     AND p.unit_id = r.unit_id
-     AND p.putaway_ts &gt;= r.receipt_ts
-    GROUP BY r.site_id, r.product_id, r.unit_id, r.event_date, r.receipt_ts
-)
-SELECT
-    c.*,
-    CASE
-        WHEN c.first_putaway_ts IS NULL THEN 'missing_putaway'
-        WHEN c.first_putaway_ts &gt; c.receipt_ts + INTERVAL '24' HOUR THEN 'late_putaway'
-        ELSE 'on_time'
-    END AS lifecycle_status
-FROM chained c;</code></pre>
-            <h3>Gotchas</h3>
-            <ul>
-                <li><strong>Date filters:</strong> include a trailing buffer for downstream events so lifecycle chains are not falsely marked incomplete.</li>
-                <li><strong>Duplicates:</strong> repeated scans can inflate joins; dedupe or aggregate intentionally at event grain.</li>
-                <li><strong>Grain:</strong> define whether the lifecycle is tracked at unit, line, or document level before joining.</li>
-                <li><strong>Null handling:</strong> preserve nulls from left joins so missing lifecycle stages stay visible for exception reporting.</li>
-            </ul>
-        </section>
+    <section class="summary-panel" aria-label="Applied summary">
+        <article class="summary-item"><h2>Where I apply this</h2><p>Transformation layers feeding semantic models and operational BI reports.</p></article>
+        <article class="summary-item"><h2>What problem this avoids</h2><p>Join explosions, hidden rule breaks, and unstable “latest event” logic.</p></article>
+        <article class="summary-item"><h2>Why it matters in practice</h2><p>Reliable SQL patterns reduce rework and improve confidence in downstream KPIs.</p></article>
+    </section>
 
-        <section>
-            <h2>Pattern 2: group-level rule validation (more than one distinct pallet)</h2>
-            <p>This check finds assignment groups that break a business rule: each list should map to only one pallet in the active state.</p>
-            <pre><code>SELECT a.site_id,
-       a.assignment_list_id,
-       COUNT(DISTINCT a.pallet_id) AS distinct_pallets
-FROM ops_assignments a
-WHERE a.status = 'ACTIVE'
-  AND a.assignment_ts &gt;= DATE '2025-01-01'
-  AND EXISTS (
-      SELECT 1
-      FROM ops_assignments a2
-      WHERE a2.site_id = a.site_id
-        AND a2.assignment_list_id = a.assignment_list_id
-        AND a2.status = 'ACTIVE'
-      GROUP BY a2.site_id, a2.assignment_list_id
-      HAVING COUNT(DISTINCT a2.pallet_id) &gt; 1
-  )
-GROUP BY a.site_id, a.assignment_list_id
-HAVING COUNT(DISTINCT a.pallet_id) &gt; 1
-ORDER BY distinct_pallets DESC;</code></pre>
-            <h3>Performance notes</h3>
-            <ul>
-                <li><strong>Indexes:</strong> prioritise composite indexes on `(site_id, assignment_list_id, status, assignment_ts)` for selective scans.</li>
-                <li><strong>EXISTS vs JOIN:</strong> use `EXISTS` for rule checks when you only need presence, avoiding row multiplication from joins.</li>
-                <li><strong>Sargable filters:</strong> keep date predicates on raw columns (no wrapping functions) so index seeks remain viable.</li>
-            </ul>
-        </section>
+    <section>
+        <h2>Pattern 1: lifecycle chaining with explicit grain</h2>
+        <p>Chain process stages through CTEs while keeping key grain explicit at each step. This helps avoid accidental many-to-many amplification.</p>
+        <pre><code>WITH stage_a AS (...),
+stage_b AS (...)
+SELECT a.order_id, a.receipt_ts, b.putaway_ts
+FROM stage_a a
+LEFT JOIN stage_b b ON a.order_id = b.order_id;</code></pre>
+    </section>
 
-        <section>
-            <h2>Mini-pattern 3: window function for latest valid event</h2>
-            <p>Window functions are essential for selecting canonical records without losing audit traceability.</p>
-            <pre><code>WITH ranked_events AS (
-    SELECT
-        e.site_id,
-        e.entity_key,
-        e.event_ts,
-        e.event_status,
-        ROW_NUMBER() OVER (
-            PARTITION BY e.site_id, e.entity_key
-            ORDER BY e.event_ts DESC
-        ) AS rn
-    FROM ops_entity_events e
-    WHERE e.event_ts &gt;= DATE '2025-01-01'
-)
-SELECT
-    site_id,
-    entity_key,
-    event_ts AS latest_event_ts,
-    event_status
-FROM ranked_events
+    <section>
+        <h2>Pattern 2: group-level validation rules</h2>
+        <p>Use grouped validation queries to surface rule breaks early (for example, more than one pallet where only one is expected).</p>
+        <pre><code>SELECT shipment_id
+FROM ops_events
+GROUP BY shipment_id
+HAVING COUNT(DISTINCT pallet_id) &gt; 1;</code></pre>
+    </section>
+
+    <section>
+        <h2>Pattern 3: latest valid event via windowing</h2>
+        <p>Use window functions for deterministic “latest” records with clear tie-breaking and status filtering.</p>
+        <pre><code>SELECT *
+FROM (
+  SELECT e.*,
+         ROW_NUMBER() OVER(PARTITION BY entity_id ORDER BY event_ts DESC) AS rn
+  FROM events e
+  WHERE status = 'valid'
+) x
 WHERE rn = 1;</code></pre>
-            <p class="note">This pattern is commonly paired with lifecycle chaining to stabilise “latest state” reporting in semantic models.</p>
-        </section>
-    </main>
+    </section>
 
-    <footer>
-        <div class="footer-links">
-            <a href="../index.html">Home</a>
-            <a href="../experience.html">Experience</a>
-            <a href="../projects.html">Projects</a>
-            <a href="../approach.html">My Approach</a>
-            <a href="index.html">Insights</a>
-        </div>
-        <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
-    </footer>
+    <section>
+        <h2>What this demonstrates</h2>
+        <p>Practical BI judgement: SQL should prioritise semantic correctness, validation visibility, and maintainable query behaviour over cleverness.</p>
+    </section>
+</main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const navLinks = document.getElementById('navLinks');
-            mobileMenuToggle.addEventListener('click', function () {
-                this.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-        });
-    </script>
+<footer><div class="footer-links"><a href="../index.html">Home</a><a href="../experience.html">Experience</a><a href="../projects.html">Projects</a><a href="../approach.html">My Approach</a><a href="index.html">Insights</a></div><p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p></footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuToggle.addEventListener('click', function () { this.classList.toggle('active'); navLinks.classList.toggle('active'); });
+    });
+</script>
 </body>
 </html>

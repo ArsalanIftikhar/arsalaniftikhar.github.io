@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Floor Walk Power App Case Study | Arsalan Iftikhar</title>
-    <meta name="description" content="Flagship case study: digitising floor walk capture with Power Apps, SharePoint List governance controls, and Power BI trend visibility.">
+    <meta name="description" content="Case study: operational floor-walk digitisation using Power Apps, SharePoint, Power Query, and Power BI to reduce double handling and strengthen governed review.">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Floor Walk Power App Case Study | Arsalan Iftikhar">
-    <meta property="og:description" content="How floor walk checks were standardised through a governed Power App and turned into actionable trend analysis in Power BI.">
+    <meta property="og:description" content="How manual floor-walk capture was standardised into governed mobile-first operational reporting with evidence-backed escalation.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/projects/floor-walk-powerapp-case-study.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <link rel="stylesheet" href="../assets/css/site.css">
@@ -33,54 +33,48 @@
         <article class="cs-container">
             <section class="cs-hero">
                 <h1>Floor Walk Power App Case Study</h1>
-                <p>Process digitisation and governance-first delivery to replace inconsistent floor walk capture with structured operational data and reliable trend visibility.</p>
+                <p>I helped replace manual floor-walk capture and double handling with a governed mobile-first workflow. This improved issue logging consistency, clarified ownership, and made recurring operational risks easier to review and escalate.</p>
             </section>
 
             <section class="cs-summary-band" aria-label="Case study summary">
                 <article>
-                    <h2>Context</h2>
-                    <p>Operational floor walk checks were being captured manually with inconsistent structure and limited historical comparability.</p>
+                    <h2>Original friction</h2>
+                    <p>Paper/spreadsheet capture created duplicate handling, inconsistent labels, and fragmented accountability.</p>
                 </article>
                 <article>
-                    <h2>Stakeholders</h2>
-                    <p>Site operations leads, area supervisors, continuous improvement partners, and BI consumers tracking issue trends.</p>
+                    <h2>What changed</h2>
+                    <p>Floor-walk observations moved to standardised mobile capture with governed fields and repeatable reporting.</p>
                 </article>
                 <article>
-                    <h2>My role &amp; scope</h2>
-                    <p>Senior MI Analyst delivering process design inputs, data model standards, governance controls, and reporting outputs.</p>
+                    <h2>My role / ownership</h2>
+                    <p>Senior MI Analyst delivering data/governance design, reporting model structure, and operational rollout support.</p>
                 </article>
                 <article>
-                    <h2>Stack</h2>
-                    <p>Power Apps (Canvas), SharePoint List, Power Query, Power BI semantic model, Power BI reporting.</p>
-                </article>
-                <article>
-                    <h2>Controls</h2>
-                    <p>Required fields, controlled categories, location naming standards, timestamp capture, and ownership/accountability fields.</p>
-                </article>
-                <article>
-                    <h2>Outcome</h2>
-                    <p>Improved visibility of recurring floor issues, reduced manual collation, and better action tracking through standardised capture.</p>
+                    <h2>Measured impact</h2>
+                    <p>Estimated 4–8 staff hours/day saved from reduced manual collation and less rework in reporting preparation.</p>
                 </article>
             </section>
 
             <section class="cs-section">
-                <h2>Problem &amp; context</h2>
-                <p>Floor walk findings were previously recorded in ad-hoc formats across teams. This created inconsistency in issue labels, location naming, and ownership detail, making it difficult to compare periods or identify repeat problems reliably. Reporting was possible, but heavily manual and prone to interpretation drift.</p>
+                <h2>Problem</h2>
+                <p>Before digitisation, floor-walk issues were captured in mixed formats and then re-entered for reporting. This manual chain introduced double handling, delayed visibility, and variation in categories, location names, and action-owner fields.</p>
+                <p>As a result, senior review discussions often spent time reconciling wording and ownership rather than addressing recurring operational issues. The business needed practical, low-friction capture that produced analysis-ready data from the start.</p>
             </section>
 
             <section class="cs-section">
-                <h2>Design goals</h2>
+                <h2>My role / ownership</h2>
                 <ul>
-                    <li><strong>Standardisation:</strong> establish one practical structure for issue capture across shifts and areas.</li>
-                    <li><strong>Adoption:</strong> keep data entry simple enough for regular operational use.</li>
-                    <li><strong>Accountability:</strong> retain clear ownership and actionability at record level.</li>
-                    <li><strong>Governance:</strong> protect data quality so trends can be trusted over time.</li>
+                    <li>Defined the core capture structure needed for reliable trend reporting (category, location, severity context, owner, status, timestamps).</li>
+                    <li>Set governance guardrails for controlled values and naming consistency to reduce interpretation drift.</li>
+                    <li>Designed the reporting-ready shaping approach in Power Query and aligned outputs to Power BI review requirements.</li>
+                    <li>Supported rollout feedback loops with operations teams to keep the process practical for warehouse usage.</li>
+                    <li>Owned BI-side reporting logic and review views used in recurring operational and senior conversations.</li>
                 </ul>
             </section>
 
             <section class="cs-section">
                 <h2>Solution</h2>
-                <p>The solution used a Power Apps Canvas app for guided floor walk capture, writing to a SharePoint List with standardised fields. Power Query shaped and validated list data for analytics usage before loading into a Power BI semantic model and dashboards for trend review.</p>
+                <p>The delivery used a simple four-part operating pattern: Power Apps for capture, SharePoint List for governed storage, Power Query for shaping/validation, and Power BI for repeatable operational review. The emphasis was reliability and adoption over feature-heavy complexity.</p>
 
                 <figure class="evidence-diagram">
                     <svg viewBox="0 0 980 240" role="img" aria-label="Floor walk data flow from Power App to Power BI">
@@ -104,53 +98,46 @@
                         <line x1="610" y1="106" x2="640" y2="106"></line>
                         <line x1="810" y1="106" x2="840" y2="106"></line>
                     </svg>
-                    <figcaption>High-level delivery pattern used for operational capture and BI trend visibility.</figcaption>
+                    <figcaption>Operational flow: mobile capture to governed storage and repeatable BI review.</figcaption>
                 </figure>
             </section>
 
             <section class="cs-section">
-                <h2>Data quality &amp; governance controls</h2>
+                <h2>Why this design worked</h2>
                 <ul>
-                    <li>Required fields for issue type, area/location, severity context, and owner.</li>
-                    <li>Controlled category values to reduce reporting noise from free-text variants.</li>
-                    <li>Consistent location naming conventions to prevent duplicate location labels.</li>
-                    <li>Automated timestamp capture to support daily/weekly/monthly trend slices.</li>
-                    <li>Ownership and status fields to improve follow-up accountability.</li>
+                    <li><strong>Power Apps:</strong> low-friction mobile-first input suited to warehouse floor usage, improving adoption during live operations.</li>
+                    <li><strong>SharePoint List:</strong> simple governed storage with controlled fields and practical administration for business teams.</li>
+                    <li><strong>Power Query:</strong> consistent shaping and validation so reporting inputs were standardised before semantic use.</li>
+                    <li><strong>Power BI:</strong> repeatable operational review of recurring issues, ownership trends, and escalation evidence over time.</li>
                 </ul>
             </section>
 
             <section class="cs-section">
-                <h2>Adoption approach</h2>
-                <p>Adoption was handled pragmatically: keep the form concise, align fields to existing floor walk behaviour, and gather supervisor feedback during pilot usage before broader rollout. The objective was reliable repeat usage, not feature-heavy complexity. Short guidance notes and clear field labels supported consistency without over-engineering training.</p>
-            </section>
-
-            <section class="cs-section">
-                <h2>Reporting outcomes</h2>
-                <p>With standardised capture in place, reporting shifted from reactive collation to trend-led insight. Typical views included:</p>
+                <h2>Decision outcomes enabled</h2>
                 <ul>
-                    <li>Recurring issue patterns by aisle, zone, or product family.</li>
-                    <li>Hotspot identification where repeated observations clustered by location.</li>
-                    <li>Repeat categories across shifts and teams, highlighting process control gaps.</li>
-                    <li>Time-based trends showing whether issue frequency was stabilising or re-emerging.</li>
+                    <li>Easier senior review of recurring issues by area/category with fewer debates about data consistency.</li>
+                    <li>Clearer ownership/accountability because issue records retained explicit owner and status fields.</li>
+                    <li>Evidence-backed escalation using trend and recurrence patterns instead of isolated anecdotes.</li>
+                    <li>Faster operational follow-up because teams could focus on actions rather than manual data preparation.</li>
                 </ul>
             </section>
 
             <section class="cs-section">
-                <h2>Outcomes</h2>
+                <h2>Results / impact</h2>
                 <ul>
-                    <li>Improved visibility into floor walk findings through consistent historical records.</li>
-                    <li>Reduced manual effort previously required to consolidate operational checks.</li>
-                    <li>Standardised process and data definitions across contributing teams.</li>
-                    <li>More actionable review conversations supported by clearer trend evidence.</li>
+                    <li>Estimated <strong>4–8 staff hours/day saved</strong> by reducing double handling and manual collation steps.</li>
+                    <li>Improved consistency of issue logging through standardised categories and location conventions.</li>
+                    <li>Stronger governance of floor-walk data through required fields, controlled values, and timestamped records.</li>
+                    <li>More reliable operational reporting foundation for recurring review, prioritisation, and continuous-improvement follow-through.</li>
                 </ul>
             </section>
 
             <section class="cs-section">
                 <h2>Next steps</h2>
                 <ul>
-                    <li>Introduce SLA-style follow-up tracking for higher-severity categories.</li>
-                    <li>Add simple exception alerts for repeated issues above agreed thresholds.</li>
-                    <li>Periodically review controlled category sets to keep definitions current.</li>
+                    <li>Add threshold-based alerts for high-frequency repeat issues by category/location.</li>
+                    <li>Introduce SLA-style follow-up measures for higher-severity findings.</li>
+                    <li>Review category taxonomy quarterly to keep labels aligned with operational reality.</li>
                 </ul>
             </section>
 
