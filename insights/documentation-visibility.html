@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation & Visibility Notes | Arsalan Iftikhar</title>
-    <meta name="description" content="Practical delivery notes on documentation and visual artefacts that reduce KPI drift and reporting risk.">
+    <meta name="description" content="Applied BI documentation and visibility controls that reduce KPI drift, release risk, and support gaps.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Documentation & Visibility Notes | Arsalan Iftikhar">
-    <meta property="og:description" content="How lifecycle documentation and visibility artefacts prevent metric drift, key confusion, and fragile BI delivery.">
+    <meta property="og:description" content="Applied BI documentation and visibility controls that reduce KPI drift, release risk, and support gaps.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/insights/documentation-visibility.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <style>
@@ -20,128 +20,81 @@
         .nav-brand{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:700;text-decoration:none;color:var(--primary)}
         .nav-links{display:flex;gap:2rem;list-style:none}.nav-links a{text-decoration:none;color:var(--primary);font-weight:500}
         main{max-width:960px;margin:0 auto;padding:3rem 2rem 4rem}
-        h1{font-family:'Montserrat',sans-serif;font-size:2.2rem;margin-bottom:.6rem}
-        .lead{color:var(--muted);margin-bottom:1.1rem}
-        section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.3rem;margin-bottom:1rem}
-        h2{font-size:1.2rem;margin-bottom:.6rem}
-        h3{font-size:1rem;margin:.8rem 0 .4rem}
-        p,li{color:var(--muted)} ul{padding-left:1.2rem} li{margin-bottom:.35rem}
-        .note{border-left:4px solid var(--accent);background:#eff6ff;padding:.7rem .85rem;border-radius:8px;color:#1e3a8a;margin-top:.7rem}
+        h1{font-family:'Montserrat',sans-serif;font-size:2rem;margin-bottom:.6rem}
+        .lead{color:var(--muted);margin-bottom:1rem}
+        .summary-panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin-bottom:1rem}
+        .summary-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:.9rem}
+        .summary-item h2{font-size:.95rem;margin-bottom:.3rem}.summary-item p{font-size:.9rem;color:var(--muted)}
+        section{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem;margin-bottom:1rem}
+        h2{font-size:1.12rem;margin-bottom:.55rem}
+        p,li{color:var(--muted)} ul{padding-left:1.15rem} li{margin-bottom:.32rem}
         footer{background:var(--primary);color:#fff;text-align:center;padding:2rem}
         .footer-links{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1rem}
         .footer-links a{color:rgba(255,255,255,.85);text-decoration:none}
         .mobile-menu-toggle{display:none;background:none;border:none;cursor:pointer}
         .mobile-menu-toggle span{display:block;width:25px;height:3px;background:var(--primary);margin:5px 0}
+        .top-breadcrumb{font-size:.9rem;color:var(--muted);margin-bottom:.8rem}
+        .top-breadcrumb a{color:var(--muted);text-decoration:none}
+        .top-breadcrumb a:hover{text-decoration:underline;color:var(--accent)}
         @media (max-width:768px){.mobile-menu-toggle{display:block}.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:white;flex-direction:column;padding:1rem}.nav-links.active{display:flex}}
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="../index.html" class="nav-brand">⌂ Arsalan Iftikhar</a>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="../index.html">About</a></li>
-                <li><a href="../experience.html">Experience</a></li>
-                <li><a href="../projects.html">Projects</a></li>
-                <li><a href="../approach.html">My Approach</a></li>
-                <li><a href="index.html">Insights</a></li>
-                <li><a href="../index.html#connect">Connect</a></li>
-            </ul>
-        </nav>
-    </header>
+<header><nav>
+    <a href="../index.html" class="nav-brand">⌂ Arsalan Iftikhar</a>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks"><li><a href="../index.html">Home</a></li><li><a href="../experience.html">Experience</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../approach.html">My Approach</a></li><li><a href="index.html">Insights</a></li><li><a href="../index.html#connect">Connect</a></li></ul>
+</nav></header>
 
-    <main>
-        <h1>Documentation and visibility notes: delivery artefacts that protect KPI integrity</h1>
-        <p class="lead">In BI delivery, documentation is not admin overhead; it is a control layer. The right artefacts at each stage reduce ambiguity, keep teams aligned, and prevent avoidable rework when reporting scales.</p>
+<main>
+        <p class="top-breadcrumb"><a href="index.html">← Back to Insights</a></p>
+    <h1>Documentation and visibility controls that protect delivery</h1>
+    <p class="lead">Short practical notes on the minimum artefacts I use so BI delivery stays governed, supportable, and decision-ready.</p>
 
-        <section>
-            <h2>Discovery artefacts</h2>
-            <p>Discovery artefacts set decision boundaries before technical build begins.</p>
-            <ul>
-                <li><strong>Stakeholder map:</strong> clarifies decision owners, approvers, contributors, and consumers.</li>
-                <li><strong>Decision log:</strong> records KPI scope choices, exclusions, and rationale over time.</li>
-                <li><strong>KPI definition sheet:</strong> establishes metric formulas, filters, and business interpretation in plain language.</li>
-            </ul>
-            <p class="note">If discovery decisions are not visible, teams tend to re-litigate definitions later during UAT and release.</p>
-        </section>
+    <section class="summary-panel" aria-label="Applied summary">
+        <article class="summary-item"><h2>Where I apply this</h2><p>BI workstreams spanning discovery, semantic design, reporting build, release, and handover.</p></article>
+        <article class="summary-item"><h2>What problem this avoids</h2><p>KPI drift, undocumented logic, single-person dependency, and unclear ownership after go-live.</p></article>
+        <article class="summary-item"><h2>Why it matters in practice</h2><p>Without visibility artefacts, teams lose trust in numbers and support overhead rises quickly.</p></article>
+    </section>
 
-        <section>
-            <h2>Data design artefacts</h2>
-            <p>Once scope is stable, data design artefacts ensure the model can support agreed definitions.</p>
-            <ul>
-                <li><strong>ERD (for example in dbdiagram.io):</strong> shows entities, relationships, and key paths.</li>
-                <li><strong>Grain statements:</strong> explicitly define row-level meaning per table.</li>
-                <li><strong>Key statements:</strong> distinguish natural keys, surrogate keys, and conformed keys used across data products.</li>
-            </ul>
-            <p>These artefacts make model assumptions auditable and reduce hidden join logic in report files.</p>
-        </section>
+    <section>
+        <h2>Minimum artefacts by stage</h2>
+        <ul>
+            <li><strong>Discovery:</strong> scope/outcomes note, decision owners, non-goals.</li>
+            <li><strong>KPI governance:</strong> concise metric dictionary and change log.</li>
+            <li><strong>Model design:</strong> data-flow diagram, semantic relationship notes, grain definitions.</li>
+            <li><strong>Validation:</strong> reconciliation results and exception triage paths.</li>
+            <li><strong>Release:</strong> runbook, release notes, and support ownership map.</li>
+        </ul>
+    </section>
 
-        <section>
-            <h2>Process and dataflow diagrams (Visio)</h2>
-            <p>Process/dataflow diagrams provide operational clarity: source-to-target movement, transformation checkpoints, and control points.</p>
-            <ul>
-                <li>Show where data quality checks happen.</li>
-                <li>Clarify where ownership transfers between teams.</li>
-                <li>Highlight dependencies that can affect refresh windows and incident response.</li>
-            </ul>
-            <p>In practice, these diagrams reduce time-to-triage when pipelines fail or source contracts change.</p>
-        </section>
+    <section>
+        <h2>How this supports trusted reporting</h2>
+        <ul>
+            <li>Keeps metric definitions explicit and reviewable.</li>
+            <li>Makes lineage easier to explain in senior review conversations.</li>
+            <li>Improves handover quality so BAU support is stable.</li>
+        </ul>
+    </section>
 
-        <section>
-            <h2>UX and report mockups (Figma)</h2>
-            <p>Mockups align user expectations before semantic logic is finalised in dashboards.</p>
-            <ul>
-                <li>Expose navigation, filter behaviour, and drill pathways early.</li>
-                <li>Validate that proposed visuals answer real operational questions.</li>
-                <li>Prevent late layout churn that can disrupt measure naming and model structure.</li>
-            </ul>
-            <p>Mockups are most valuable when paired with KPI definition references, so visual intent and metric logic remain linked.</p>
-        </section>
+    <section>
+        <h2>Common failure pattern</h2>
+        <p>Teams often document only at the end. The better pattern is lightweight artefacts updated through delivery, so decisions are visible while they are still easy to correct.</p>
+    </section>
 
-        <section>
-            <h2>Delivery hygiene artefacts</h2>
-            <p>Delivery hygiene is what keeps solutions supportable after go-live.</p>
-            <ul>
-                <li><strong>PR checklist:</strong> confirms naming, tests, documentation, and control steps before merge.</li>
-                <li><strong>Runbooks:</strong> define refresh operations, exception handling, and escalation actions.</li>
-                <li><strong>Ownership matrix:</strong> identifies who maintains data contracts, semantic logic, and reporting outputs.</li>
-            </ul>
-            <p>Without these artefacts, delivery quality depends too heavily on individual memory.</p>
-        </section>
+    <section>
+        <h2>What this demonstrates</h2>
+        <p>Delivery maturity in BI is not just model quality; it is control of definitions, visibility of decisions, and operationally reliable handover.</p>
+    </section>
+</main>
 
-        <section>
-            <h2>What this prevents</h2>
-            <ul>
-                <li><strong>Metric drift:</strong> KPI logic diverges between teams when definitions are undocumented.</li>
-                <li><strong>Key confusion:</strong> unclear join paths create conflicting counts and broken lineage.</li>
-                <li><strong>Tribal knowledge risk:</strong> undocumented process decisions become single-person dependencies.</li>
-                <li><strong>Fragile refresh:</strong> missing runbook and dataflow visibility slows incident recovery.</li>
-            </ul>
-            <p class="note">Senior delivery discipline is not only about building the model; it is about making model intent visible and maintainable for the next change cycle.</p>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-links">
-            <a href="../index.html">Home</a>
-            <a href="../experience.html">Experience</a>
-            <a href="../projects.html">Projects</a>
-            <a href="../approach.html">My Approach</a>
-            <a href="index.html">Insights</a>
-        </div>
-        <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            const navLinks = document.getElementById('navLinks');
-            mobileMenuToggle.addEventListener('click', function () {
-                this.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-        });
-    </script>
+<footer><div class="footer-links"><a href="../index.html">Home</a><a href="../experience.html">Experience</a><a href="../projects.html">Projects</a><a href="../approach.html">My Approach</a><a href="index.html">Insights</a></div><p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p></footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+        mobileMenuToggle.addEventListener('click', function () { this.classList.toggle('active'); navLinks.classList.toggle('active'); });
+    });
+</script>
 </body>
 </html>

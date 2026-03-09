@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arsalan Iftikhar | Senior MI Analyst (GXO Logistics)</title>
-    <meta name="description" content="Senior MI Analyst at GXO Logistics delivering reliable BI outcomes through practical delivery, governance, and stakeholder alignment.">
+    <title>Arsalan Iftikhar | Senior BI Analyst</title>
+    <meta name="description" content="Senior BI Analyst focused on trusted reporting, KPI governance, semantic modelling, and scalable BI delivery using Power BI, SQL, and Microsoft Fabric.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Arsalan Iftikhar | Senior MI Analyst (GXO Logistics)">
-    <meta property="og:description" content="Senior MI Analyst at GXO Logistics delivering reliable BI outcomes through practical delivery, governance, and stakeholder alignment.">
+    <meta property="og:title" content="Arsalan Iftikhar | Senior BI Analyst">
+    <meta property="og:description" content="Senior BI Analyst focused on trusted reporting, KPI governance, semantic modelling, and scalable BI delivery using Power BI, SQL, and Microsoft Fabric.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/index.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;700;800&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary: #1f2937; --accent: #0066cc; --muted: #6b7280; --bg: #f8f9fa; --card: #fff; --border: #e5e7eb;
+            --primary: #1f2937;
+            --accent: #0066cc;
+            --muted: #6b7280;
+            --bg: #f8f9fa;
+            --card: #fff;
+            --border: #e5e7eb;
             --dark-grad: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
         }
+
         body { font-family: 'Poppins', sans-serif; color: var(--primary); background: #fff; line-height: 1.6; }
         header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,.95); backdrop-filter: blur(10px); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
         nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
@@ -24,54 +30,54 @@
         .nav-links { list-style: none; display: flex; gap: 2rem; }
         .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; }
 
-        .hero { margin-top: 60px; background: var(--dark-grad); color: #fff; text-align: center; padding: 5.5rem 1.5rem 4rem; }
-        .hero img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 4px solid rgba(255,255,255,.2); margin-bottom: 1.25rem; }
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: .5rem; }
-        .hero .role { font-size: 1.25rem; margin-bottom: .75rem; color: rgba(255,255,255,.9); }
-        .hero .summary { max-width: 820px; margin: 0 auto; color: rgba(255,255,255,.82); }
-        .cta-buttons { margin-top: 1.5rem; display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
+        .hero { margin-top: 60px; background: var(--dark-grad); color: #fff; text-align: center; padding: 5.5rem 1.5rem 4.5rem; }
+        .hero img { width: 126px; height: 126px; border-radius: 50%; object-fit: cover; border: 4px solid rgba(255,255,255,.2); margin-bottom: 1.1rem; }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: .45rem; }
+        .hero .role { font-size: 1.25rem; margin-bottom: .9rem; color: rgba(255,255,255,.9); }
+        .hero .summary { max-width: 900px; margin: 0 auto; color: rgba(255,255,255,.84); }
+        .hero-pillars { margin: 1.25rem auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; max-width: 920px; }
+        .hero-pillars span { border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: .35rem .8rem; font-size: .85rem; background: rgba(255,255,255,.08); }
+
+        .cta-buttons { margin-top: 1.55rem; display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; }
         .btn { text-decoration: none; border-radius: 999px; padding: .75rem 1.5rem; font-weight: 600; display: inline-block; }
         .btn-primary { background: #fff; color: var(--primary); }
         .btn-secondary { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.55); }
 
-        section { max-width: 1200px; margin: 0 auto; padding: 3.5rem 2rem; }
-        .section-title { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; text-align: center; margin-bottom: .75rem; }
-        .section-sub { text-align: center; color: var(--muted); margin-bottom: 2rem; }
+        section { max-width: 1200px; margin: 0 auto; padding: 3.2rem 2rem; }
+        .section-title { font-family: 'Montserrat', sans-serif; font-size: 2.1rem; text-align: center; margin-bottom: .65rem; }
+        .section-sub { text-align: center; color: var(--muted); margin-bottom: 1.8rem; max-width: 840px; margin-left: auto; margin-right: auto; }
 
-        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 1rem; }
-        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.1rem; }
-        .card h3 { font-size: 1.03rem; margin-bottom: .45rem; }
+        .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1rem; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.15rem; }
+        .card h3 { font-size: 1.03rem; margin-bottom: .4rem; }
         .card p { color: var(--muted); font-size: .95rem; }
 
-        #trusted-by { background: var(--bg); }
-        .logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: .9rem; }
-        .logo-item { background: #fff; border: 1px solid var(--border); border-radius: 12px; height: 82px; display: flex; align-items: center; justify-content: center; padding: .6rem; }
-        .logo-item img { max-height: 46px; max-width: 130px; object-fit: contain; }
+        .outcomes { background: var(--bg); }
+        .outcome-card { background: #fff; border-left: 4px solid var(--accent); }
+        .outcome-card p { color: var(--primary); }
 
-        #tech { background: #fff; }
-        .stack-group { margin-top: 1rem; }
-        .stack-group h3 { font-size: 1.1rem; margin-bottom: .8rem; }
-        .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(165px,1fr)); gap: .8rem; }
-        .tool-tile { background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: .8rem; text-align: center; min-height: 118px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; }
-        .tool-tile img { width: 42px; height: 42px; object-fit: contain; }
-        .fallback-icon { width: 42px; height: 42px; border-radius: 999px; background: #dbeafe; color: #1e3a8a; display: none; align-items: center; justify-content: center; font-size: .85rem; font-weight: 700; }
-        .tool-name { font-size: .92rem; }
-        .tool-note { color: var(--muted); font-size: .75rem; }
+        #value { background: #fff; }
 
-        .cert-wrap { background: var(--bg); }
-        .cert-grid { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
-        .cert-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 1rem; text-align: center; min-width: 220px; }
-        .cert-card img { max-height: 120px; margin-bottom: .6rem; }
-        .cert-link { text-decoration: none; color: inherit; display: block; }
-        .lift-on-hover { transition: transform 200ms ease, box-shadow 200ms ease; }
-        .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(0,0,0,.12); }
-        @media (prefers-reduced-motion: reduce) { .lift-on-hover { transition: none; } .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform: none; } }
+        #featured { background: var(--bg); }
+        .case-card h3 { margin-bottom: .35rem; }
+        .case-card p { margin-bottom: .85rem; }
+        .case-link { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+        .stack-strip { padding-top: 1.25rem; padding-bottom: 1.25rem; }
+        .stack-inline { display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem; }
+        .stack-inline span { border: 1px solid var(--border); border-radius: 999px; padding: .35rem .75rem; font-size: .86rem; font-weight: 500; background: var(--bg); }
+
+        #featured-insights { background: var(--bg); }
+        .insight-card h3 { margin-bottom: .35rem; }
+        .insight-card p { margin-bottom: .85rem; }
 
         #connect { background: #fff; }
         .connect-card { border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; }
         .connect-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: .8rem; margin-top: 1rem; }
         .connect-item { background: var(--bg); border-radius: 10px; padding: .9rem; text-align: center; }
         .connect-item a { color: var(--accent); text-decoration: none; font-weight: 600; }
+        .connect-cta { margin-top: 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+        .connect-cta .btn { border: 1px solid var(--accent); color: var(--accent); }
 
         footer { background: var(--primary); color: #fff; text-align: center; padding: 2rem; }
         .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: .8rem; }
@@ -85,6 +91,7 @@
             .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 1rem; box-shadow: 0 10px 20px rgba(0,0,0,.1); }
             .nav-links.active { display: flex; }
             .hero h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -106,97 +113,128 @@
     <section id="home" class="hero">
         <img src="assets/profile.jpeg" alt="Arsalan Iftikhar profile photo">
         <h1>Arsalan Iftikhar</h1>
-        <p class="role">Senior MI Analyst — GXO Logistics</p>
-        <p class="summary">I design and deliver reliable BI solutions that connect business questions to trustworthy reporting, clear KPI ownership, and maintainable delivery practices.</p>
+        <p class="role">Senior BI Analyst | Trusted Reporting &amp; Operational BI Delivery</p>
+        <p class="summary">I build governed BI products that give operations and leadership a single trusted view of performance. My focus is KPI governance, semantic modelling, and reliable reporting delivery across Power BI, SQL, and Microsoft Fabric.</p>
+        <div class="hero-pillars">
+            <span>Trusted Reporting</span>
+            <span>Governed Metrics</span>
+            <span>Scalable BI Products</span>
+        </div>
         <div class="cta-buttons">
-            <a href="experience.html" class="btn btn-primary">View Experience</a>
-            <a href="projects.html" class="btn btn-secondary">View Projects</a>
-            <a href="approach.html" class="btn btn-secondary">My Approach</a>
-            <a href="index.html#connect" class="btn btn-secondary">CV &amp; Contact</a>
+            <a href="projects.html" class="btn btn-primary">View Case Studies</a>
+            <a href="assets/cv/Arsalan-Iftikhar-CV.pdf" class="btn btn-secondary" download>Download CV</a>
+            <a href="index.html#connect" class="btn btn-secondary">Contact</a>
         </div>
     </section>
 
-    <section id="what-i-do">
-        <h2 class="section-title">What I Do</h2>
-        <p class="section-sub">Core senior BI competencies across delivery, modelling, governance, and enablement.</p>
+    <section class="outcomes" id="proof-of-impact">
+        <h2 class="section-title">Selected Outcomes</h2>
+        <p class="section-sub">Operational BI outcomes focused on speed, control, and decision confidence.</p>
         <div class="cards">
-            <article class="card"><h3>BAU Reporting & Insight Delivery</h3><p>Owns reliable day-to-day reporting cycles and actionable insight outputs for operations and leadership.</p></article>
-            <article class="card"><h3>Requirements Gathering & Problem Framing</h3><p>Translates business asks into scoped delivery problems with clear outcomes and realistic constraints.</p></article>
-            <article class="card"><h3>Stakeholder Management & Communication</h3><p>Keeps business, technical, and delivery stakeholders aligned through practical updates and decision-ready communication.</p></article>
-            <article class="card"><h3>KPI Definition & Governance</h3><p>Drives consistency in KPI definitions, ownership, and interpretation to reduce drift across reports.</p></article>
-            <article class="card"><h3>Data Modelling (semantic layer, star schema)</h3><p>Designs maintainable data models for semantic clarity, performance, and predictable reporting behavior.</p></article>
-            <article class="card"><h3>Data Engineering (pipelines, transformations)</h3><p>Builds and supports repeatable ingestion/transformation patterns for reliable downstream analytics.</p></article>
-            <article class="card"><h3>Performance Optimisation (model/DAX)</h3><p>Improves model and measure responsiveness using practical tuning reviews and targeted query analysis.</p></article>
-            <article class="card"><h3>Documentation & Runbooks (handover, reliability)</h3><p>Produces delivery artefacts that reduce single points of failure and support stable handover.</p></article>
-            <article class="card"><h3>Workshops & Enablement (mentoring, onboarding, stakeholder sessions)</h3><p>Runs collaborative sessions to align definitions, raise capability, and improve adoption of BI products.</p></article>
+            <article class="card outcome-card">
+                <h3>Saved 4–8 staff hours per day</h3>
+                <p>Digitised floor-walk capture from paper to Power Apps, reducing admin time and improving same-day visibility for warehouse teams.</p>
+            </article>
+            <article class="card outcome-card">
+                <h3>Automated 10+ daily reports</h3>
+                <p>Replaced manual report handling with stable scheduled outputs, improving consistency and reducing reporting risk across BAU operations.</p>
+            </article>
+            <article class="card outcome-card">
+                <h3>Owned Fabric datasets across critical domains</h3>
+                <p>Delivered and maintained Microsoft Fabric dataset work for Pre-Advice, Orders, and Inventory Transactions with controlled KPI logic.</p>
+            </article>
         </div>
     </section>
 
-    <section id="trusted-by">
-        <h2 class="section-title">Trusted By</h2>
-        <p class="section-sub">Teams and organisations where I have delivered analytics outcomes.</p>
-        <div class="logos">
-            <div class="logo-item"><img src="assets/logos/gxo.webp" alt="GXO Logistics"></div>
-            <div class="logo-item"><img src="assets/logos/mands.jpg" alt="Marks and Spencer"></div>
-            <div class="logo-item"><img src="assets/logos/ocado.jpg" alt="Ocado"></div>
-            <div class="logo-item"><img src="assets/logos/NexAura white.jpg" alt="NexAura"></div>
+    <section id="value">
+        <h2 class="section-title">How I Deliver BI Value</h2>
+        <p class="section-sub">A focused delivery model for dependable reporting, metric consistency, and scalable analytics products.</p>
+        <div class="cards">
+            <article class="card">
+                <h3>Governed KPI &amp; Semantic Model Ownership</h3>
+                <p>Define metric logic, ownership, and semantic model standards so reports stay consistent and decision-ready across teams.</p>
+            </article>
+            <article class="card">
+                <h3>Operational Reporting Reliability</h3>
+                <p>Run and improve BAU reporting with strong delivery discipline, clear handover documentation, and reduced single points of failure.</p>
+            </article>
+            <article class="card">
+                <h3>Scalable BI Product Delivery</h3>
+                <p>Translate business problems into maintainable BI products, balancing short-term needs with long-term platform quality.</p>
+            </article>
+            <article class="card">
+                <h3>Stakeholder-Ready Decision Support</h3>
+                <p>Provide clear insight narratives and action-focused reporting that help operations and leadership move quickly with confidence.</p>
+            </article>
         </div>
     </section>
 
-    <section id="tech">
-        <h2 class="section-title">Technology Stack</h2>
-        <p class="section-sub">Core and supporting tools used for practical BI delivery.</p>
-
-        <div class="stack-group">
-            <h3>Core Stack</h3>
-            <div class="tool-grid">
-                <div class="tool-tile"><img src="assets/tools/powerbi.webp" alt="Microsoft Fabric" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">MF</span><span class="tool-name">Microsoft Fabric</span></div>
-                <div class="tool-tile"><img src="assets/tools/powerbi.webp" alt="Power BI" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">PB</span><span class="tool-name">Power BI</span></div>
-                <div class="tool-tile"><img src="assets/tools/sql.webp" alt="SQL" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">SQL</span><span class="tool-name">SQL</span></div>
-                <div class="tool-tile"><img src="assets/tools/python.webp" alt="PySpark / Spark" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">SP</span><span class="tool-name">PySpark / Spark</span></div>
-                <div class="tool-tile"><img src="assets/placeholder.txt" alt="DAX Studio" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">DX</span><span class="tool-name">DAX Studio</span></div>
-                <div class="tool-tile"><img src="assets/placeholder.txt" alt="Git / GitHub" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">GH</span><span class="tool-name">Git / GitHub</span></div>
-                <div class="tool-tile"><img src="assets/placeholder.txt" alt="VS Code" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">VS</span><span class="tool-name">VS Code</span></div>
-            </div>
-        </div>
-
-        <div class="stack-group">
-            <h3>Additional Tools</h3>
-            <div class="tool-grid">
-                <div class="tool-tile"><img src="assets/placeholder.txt" alt="Power Query" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">PQ</span><span class="tool-name">Power Query</span></div>
-                <div class="tool-tile"><img src="assets/placeholder.txt" alt="SSIS" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">SS</span><span class="tool-name">SSIS</span></div>
-                <div class="tool-tile"><img src="assets/tools/powerapps.webp" alt="Power Apps" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">PA</span><span class="tool-name">Power Apps</span></div>
-                <div class="tool-tile"><img src="assets/tools/powerautomate.webp" alt="Power Automate" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">PM</span><span class="tool-name">Power Automate</span></div>
-                <div class="tool-tile"><img src="assets/placeholder.txt" alt="Miro" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">MI</span><span class="tool-name">Miro</span></div>
-                <div class="tool-tile"><img src="assets/tools/excel.webp" alt="Excel" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">XL</span><span class="tool-name">Excel</span></div>
-                <div class="tool-tile"><img src="assets/tools/tableau.webp" alt="Tableau" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">TB</span><span class="tool-name">Tableau</span><span class="tool-note">minor</span></div>
-                <div class="tool-tile"><img src="assets/placeholder.txt" alt="Copilot" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><span class="fallback-icon">CP</span><span class="tool-name">Copilot</span><span class="tool-note">minor</span></div>
-            </div>
+    <section class="stack-strip" aria-label="Core BI stack inline strip">
+        <div class="stack-inline">
+            <span>Power BI</span>
+            <span>SQL</span>
+            <span>Microsoft Fabric</span>
+            <span>PySpark</span>
+            <span>Semantic Modelling</span>
+            <span>KPI Governance</span>
         </div>
     </section>
 
-    <section class="cert-wrap">
-        <h2 class="section-title">Certifications</h2>
-        <p class="section-sub">Formal foundations that support practical analytics delivery.</p>
-        <div class="cert-grid">
-            <a class="cert-link lift-on-hover" href="https://www.credly.com/badges/f85f09da-2bb3-43bc-8443-0504abf94f56" target="_blank" rel="noopener noreferrer">
-                <article class="cert-card">
-                    <img src="assets/certifications/google-data-analytics.png" alt="Google Data Analytics Certificate">
-                    <p>Google Data Analytics</p>
-                </article>
-            </a>
+    <section id="featured">
+        <h2 class="section-title">Featured Case Studies</h2>
+        <p class="section-sub">Three representative projects covering modernisation, automation, and decision-support analytics.</p>
+        <div class="cards">
+            <article class="card case-card">
+                <h3>GXO Fabric Modernisation</h3>
+                <p>Modernised reporting foundations through Microsoft Fabric dataset delivery and stronger model governance patterns.</p>
+                <a class="case-link" href="projects/fabric-modernisation-case-study.html">View case study →</a>
+            </article>
+            <article class="card case-card">
+                <h3>Floor Walk Power App</h3>
+                <p>Digitised operational floor-walk processes to reduce admin time and improve reporting speed and data quality.</p>
+                <a class="case-link" href="projects/floor-walk-powerapp-case-study.html">View case study →</a>
+            </article>
+            <article class="card case-card">
+                <h3>Sales Analytics Dashboard</h3>
+                <p>Built a scalable Power BI sales model and dashboard focused on trend analysis, KPI tracking, and business actions.</p>
+                <a class="case-link" href="projects/sales_analysis_case_study.html">View case study →</a>
+            </article>
+        </div>
+    </section>
+
+    <section id="featured-insights">
+        <h2 class="section-title">Featured Insights</h2>
+        <p class="section-sub">Applied professional notes that show delivery judgement in modern BI programmes.</p>
+        <div class="cards">
+            <article class="card insight-card">
+                <h3>Fabric Modernisation Notes</h3>
+                <p>Practical migration decisions for protecting metric trust, reducing logic sprawl, and keeping reporting stable through transition.</p>
+                <a class="case-link" href="insights/fabric-migration-notes.html">Read insight →</a>
+            </article>
+            <article class="card insight-card">
+                <h3>Documentation &amp; Visibility Controls</h3>
+                <p>Minimum delivery artefacts that prevent KPI drift, strengthen ownership clarity, and improve handover reliability.</p>
+                <a class="case-link" href="insights/documentation-visibility.html">Read insight →</a>
+            </article>
+            <article class="card insight-card">
+                <h3>SQL Reliability Patterns</h3>
+                <p>Applied query patterns for lifecycle chaining and validation checks that improve semantic correctness in BI pipelines.</p>
+                <a class="case-link" href="insights/advanced-sql-patterns.html">Read insight →</a>
+            </article>
         </div>
     </section>
 
     <section id="connect">
         <div class="connect-card">
             <h2 class="section-title">Connect</h2>
-            <p class="section-sub">Open to BI, MI, and data delivery conversations.</p>
-            <div class="cta-buttons">
-                <a href="assets/cv/Arsalan-Iftikhar-CV.pdf" class="btn" style="background:#0066cc;color:#fff;" download>Download CV</a>
+            <p class="section-sub">Open to Senior BI Analyst, BI Developer, and Senior Data Analyst opportunities.</p>
+            <div class="connect-cta">
+                <a href="projects.html" class="btn">View Case Studies</a>
+                <a href="assets/cv/Arsalan-Iftikhar-CV.pdf" class="btn" download>Download CV</a>
+                <a href="mailto:arsalan.iftikhar1@hotmail.com" class="btn">Contact</a>
             </div>
             <div class="connect-grid">
-                <div class="connect-item"><a href="https://www.linkedin.com/in/arsalaniftikhar1/" target="_blank">LinkedIn</a></div>
+                <div class="connect-item"><a href="https://www.linkedin.com/in/arsalaniftikhar1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
                 <div class="connect-item"><a href="mailto:arsalan.iftikhar1@hotmail.com">arsalan.iftikhar1@hotmail.com</a></div>
                 <div class="connect-item">Greater Leeds Area, UK</div>
             </div>
