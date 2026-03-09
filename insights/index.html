@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insights | Arsalan Iftikhar</title>
-    <meta name="description" content="Practical insights on Microsoft Fabric migration, semantic model performance, KPI governance, and BI delivery patterns.">
+    <meta name="description" content="Curated applied BI insights from delivery work: Fabric modernisation, documentation controls, Power Apps operational capture, and SQL reliability patterns.">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Insights | Arsalan Iftikhar">
-    <meta property="og:description" content="Practical insights on Microsoft Fabric migration, semantic model performance, KPI governance, and BI delivery patterns.">
+    <meta property="og:description" content="Curated applied BI insights from delivery work: Fabric modernisation, documentation controls, Power Apps operational capture, and SQL reliability patterns.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/insights/">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <style>
@@ -22,34 +22,23 @@
         .nav-links a { text-decoration:none; color:var(--primary-color); font-weight:500; }
         main { max-width:1000px; margin:0 auto; padding:3rem 2rem 4rem; }
         h1 { font-family:'Montserrat',sans-serif; font-size:2.3rem; margin-bottom:0.75rem; }
-        .subtitle { color:var(--text-light); margin-bottom:2rem; }
+        .subtitle { color:var(--text-light); margin-bottom:1rem; }
+        .curation-note { color:var(--text-light); margin-bottom:2rem; font-size:.95rem; }
+        .section-heading { font-family:'Montserrat',sans-serif; font-size:1.2rem; margin:1.2rem 0 .8rem; }
         .post { background:var(--bg-white); border:1px solid var(--border-color); border-radius:14px; padding:1.25rem; margin-bottom:1rem; }
         .post-meta { display:flex; align-items:center; gap:0.75rem; margin-bottom:0.35rem; }
-        .post-category {
-            display:inline-flex;
-            align-items:center;
-            border:1px solid var(--border-color);
-            border-radius:999px;
-            background:var(--bg-light);
-            color:var(--accent-color);
-            font-size:0.74rem;
-            font-weight:600;
-            letter-spacing:0.02em;
-            padding:0.2rem 0.6rem;
-            line-height:1.2;
-            white-space:nowrap;
-        }
+        .post-category { display:inline-flex; align-items:center; border:1px solid var(--border-color); border-radius:999px; background:var(--bg-light); color:var(--accent-color); font-size:0.74rem; font-weight:600; letter-spacing:0.02em; padding:0.2rem 0.6rem; line-height:1.2; white-space:nowrap; }
         .lift-on-hover { transition: transform 200ms ease, box-shadow 200ms ease; }
         .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform: translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,.12); }
         @media (prefers-reduced-motion: reduce) { .lift-on-hover { transition:none; } .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform:none; } }
-        .post a { color:var(--primary-color); font-size:1.2rem; font-weight:600; text-decoration:none; }
+        .post a { color:var(--primary-color); font-size:1.14rem; font-weight:600; text-decoration:none; }
         .post p { color:var(--text-light); margin-top:0.5rem; }
         footer { background:var(--primary-color); color:#fff; text-align:center; padding:2rem; }
         .footer-links { display:flex; justify-content:center; gap:2rem; margin-bottom:1rem; flex-wrap:wrap; }
         .footer-links a { color:rgba(255,255,255,0.85); text-decoration:none; }
         .mobile-menu-toggle { display:none; background:none; border:none; cursor:pointer; }
         .mobile-menu-toggle span { display:block; width:25px; height:3px; background:var(--primary-color); margin:5px 0; }
-        @media (max-width:768px){ .mobile-menu-toggle{display:block;} .nav-links{display:none; position:absolute; top:100%; left:0; right:0; background:white; flex-direction:column; padding:1rem;} .nav-links.active{display:flex;} .post-meta{gap:0.5rem;} .post a{font-size:1.1rem;} }
+        @media (max-width:768px){ .mobile-menu-toggle{display:block;} .nav-links{display:none; position:absolute; top:100%; left:0; right:0; background:white; flex-direction:column; padding:1rem;} .nav-links.active{display:flex;} }
     </style>
 </head>
 <body>
@@ -70,41 +59,35 @@
 
     <main>
         <h1>Insights</h1>
-        <p class="subtitle">Practical notes on BI delivery, semantic modelling, and Fabric migration from a Senior MI Analyst perspective.</p>
+        <p class="subtitle">Applied notes from real BI delivery work. Each piece focuses on practical decisions that improve reporting trust, delivery discipline, and supportability.</p>
+        <p class="curation-note">Curated selection: 3 priority insights for hiring managers, plus 1 supporting engineering note.</p>
+
+        <h2 class="section-heading">Priority insights</h2>
 
         <article class="post lift-on-hover">
-            <div class="post-meta">
-                <span class="post-category">Platform</span>
-            </div>
-            <a href="fabric-migration-notes.html">Fabric migration notes: patterns, pitfalls, and a practical playbook</a>
-            <p>A concise field guide to moving reporting workloads into Microsoft Fabric without losing metric integrity or refresh reliability.</p>
+            <div class="post-meta"><span class="post-category">Fabric</span></div>
+            <a href="fabric-migration-notes.html">Fabric modernisation notes: decisions that protect metric trust during migration</a>
+            <p>How I apply phased migration, reconciliation controls, and semantic governance to reduce logic sprawl and reporting risk.</p>
         </article>
 
-
         <article class="post lift-on-hover">
-            <div class="post-meta">
-                <span class="post-category">Apps</span>
-            </div>
-            <a href="power-apps-notes.html">Power Apps notes: practical delivery with SharePoint List storage and Power Query ingestion</a>
-            <p>A practitioner guide to designing governed Power Apps forms and preparing reliable SharePoint List data for Power BI reporting.</p>
+            <div class="post-meta"><span class="post-category">Delivery Control</span></div>
+            <a href="documentation-visibility.html">Documentation and visibility controls that reduce KPI drift</a>
+            <p>The minimum artefacts I use to keep definitions, ownership, and handover quality clear across BI delivery.</p>
         </article>
 
-
         <article class="post lift-on-hover">
-            <div class="post-meta">
-                <span class="post-category">Delivery</span>
-            </div>
-            <a href="documentation-visibility.html">Documentation &amp; visibility: artefacts that reduce KPI drift and delivery risk</a>
-            <p>A lifecycle-based guide to discovery, data design, process visibility, UX mockups, and delivery hygiene that keeps BI outputs reliable.</p>
+            <div class="post-meta"><span class="post-category">Operational Apps</span></div>
+            <a href="power-apps-notes.html">Power Apps + SharePoint operational capture: governed patterns for BI-ready data</a>
+            <p>Practical design choices for mobile-first capture, controlled metadata, and repeatable Power BI ingestion.</p>
         </article>
 
+        <h2 class="section-heading">Supporting technical note</h2>
 
         <article class="post lift-on-hover">
-            <div class="post-meta">
-                <span class="post-category">Engineering</span>
-            </div>
-            <a href="advanced-sql-patterns.html">Advanced SQL patterns: lifecycle chaining, validation rules, and window functions</a>
-            <p>Generalised query patterns from operational analytics work, with practical gotchas and performance notes for reliable BI outcomes.</p>
+            <div class="post-meta"><span class="post-category">SQL</span></div>
+            <a href="advanced-sql-patterns.html">SQL reliability patterns for operational analytics</a>
+            <p>Reusable query patterns for lifecycle chaining, validation logic, and latest-event extraction with cleaner semantics.</p>
         </article>
     </main>
 

@@ -33,7 +33,7 @@
     <main>
         <section class="hero">
             <h1>Senior BI Delivery Sequence</h1>
-            <p>This is the sequence I use for BI delivery: tight framing, governed metric ownership, disciplined model design, and controlled release so teams can trust and run the solution after handover.</p>
+            <p>A practical sequence for delivering trusted reporting: clear framing, governed KPI logic, semantic model discipline, controlled validation, and reliable handover.</p>
         </section>
 
         <section class="timeline" aria-label="BI delivery playbook timeline">
@@ -44,24 +44,23 @@
                     <h2>Discovery &amp; framing</h2>
                 </div>
                 <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
+                    <h3>What I need</h3>
                     <ul>
-                        <li>Stakeholder goals, decision points, and current reporting pain points.</li>
-                        <li>Source system inventory, data refresh expectations, and ownership contacts.</li>
+                        <li>Priority business decisions and current reporting pain points.</li>
+                        <li>Source inventory, data owners, and refresh expectations.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
+                    <h3>What I produce</h3>
                     <ul>
-                        <li>Agreed problem statement, delivery scope, and phase-level timeline.</li>
-                        <li>Draft data-flow diagram showing source to semantic layer movement.</li>
+                        <li>Agreed scope, outcomes, and non-goals.</li>
+                        <li>High-level source-to-semantic data flow.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
+                    <h3>Risk reduced</h3>
                     <ul>
-                        <li>Pitfall: Vague asks become moving targets. Mitigation: lock outcomes and non-goals in writing before build starts.</li>
-                        <li>Pitfall: Assumed data availability. Mitigation: validate source fields and latency early with data owners.</li>
+                        <li>Prevents scope drift and late discovery of missing data.</li>
                     </ul>
                 </div>
             </article>
@@ -73,68 +72,23 @@
                     <h2>KPI definition &amp; stewardship</h2>
                 </div>
                 <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
+                    <h3>What I need</h3>
                     <ul>
-                        <li>Business definitions for each KPI, including grain, owner, and action expected.</li>
-                        <li>Policy or finance rules that influence numerator, denominator, and exclusions.</li>
+                        <li>KPI definitions, grain, owners, and policy/finance rules.</li>
+                        <li>Agreement on inclusions, exclusions, and action expectations.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
+                    <h3>What I produce</h3>
                     <ul>
-                        <li>Baseline metric dictionary with formula logic, filter assumptions, and data lineage notes.</li>
-                        <li>Simple KPI change-control log so definition updates are explicit and approved.</li>
+                        <li>Concise KPI dictionary with logic and lineage notes.</li>
+                        <li>Lightweight change-control log for definition updates.</li>
                     </ul>
-
-                    <aside class="metric-dictionary-callout" aria-label="Example metric dictionary excerpt">
-                        <h3>Example: Metric dictionary excerpt</h3>
-                        <div class="metric-table-wrap">
-                            <table class="metric-table">
-                                <thead>
-                                    <tr>
-                                        <th>Metric name</th>
-                                        <th>Definition</th>
-                                        <th>Grain</th>
-                                        <th>Owner</th>
-                                        <th>Refresh cadence</th>
-                                        <th>Notes / caveats</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Labour Productivity</td>
-                                        <td>Total processed units divided by paid labour hours.</td>
-                                        <td>Site-day</td>
-                                        <td>Operations MI</td>
-                                        <td>Daily</td>
-                                        <td>Exclude agency onboarding shifts from baseline comparisons.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Throughput</td>
-                                        <td>Confirmed outbound units completed within the reporting window.</td>
-                                        <td>Shift-site</td>
-                                        <td>Warehouse Ops</td>
-                                        <td>Hourly</td>
-                                        <td>Late source postings can affect same-day cut-off values.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SLA Compliance</td>
-                                        <td>Orders completed within agreed SLA threshold ÷ total eligible orders.</td>
-                                        <td>Site-day</td>
-                                        <td>Service Delivery</td>
-                                        <td>Daily</td>
-                                        <td>Only customer-facing order classes are counted as eligible.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </aside>
                 </div>
                 <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
+                    <h3>Risk reduced</h3>
                     <ul>
-                        <li>Pitfall: Multiple versions of the same KPI. Mitigation: one owned definition and one semantic implementation.</li>
-                        <li>Pitfall: KPI drift after release. Mitigation: route all logic changes through the change log and sign-off.</li>
+                        <li>Reduces metric drift and conflicting report interpretations.</li>
                     </ul>
                 </div>
             </article>
@@ -143,27 +97,26 @@
                 <span class="phase-marker" aria-hidden="true"></span>
                 <div class="phase-title">
                     <span class="phase-number">Phase 3</span>
-                    <h2>Data modelling &amp; semantic layer design</h2>
+                    <h2>Data modelling &amp; semantic layer</h2>
                 </div>
                 <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
+                    <h3>What I need</h3>
                     <ul>
-                        <li>Confirmed KPI logic, source relationships, and known dimensional hierarchies.</li>
-                        <li>Constraints on refresh windows, security expectations, and data retention.</li>
+                        <li>Confirmed KPI logic and required reporting cuts.</li>
+                        <li>Business key/grain alignment across sources.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
+                    <h3>What I produce</h3>
                     <ul>
-                        <li>ERD for fact/dimension structure and semantic model boundaries.</li>
-                        <li>Documented data-flow diagram and semantic layer naming conventions.</li>
+                        <li>Maintainable model structure (fact/dimension patterns, conformed keys, date strategy).</li>
+                        <li>Documented semantic relationships and measure ownership standards.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
+                    <h3>Risk reduced</h3>
                     <ul>
-                        <li>Pitfall: Modelling for visuals instead of maintainability. Mitigation: enforce star-schema patterns and conformed dimensions.</li>
-                        <li>Pitfall: Security retrofitted late. Mitigation: design and test row-level security with real user roles upfront.</li>
+                        <li>Limits logic sprawl and improves consistency across reports.</li>
                     </ul>
                 </div>
             </article>
@@ -172,27 +125,26 @@
                 <span class="phase-marker" aria-hidden="true"></span>
                 <div class="phase-title">
                     <span class="phase-number">Phase 4</span>
-                    <h2>Build &amp; validation (reconciliation checks + controls)</h2>
+                    <h2>Validation &amp; controls</h2>
                 </div>
                 <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
+                    <h3>What I need</h3>
                     <ul>
-                        <li>Approved model structure and KPI definitions from earlier phases.</li>
-                        <li>Control totals or trusted reports for baseline comparison.</li>
+                        <li>Trusted baselines or control totals for comparison.</li>
+                        <li>Exception thresholds and escalation owners.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
+                    <h3>What I produce</h3>
                     <ul>
-                        <li>Reconciliation checks between source, transformed, and semantic outputs.</li>
-                        <li>Validation controls for refresh exceptions, threshold breaches, and issue triage.</li>
+                        <li>Reconciliation checks from source to transformed to semantic output.</li>
+                        <li>Control routines for refresh failures, threshold breaches, and issue triage.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
+                    <h3>Risk reduced</h3>
                     <ul>
-                        <li>Pitfall: Reporting logic accepted without controls. Mitigation: publish reconciliation results with each release candidate.</li>
-                        <li>Pitfall: Quiet refresh failures. Mitigation: implement alerting and escalation paths in the runbook.</li>
+                        <li>Prevents silent data issues and improves confidence in reported metrics.</li>
                     </ul>
                 </div>
             </article>
@@ -201,27 +153,26 @@
                 <span class="phase-marker" aria-hidden="true"></span>
                 <div class="phase-title">
                     <span class="phase-number">Phase 5</span>
-                    <h2>Performance pass (semantic model + DAX Studio)</h2>
+                    <h2>Performance review</h2>
                 </div>
                 <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
+                    <h3>What I need</h3>
                     <ul>
-                        <li>Representative user scenarios, filter paths, and high-cost visuals.</li>
-                        <li>Baseline timings from model view and DAX Studio query traces.</li>
+                        <li>Real user journeys and high-cost report interactions.</li>
+                        <li>Baseline timings from model checks and DAX Studio traces.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
+                    <h3>What I produce</h3>
                     <ul>
-                        <li>Performance tuning notes covering model optimisations, measure rewrites, and trade-offs.</li>
-                        <li>Updated semantic model checklist with accepted thresholds for refresh and query times.</li>
+                        <li>Targeted tuning notes for model, measures, and visual patterns.</li>
+                        <li>Documented trade-offs so optimisations remain maintainable.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
+                    <h3>Risk reduced</h3>
                     <ul>
-                        <li>Pitfall: Tuning only once and too late. Mitigation: run performance passes before UAT and before production release.</li>
-                        <li>Pitfall: Over-optimised complexity. Mitigation: keep measure patterns readable and document why any advanced pattern is used.</li>
+                        <li>Reduces slow, fragile reports and late-stage performance surprises.</li>
                     </ul>
                 </div>
             </article>
@@ -233,24 +184,23 @@
                     <h2>Release, handover &amp; iteration</h2>
                 </div>
                 <div class="phase-block">
-                    <h3>Inputs (what I need)</h3>
+                    <h3>What I need</h3>
                     <ul>
-                        <li>UAT feedback, production readiness checks, and stakeholder sign-off.</li>
-                        <li>Support model, ownership map, and expected cadence for enhancement reviews.</li>
+                        <li>UAT sign-off, support ownership, and production-readiness checks.</li>
+                        <li>Clear cadence for post-release review and enhancements.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
-                    <h3>Outputs / artefacts</h3>
+                    <h3>What I produce</h3>
                     <ul>
-                        <li>Release notes, runbook, and handover pack with owners, SLAs, and rollback guidance.</li>
-                        <li>Iteration backlog prioritised by business value and data quality risk.</li>
+                        <li>Release notes, runbook, and handover pack with support paths.</li>
+                        <li>Prioritised improvement backlog based on value and risk.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
-                    <h3>Common pitfalls + mitigation</h3>
+                    <h3>Risk reduced</h3>
                     <ul>
-                        <li>Pitfall: Knowledge trapped with the build team. Mitigation: walkthroughs and shared runbook ownership before go-live.</li>
-                        <li>Pitfall: No post-release learning loop. Mitigation: schedule a 30-day review to tighten controls and prioritise next increments.</li>
+                        <li>Reduces key-person dependency and improves BAU reliability after go-live.</li>
                     </ul>
                 </div>
             </article>
