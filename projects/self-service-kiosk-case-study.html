@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Service Kiosk for Frontline Performance &amp; Downtime Capture | Arsalan Iftikhar</title>
+    <meta name="description" content="Case study: self-service kiosk using Raspberry Pi, VuePilot, Power BI, Power Apps and Power Automate to improve frontline performance access and downtime capture.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Self-Service Kiosk for Frontline Performance &amp; Downtime Capture | Arsalan Iftikhar">
+    <meta property="og:description" content="Self-service kiosk using Raspberry Pi, VuePilot, Power BI, Power Apps and Power Automate to improve frontline performance access and downtime capture.">
+    <meta property="og:url" content="https://arsalaniftikhar.github.io/projects/self-service-kiosk-case-study.html">
+    <meta property="og:site_name" content="Arsalan Iftikhar">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <style>
+        .top-breadcrumb{font-size:.9rem;color:#6b7280;margin-bottom:1rem}
+        .top-breadcrumb a{color:#6b7280;text-decoration:none}
+        .top-breadcrumb a:hover{text-decoration:underline;color:#0066cc}
+        .workflow-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.65rem;margin-top:1rem}
+        .workflow-step{border:1px solid var(--border-color);border-radius:12px;background:#f9fbff;padding:.85rem;position:relative}
+        .workflow-step strong{display:block;color:var(--accent-color);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.25rem}
+        .workflow-step span{color:var(--text-dark);font-weight:600;font-size:.95rem}
+        .workflow-step p{margin-top:.25rem;color:var(--text-light);font-size:.88rem}
+        .evidence-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem}
+        .evidence-grid figure{border:1px solid var(--border-color);border-radius:12px;background:#fff;overflow:hidden}
+        .evidence-grid a{display:block;background:#f3f4f6}
+        .evidence-grid a:hover img{transform:scale(1.01)}
+        .evidence-grid img{width:100%;height:auto;max-height:520px;display:block;object-fit:contain;object-position:center;background:#f3f4f6;transition:transform 180ms ease}
+        .evidence-grid figcaption{padding:.7rem;color:var(--text-light);font-size:.92rem}
+        .evidence-grid figcaption span{display:block;margin-top:.25rem;font-size:.82rem;color:#6b7280}
+        .project-note{border-left:4px solid var(--accent-color);background:#f9fbff;border-radius:10px;padding:.9rem;color:var(--text-dark);margin-top:1rem}
+        @media (max-width:768px){.evidence-grid img{max-height:none}.workflow-strip{grid-template-columns:1fr}}
+    </style>
+</head>
+<body class="case-study-body">
+    <header>
+        <nav>
+            <a class="nav-brand" href="../index.html">⌂ Arsalan Iftikhar</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../approach.html">Approach</a></li>
+                <li><a href="../index.html#connect">Contact</a></li>
+                <li><a href="../assets/cv/Arsalan-Iftikhar-CV.pdf" download>Download CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="case-study-main">
+        <article class="cs-container">
+            <p class="top-breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / Self-Service Kiosk</p>
+            <section class="cs-hero">
+                <h1>Self-Service Kiosk for Frontline Performance &amp; Downtime Capture</h1>
+                <p>Built a self-service kiosk using Raspberry Pi, VuePilot, Power BI, Power Apps and Power Automate, enabling frontline colleagues to check WLM/performance information and submit downtime incidents without waiting for manager availability.</p>
+            </section>
+
+            <section class="cs-summary-band" aria-label="Case study summary">
+                <article>
+                    <h2>Business need</h2>
+                    <p>Frontline colleagues needed faster access to WLM/performance information and a structured route to submit downtime incidents without relying on manager availability.</p>
+                </article>
+                <article>
+                    <h2>What changed</h2>
+                    <p>A dedicated kiosk interface combined Power BI reporting, embedded Power Apps input capture and Power Automate approval notifications.</p>
+                </article>
+                <article>
+                    <h2>My role</h2>
+                    <p>Designed and delivered the workflow across reporting, input capture, automation, deployment considerations, adoption support and iteration.</p>
+                </article>
+                <article>
+                    <h2>Adoption signal</h2>
+                    <p>Reached c.200 report views/day over a 2-month period, showing strong frontline engagement with the self-service route.</p>
+                </article>
+            </section>
+
+            <section class="cs-section">
+                <h2>Problem</h2>
+                <p>Frontline colleagues relied on manager availability to check WLM/performance ratings and resolve simple performance questions during live operations. That created avoidable delays, especially when managers were away from desks, supporting another area, or focused on immediate operational issues.</p>
+                <p>Downtime capture also needed a more structured route. Informal or manager-dependent processes created friction, made follow-up less consistent, and limited the usefulness of downtime information for reporting. The objective was not just another dashboard; it was a usable operational access point simple enough for a warehouse/frontline environment.</p>
+            </section>
+
+            <section class="cs-section">
+                <h2>Solution</h2>
+                <ul>
+                    <li>Created a dedicated kiosk interface for frontline self-service performance checks and downtime submission.</li>
+                    <li>Used Power BI for WLM/performance and operational views that colleagues could access directly from the kiosk.</li>
+                    <li>Embedded a Power App to capture downtime incidents in a structured, repeatable format.</li>
+                    <li>Connected Power Automate to trigger manager approval/rejection notifications after downtime submission.</li>
+                    <li>Used Raspberry Pi and VuePilot to support deployed screen management, kiosk display control and report rotation.</li>
+                    <li>Kept the interface simple and task-led so it could work in a live warehouse/frontline setting.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Architecture / workflow</h2>
+                <div class="workflow-strip" aria-label="Self-service kiosk architecture workflow">
+                    <div class="workflow-step"><strong>1</strong><span>Raspberry Pi device</span><p>Runs the deployed kiosk screen.</p></div>
+                    <div class="workflow-step"><strong>2</strong><span>VuePilot management</span><p>Controls screen assets and rotations.</p></div>
+                    <div class="workflow-step"><strong>3</strong><span>Power BI kiosk report</span><p>Shows WLM/performance views.</p></div>
+                    <div class="workflow-step"><strong>4</strong><span>Embedded Power App</span><p>Captures downtime submissions.</p></div>
+                    <div class="workflow-step"><strong>5</strong><span>SharePoint storage</span><p>Stores structured downtime records.</p></div>
+                    <div class="workflow-step"><strong>6</strong><span>Power Automate</span><p>Triggers approval notifications.</p></div>
+                    <div class="workflow-step"><strong>7</strong><span>Manager approval/rejection</span><p>Supports controlled review.</p></div>
+                    <div class="workflow-step"><strong>8</strong><span>Updated reporting view</span><p>Feeds downtime visibility and review.</p></div>
+                </div>
+            </section>
+
+            <section class="cs-section">
+                <h2>My role</h2>
+                <ul>
+                    <li>Designed the kiosk workflow around frontline usage patterns and manager availability constraints.</li>
+                    <li>Connected reporting, data capture and approval flow into a single operational access route.</li>
+                    <li>Configured Power BI, Power Apps and Power Automate components for the self-service workflow.</li>
+                    <li>Supported deployment and adoption, including practical device/display considerations.</li>
+                    <li>Iterated based on operational feedback so the workflow stayed usable in live conditions.</li>
+                    <li>Balanced usability with governed reporting, consistent data capture and metric trust.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Evidence / screenshots</h2>
+                <p>The screenshots below focus on the kiosk experience and supporting deployment architecture, showing how the self-service route was delivered across display management and device tooling.</p>
+                <div class="evidence-grid">
+                    <figure>
+                        <a href="../assets/Kiosk - home.jpeg" target="_blank" rel="noopener noreferrer" title="Open full-size screenshot">
+                            <img src="../assets/Kiosk - home.jpeg" alt="Self-service kiosk home interface" loading="lazy">
+                        </a>
+                        <figcaption>Kiosk home interface for frontline self-service. <span>Click to open full-size screenshot.</span></figcaption>
+                    </figure>
+                    <figure>
+                        <a href="../assets/Vue Pilot Machines.jpeg" target="_blank" rel="noopener noreferrer" title="Open full-size screenshot">
+                            <img src="../assets/Vue Pilot Machines.jpeg" alt="VuePilot machine management for kiosk display" loading="lazy">
+                        </a>
+                        <figcaption>VuePilot machine management for the deployed kiosk display. <span>Click to open full-size screenshot.</span></figcaption>
+                    </figure>
+                    <figure>
+                        <a href="../assets/Vue Pilot Rotations.jpeg" target="_blank" rel="noopener noreferrer" title="Open full-size screenshot">
+                            <img src="../assets/Vue Pilot Rotations.jpeg" alt="VuePilot rotation setup for kiosk and report screens" loading="lazy">
+                        </a>
+                        <figcaption>Rotation setup for cycling kiosk/report screens. <span>Click to open full-size screenshot.</span></figcaption>
+                    </figure>
+                    <figure>
+                        <a href="../assets/Vue Pilot Apps.jpeg" target="_blank" rel="noopener noreferrer" title="Open full-size screenshot">
+                            <img src="../assets/Vue Pilot Apps.jpeg" alt="VuePilot Power BI app assets available for kiosk display" loading="lazy">
+                        </a>
+                        <figcaption>Power BI app assets available for kiosk display. <span>Click to open full-size screenshot.</span></figcaption>
+                    </figure>
+                    <figure>
+                        <a href="../assets/Raspberry Pi Connect.jpeg" target="_blank" rel="noopener noreferrer" title="Open full-size screenshot">
+                            <img src="../assets/Raspberry Pi Connect.jpeg" alt="Raspberry Pi device management for deployed screens" loading="lazy">
+                        </a>
+                        <figcaption>Raspberry Pi device management for deployed screens. <span>Click to open full-size screenshot.</span></figcaption>
+                    </figure>
+                </div>
+            </section>
+
+            <section class="cs-section">
+                <h2>Results / impact</h2>
+                <ul>
+                    <li>Reached c.200 report views/day over a 2-month period.</li>
+                    <li>Reduced dependency on manager availability for performance checks and downtime submission.</li>
+                    <li>Improved frontline access to trusted operational information.</li>
+                    <li>Created a structured route for downtime incident capture.</li>
+                    <li>Demonstrated practical adoption of self-service reporting in a frontline environment.</li>
+                    <li>Strengthened the operational reporting product set beyond conventional dashboards.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>What this demonstrates</h2>
+                <ul>
+                    <li><strong>Product-minded BI delivery:</strong> turning reporting into a usable operational product.</li>
+                    <li><strong>Power Platform automation:</strong> connecting Power BI, Power Apps and Power Automate into an operational workflow.</li>
+                    <li><strong>Frontline adoption:</strong> designing around real warehouse usage patterns.</li>
+                    <li><strong>Practical technical integration:</strong> Raspberry Pi, VuePilot and the Microsoft stack working together.</li>
+                    <li><strong>Governance mindset:</strong> making self-service access useful without weakening metric consistency.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>What I would improve next</h2>
+                <ul>
+                    <li>Better telemetry on kiosk usage by screen/report.</li>
+                    <li>More structured downtime categories and validation.</li>
+                    <li>Manager-facing approval queue improvements.</li>
+                    <li>Stronger feedback loop from submitted downtime to coaching/action tracking.</li>
+                    <li>Cleaner device and content management if scaled across more screens.</li>
+                </ul>
+                <p class="project-note">Scope note: this case study focuses on the kiosk/product workflow and adoption signal. It does not claim full downtime-management automation, enterprise-wide rollout, or quantified financial savings.</p>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../approach.html">Approach</a>
+            <a href="../index.html#connect">Contact</a>
+            <a href="../assets/cv/Arsalan-Iftikhar-CV.pdf" download>Download CV</a>
+        </div>
+        <p>&copy; 2026 Arsalan Iftikhar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+            mobileMenuToggle.addEventListener('click', function () {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
