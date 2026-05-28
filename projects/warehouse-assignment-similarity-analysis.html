@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Assignment Similarity Analysis | Python EDA Case Study</title>
+    <meta name="description" content="Python EDA case study using pandas and similarity analysis to evaluate SKU/location clustering in warehouse picking assignments and identify operational efficiency opportunities.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Warehouse Assignment Similarity Analysis | Python EDA Case Study">
+    <meta property="og:description" content="Python EDA using pandas, Jaccard similarity and operational analysis to assess SKU/location clustering quality in warehouse picking assignments.">
+    <meta property="og:url" content="https://arsalaniftikhar.github.io/projects/warehouse-assignment-similarity-analysis.html">
+    <meta property="og:site_name" content="Arsalan Iftikhar">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <style>
+        .top-breadcrumb{font-size:.9rem;color:#6b7280;margin-bottom:1rem}
+        .top-breadcrumb a{color:#6b7280;text-decoration:none}
+        .top-breadcrumb a:hover{text-decoration:underline;color:#0066cc}
+        .tag-strip{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem}
+        .tag-strip span{background:#eef2ff;border:1px solid #c7d2fe;color:#3730a3;border-radius:999px;padding:.22rem .62rem;font-size:.78rem;font-weight:600}
+        .note{border-left:4px solid var(--accent-color);background:#f9fbff;border-radius:10px;padding:.9rem;color:var(--text-dark);margin-top:1rem}
+    </style>
+</head>
+<body class="case-study-body">
+    <header>
+        <nav>
+            <a class="nav-brand" href="../index.html">⌂ Arsalan Iftikhar</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../approach.html">Approach</a></li>
+                <li><a href="../index.html#connect">Contact</a></li>
+                <li><a href="../assets/cv/Arsalan-Iftikhar-CV.pdf" download>Download CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="case-study-main">
+        <article class="cs-container">
+            <p class="top-breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / Warehouse Assignment Similarity Analysis</p>
+            <section class="cs-hero">
+                <h1>Warehouse Assignment Similarity Analysis</h1>
+                <p>Supporting Python EDA project analysing SKU and location similarity across multi-container warehouse assignments to identify potential batching inefficiencies and operational improvement opportunities.</p>
+                <div class="tag-strip" aria-label="Tools and techniques used">
+                    <span>Python</span><span>pandas</span><span>matplotlib</span><span>seaborn</span><span>EDA</span><span>Jaccard Similarity</span><span>Warehouse Analytics</span><span>Operational Efficiency</span>
+                </div>
+            </section>
+
+            <section class="cs-section">
+                <h2>Overview</h2>
+                <p>Analysed warehouse multi-container picking assignments to assess whether containers grouped into the same assignment were genuinely similar by SKU and location. The analysis used Python EDA to quantify clustering quality and identify possible inefficiencies in assignment batching.</p>
+            </section>
+
+            <section class="cs-section">
+                <h2>Business question</h2>
+                <p>Were containers grouped into the same picking assignment similar enough to support efficient picking, or were assignments combining poorly matched containers that could increase travel distance and completion time?</p>
+            </section>
+
+            <section class="cs-section">
+                <h2>Data and scope</h2>
+                <ul>
+                    <li>Picking activity records from a warehouse operation.</li>
+                    <li>Assignment identifier, container identifier, SKU, consignment grouping, pick location and timestamp fields.</li>
+                    <li>Initial dataset was approximately 3.26M records.</li>
+                    <li>Analysis focused on valid assignments containing exactly 3 containers.</li>
+                    <li>Final comparison covered approximately 37,659 assignments.</li>
+                </ul>
+                <p class="note">The underlying notebook/export is not publicly linked from this case study because it contains operational field names and low-level working detail. This page summarises the anonymised business problem, method and findings only.</p>
+            </section>
+
+            <section class="cs-section">
+                <h2>Methodology</h2>
+                <ul>
+                    <li>Used pandas for data loading, filtering, grouping and feature engineering.</li>
+                    <li>Derived aisle/location groupings from pick locations.</li>
+                    <li>Compared containers within each assignment using Jaccard similarity.</li>
+                    <li>Calculated SKU similarity, location similarity and aisle similarity.</li>
+                    <li>Used pairwise comparison across the 3 containers in each assignment.</li>
+                    <li>Aggregated average and minimum similarity scores.</li>
+                    <li>Used minimum similarity as an inefficiency signal because one poorly matched container can weaken the whole assignment.</li>
+                    <li>Used matplotlib/seaborn for exploratory visualisation where relevant.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Key findings</h2>
+                <ul>
+                    <li>Average SKU similarity was approximately 12.5%, suggesting weak product clustering across assignments.</li>
+                    <li>Around 76% of assignments contained at least one poorly matched container.</li>
+                    <li>Higher similarity was associated with faster completion times and reduced variability.</li>
+                    <li>Location similarity was also important, indicating that physical proximity matters as much as SKU overlap.</li>
+                    <li>Consignment grouping alone did not appear to guarantee efficient similarity or performance.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Tools and techniques</h2>
+                <ul>
+                    <li>Python for exploratory analysis and repeatable calculation logic.</li>
+                    <li>pandas for filtering, grouping, joining and feature engineering.</li>
+                    <li>Jaccard similarity for SKU, location and aisle-set comparison.</li>
+                    <li>matplotlib and seaborn for exploratory visualisation and distribution checks.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Operational value</h2>
+                <ul>
+                    <li>Created a clearer way to evaluate assignment batching quality.</li>
+                    <li>Helped identify where current grouping logic may create avoidable travel or fragmented work.</li>
+                    <li>Provided a basis for discussing SKU/location-aware clustering improvements.</li>
+                    <li>Demonstrated how Python analysis can move beyond reporting into operational diagnostics.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Limitations</h2>
+                <ul>
+                    <li>Location similarity is a proxy for travel efficiency, not a full route optimisation model.</li>
+                    <li>Analysis shows association, not necessarily full causation.</li>
+                    <li>Completion time can be affected by other factors such as picker behaviour, congestion, stock availability or exception handling.</li>
+                    <li>Next step would be validating proposed batching changes with operational teams and/or controlled pilots.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>What this demonstrates</h2>
+                <ul>
+                    <li>Python EDA in a workplace setting.</li>
+                    <li>pandas-based data preparation and feature engineering.</li>
+                    <li>Similarity metrics/Jaccard similarity.</li>
+                    <li>Analytical framing of an operational efficiency problem.</li>
+                    <li>Translating technical outputs into business recommendations.</li>
+                    <li>Awareness of limitations and operational context.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../approach.html">Approach</a>
+            <a href="../index.html#connect">Contact</a>
+            <a href="../assets/cv/Arsalan-Iftikhar-CV.pdf" download>Download CV</a>
+        </div>
+        <p>&copy; 2026 Arsalan Iftikhar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (mobileMenuToggle && navLinks) {
+                mobileMenuToggle.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

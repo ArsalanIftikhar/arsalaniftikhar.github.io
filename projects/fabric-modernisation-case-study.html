@@ -17,14 +17,17 @@
         .top-breadcrumb a:hover{text-decoration:underline;color:#0066cc}
         .evidence-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1rem}
         .evidence-grid figure{border:1px solid var(--border-color);border-radius:12px;background:#fff;overflow:hidden}
-        .evidence-grid img{width:100%;height:260px;display:block;object-fit:cover;object-position:top left;background:#f3f4f6}
+        .evidence-grid a{display:block;background:#f3f4f6}
+        .evidence-grid a:hover img{transform:scale(1.01)}
+        .evidence-grid img{width:100%;height:auto;max-height:520px;display:block;object-fit:contain;object-position:center;background:#f3f4f6;transition:transform 180ms ease}
         .evidence-grid figcaption{padding:.75rem;color:var(--text-light);font-size:.92rem}
+        .evidence-grid figcaption span{display:block;margin-top:.25rem;font-size:.82rem;color:#6b7280}
         .control-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem;margin-top:1rem}
         .control-card{border:1px solid var(--border-color);border-radius:12px;background:#f9fbff;padding:.9rem}
         .control-card h3{font-size:.95rem;color:var(--accent-color);margin-bottom:.3rem}
         .control-card p{color:var(--text-light);font-size:.92rem}
         .scope-note{border-left:4px solid var(--accent-color);background:#f9fbff;border-radius:10px;padding:.9rem;color:var(--text-dark);margin-top:1rem}
-        @media (max-width:768px){.evidence-grid img{height:auto}}
+        @media (max-width:768px){.evidence-grid img{max-height:none}}
     </style>
 </head>
 <body class="case-study-body">
@@ -133,12 +136,16 @@
                 <p>These screenshots show the migration delivery pattern in practice: orchestration in Fabric and validation logic implemented in PySpark.</p>
                 <div class="evidence-grid">
                     <figure>
-                        <img src="../assets/Fabric Pipeline.PNG" alt="Fabric pipeline orchestration with validation and failure handling" loading="lazy">
-                        <figcaption>Fabric pipeline orchestration with validation/failure-handling structure.</figcaption>
+                        <a href="../assets/Fabric Pipeline.PNG" target="_blank" rel="noopener noreferrer" title="Open full-size screenshot">
+                            <img src="../assets/Fabric Pipeline.PNG" alt="Fabric pipeline orchestration with validation and failure handling" loading="lazy">
+                        </a>
+                        <figcaption>Fabric pipeline orchestration with validation/failure-handling structure. <span>Click to open full-size screenshot.</span></figcaption>
                     </figure>
                     <figure>
-                        <img src="../assets/PySpark.PNG" alt="PySpark validation checks for row counts, distinct keys, null keys and freshness" loading="lazy">
-                        <figcaption>PySpark validation checks covering row counts, distinct keys, null keys and freshness logic.</figcaption>
+                        <a href="../assets/PySpark.PNG" target="_blank" rel="noopener noreferrer" title="Open full-size screenshot">
+                            <img src="../assets/PySpark.PNG" alt="PySpark validation checks for row counts, distinct keys, null keys and freshness" loading="lazy">
+                        </a>
+                        <figcaption>PySpark validation checks covering row counts, distinct keys, null keys and freshness logic. <span>Click to open full-size screenshot.</span></figcaption>
                     </figure>
                 </div>
             </section>
