@@ -4,32 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GXO Fabric Modernisation | Flagship BI Case Study</title>
-    <meta name="description" content="Flagship case study: scoped ownership within GXO Fabric modernisation to reduce logic sprawl, improve metric confidence, and strengthen reporting supportability.">
+    <meta name="description" content="Flagship case study: scoped ownership within migration from legacy on-premise SQL Server reporting toward Microsoft Fabric, with validation controls, reconciliation, lineage and supportability.">
     <meta property="og:type" content="article">
     <meta property="og:title" content="GXO Fabric Modernisation | Flagship BI Case Study">
-    <meta property="og:description" content="How I owned a defined subset of Fabric dataset modernisation work across Pre-Advice, Orders, and Inventory Transactions within a wider migration programme.">
+    <meta property="og:description" content="Scoped Microsoft Fabric modernisation work covering legacy SQL Server reporting migration, validation controls, reconciliation, lineage and BAU supportability.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/projects/fabric-modernisation-case-study.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <link rel="stylesheet" href="../assets/css/site.css">
     <style>
-        .cs-code {
-            margin-top: 0.8rem;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            background: #111827;
-            color: #e5e7eb;
-            padding: 0.85rem;
-            overflow-x: auto;
-            font-size: 0.84rem;
-            line-height: 1.45;
-        }
-        .cs-code code {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        }
-    
         .top-breadcrumb{font-size:.9rem;color:#6b7280;margin-bottom:1rem}
         .top-breadcrumb a{color:#6b7280;text-decoration:none}
         .top-breadcrumb a:hover{text-decoration:underline;color:#0066cc}
+        .evidence-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+        .evidence-grid figure{border:1px solid var(--border-color);border-radius:12px;background:#fff;overflow:hidden}
+        .evidence-grid img{width:100%;height:260px;display:block;object-fit:cover;object-position:top left;background:#f3f4f6}
+        .evidence-grid figcaption{padding:.75rem;color:var(--text-light);font-size:.92rem}
+        .control-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem;margin-top:1rem}
+        .control-card{border:1px solid var(--border-color);border-radius:12px;background:#f9fbff;padding:.9rem}
+        .control-card h3{font-size:.95rem;color:var(--accent-color);margin-bottom:.3rem}
+        .control-card p{color:var(--text-light);font-size:.92rem}
+        .scope-note{border-left:4px solid var(--accent-color);background:#f9fbff;border-radius:10px;padding:.9rem;color:var(--text-dark);margin-top:1rem}
+        @media (max-width:768px){.evidence-grid img{height:auto}}
     </style>
 </head>
 <body class="case-study-body">
@@ -40,142 +35,121 @@
                 <span></span><span></span><span></span>
             </button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="../experience.html">Experience</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="../projects.html">Projects</a></li>
-                <li><a href="../approach.html">My Approach</a></li>
-                <li><a href="../insights/">Insights</a></li>
-                <li><a href="../index.html#connect">Connect</a></li>
+                <li><a href="../approach.html">Approach</a></li>
+                <li><a href="../index.html#connect">Contact</a></li>
+                <li><a href="../assets/cv/Arsalan-Iftikhar-CV.pdf" download>Download CV</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="case-study-main">
         <article class="cs-container">
-            <p class="top-breadcrumb"><a href="../projects.html">← Back to Projects</a></p>
+            <p class="top-breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / GXO Fabric Modernisation</p>
             <section class="cs-hero">
                 <h1>GXO Fabric Modernisation (Flagship Case Study)</h1>
-                <p>I owned a defined subset of dataset modernisation within a wider GXO migration workstream. The result was more reliable reporting foundations, clearer KPI logic, and stronger handover support for BAU operations.</p>
+                <p>I owned a defined subset of dataset/table modernisation within a wider migration from legacy on-premise SQL Server reporting toward Microsoft Fabric-enabled data products. My focus was improving reporting reliability, validation confidence, semantic consistency, documentation and BAU supportability across scoped operational domains.</p>
             </section>
 
             <section class="cs-summary-band" aria-label="Case study summary">
                 <article>
                     <h2>What changed</h2>
-                    <p>Legacy reporting logic was consolidated into clearer Fabric-aligned layers with reconciliation checks and stronger semantic-model discipline.</p>
+                    <p>Legacy SQL Server reporting logic was moved toward clearer Fabric-aligned data products with transformation, validation and semantic-layer controls.</p>
                 </article>
                 <article>
                     <h2>Why it mattered</h2>
-                    <p>Operations and leadership needed trusted metrics, less logic sprawl across reports, and dependable day-to-day reporting continuity.</p>
+                    <p>Operations and leadership needed trusted metrics, lower reporting drift, clearer lineage and dependable reporting continuity during migration.</p>
                 </article>
                 <article>
                     <h2>What I owned directly</h2>
-                    <p>A scoped subset of datasets/tables across Pre-Advice, Orders, and Inventory Transactions, plus controls, documentation, and performance pass activities.</p>
+                    <p>A scoped subset of datasets/tables across Pre-Advice, Orders and Inventory Transactions, plus validation checks, documentation, runbooks and performance review activity.</p>
                 </article>
                 <article>
-                    <h2>Role &amp; scope boundary</h2>
-                    <p>Senior BI Analyst contributor in a broader migration programme. I delivered within defined ownership, and collaborated on cross-stream decisions.</p>
+                    <h2>Scope boundary</h2>
+                    <p>Senior BI Analyst contributor within a wider migration programme. I owned defined delivery areas and collaborated on cross-stream design and cutover decisions.</p>
                 </article>
             </section>
 
             <section class="cs-section">
                 <h2>Overview / context</h2>
-                <p>This work sat within an enterprise Fabric migration and modernisation effort in a live logistics environment. The objective was not a cosmetic rebuild; it was to improve reporting trust, reduce duplicated logic, and establish supportable BI products that could run reliably in BAU.</p>
-                <p>My focus area was a defined subset of core operational domains where reporting consistency and ownership were critical: Pre-Advice, Orders, and Inventory Transactions.</p>
+                <p>The starting point was legacy on-premise SQL Server reporting supporting business-critical operational reporting in a live logistics environment. The aim was not simply to move reports from one platform to another; it was to modernise reporting foundations so operational datasets were easier to validate, support and reuse.</p>
+                <p>Within the wider migration programme, my scoped work focused on operational domains where reporting consistency and ownership were important: Pre-Advice, Orders and Inventory Transactions. The intended value was governed, reusable and auditable data products that could support BAU reporting with clearer lineage and lower key-person dependency.</p>
             </section>
 
             <section class="cs-section">
                 <h2>Problem</h2>
-                <p>Legacy assets had accumulated transformation and KPI logic in multiple places. That created metric drift, duplicated logic, and avoidable reconciliation overhead. Teams could get different answers to the same question depending on which report logic they touched.</p>
-                <p>The migration therefore needed to do more than move code. It had to enforce clearer semantic ownership, improve comparability across sites, and provide controls that supported operational confidence during transition.</p>
+                <p>Legacy SQL Server and reporting assets had transformation and KPI logic spread across multiple places. This created metric drift, duplicated logic and reconciliation overhead, especially when teams needed to explain differences between legacy outputs and new reporting layers.</p>
+                <p>The migration needed controls to prevent reporting drift during cutover. Stakeholders needed confidence that new Fabric outputs matched or improved legacy outputs before downstream use, and support teams needed documentation that made issue triage practical after delivery.</p>
             </section>
 
             <section class="cs-section">
                 <h2>My ownership within the wider workstream</h2>
                 <ul>
-                    <li>Owned delivery for a defined subset of Fabric dataset/table work across Pre-Advice, Orders, and Inventory Transactions.</li>
-                    <li>Maintained ERDs and data-flow documentation for the scoped entities, joins, grain, and KPI-relevant definitions.</li>
-                    <li>Implemented and maintained reconciliation checks for source-to-transform-to-semantic consistency on critical measures.</li>
-                    <li>Performed targeted semantic model and DAX performance reviews, documenting findings and practical trade-offs.</li>
-                    <li>Contributed runbook/handover artefacts to improve supportability and reduce single-person dependency.</li>
+                    <li>Owned delivery for a defined subset of Fabric dataset/table work across Pre-Advice, Orders and Inventory Transactions.</li>
+                    <li>Produced source-to-target mapping and data-flow documentation for scoped entities and reporting routes.</li>
+                    <li>Maintained ERDs covering grain, join logic and KPI-relevant definitions to reduce ambiguity in reporting outputs.</li>
+                    <li>Implemented validation checks comparing source, transformed and semantic outputs for critical measures and business keys.</li>
+                    <li>Created run-log and issue-triage documentation so failures, exceptions and reconciliation differences could be reviewed consistently.</li>
+                    <li>Performed semantic model and DAX performance review where relevant to improve usability and supportable report behaviour.</li>
+                    <li>Contributed handover/runbook artefacts to improve BAU support and reduce reliance on tacit knowledge.</li>
                 </ul>
-                <p>I contributed this ownership inside a multi-person migration programme and did not own all workstream decisions end-to-end.</p>
+                <p class="scope-note">Scope note: I contributed this ownership inside a multi-person migration programme. I did not own the wider programme end-to-end, but I did own defined delivery areas and collaborated on design, validation and cutover decisions affecting my scope.</p>
             </section>
 
             <section class="cs-section">
-                <h2>Approach / solution</h2>
-                <ul>
-                    <li>Aligned scoped tables to layered Fabric patterns so ingestion, transformation, and semantic responsibilities were clearer.</li>
-                    <li>Used PySpark and SQL transformations to standardise typing, deduplicate records, and enforce consistent business grain.</li>
-                    <li>Supported semantic-layer consistency by keeping measures and relationships maintainable and audit-friendly.</li>
-                    <li>Embedded reconciliation and exception routines so migration confidence could be validated before downstream usage.</li>
-                    <li>Produced practical documentation/runbooks for handover, issue triage, and repeatable BAU support routines.</li>
-                </ul>
+                <h2>Validation and cutover controls</h2>
+                <p>Validation was treated as a delivery control, not an afterthought. The purpose was to reduce cutover risk, prevent reporting drift and improve confidence before downstream reporting use.</p>
+                <div class="control-grid" aria-label="Validation and cutover controls">
+                    <article class="control-card">
+                        <h3>Row-count checks</h3>
+                        <p>Compared source and transformed outputs to identify missing or duplicated records before semantic consumption.</p>
+                    </article>
+                    <article class="control-card">
+                        <h3>Distinct business keys</h3>
+                        <p>Checked key uniqueness and expected grains for scoped operational entities and reporting tables.</p>
+                    </article>
+                    <article class="control-card">
+                        <h3>Null key checks</h3>
+                        <p>Flagged missing critical identifiers that could break joins, aggregations or downstream report filters.</p>
+                    </article>
+                    <article class="control-card">
+                        <h3>Freshness checks</h3>
+                        <p>Reviewed available load/freshness indicators so stakeholders understood whether outputs were current enough for use.</p>
+                    </article>
+                    <article class="control-card">
+                        <h3>Source-to-semantic comparison</h3>
+                        <p>Compared source, transformed and semantic-layer outputs to support cutover confidence and KPI consistency.</p>
+                    </article>
+                    <article class="control-card">
+                        <h3>Run-log and failure paths</h3>
+                        <p>Used run-log controls, issue notes and failure/notification handling where relevant to make triage more repeatable.</p>
+                    </article>
+                </div>
+            </section>
 
-                <h3>Grounded example: PySpark standardisation + de-duplication</h3>
-                <pre class="cs-code"><code>typed_df = (
-    source_df
-    .select(
-        F.col("site_id").cast("string").alias("site_id"),
-        F.to_date("event_date").alias("event_date"),
-        F.col("entity_key").cast("string").alias("entity_key"),
-        F.trim(F.upper(F.col("category"))).alias("category_std"),
-        F.col("status").cast("string").alias("status"),
-        F.col("source_updated_ts").cast("timestamp").alias("source_updated_ts")
-    )
-    .filter(
-        F.col("site_id").isNotNull() &
-        F.col("event_date").isNotNull() &
-        F.col("entity_key").isNotNull()
-    )
-)
-
-window_spec = Window.partitionBy("site_id", "event_date", "entity_key").orderBy(F.col("source_updated_ts").desc_nulls_last())
-
-deduped_df = (
-    typed_df
-    .withColumn("rn", F.row_number().over(window_spec))
-    .filter(F.col("rn") == 1)
-    .drop("rn")
-    .withColumn("record_hash", F.sha2(F.concat_ws("|", "site_id", "event_date", "entity_key", "category_std", "status"), 256))
-)
-
-(deduped_df.write.mode("overwrite").format("delta").saveAsTable("lakehouse.silver_ops_events"))</code></pre>
-
-                <figure class="evidence-diagram">
-                    <svg viewBox="0 0 860 250" role="img" aria-label="Architecture showing source to ingestion to transformation to semantic layer with reconciliation checks">
-                        <rect x="20" y="40" width="180" height="70" rx="10"></rect>
-                        <text x="110" y="78" text-anchor="middle">Source systems</text>
-
-                        <rect x="240" y="40" width="180" height="70" rx="10"></rect>
-                        <text x="330" y="78" text-anchor="middle">Ingestion layer</text>
-
-                        <rect x="460" y="40" width="180" height="70" rx="10"></rect>
-                        <text x="550" y="78" text-anchor="middle">Transform layer</text>
-
-                        <rect x="680" y="40" width="160" height="70" rx="10"></rect>
-                        <text x="760" y="78" text-anchor="middle">Semantic layer</text>
-
-                        <line x1="200" y1="75" x2="240" y2="75"></line>
-                        <line x1="420" y1="75" x2="460" y2="75"></line>
-                        <line x1="640" y1="75" x2="680" y2="75"></line>
-
-                        <rect x="300" y="150" width="260" height="70" rx="10"></rect>
-                        <text x="430" y="176" text-anchor="middle">Reconciliation checks</text>
-                        <text x="430" y="198" text-anchor="middle">(source vs transformed vs semantic)</text>
-
-                        <line x1="330" y1="110" x2="360" y2="150"></line>
-                        <line x1="550" y1="110" x2="500" y2="150"></line>
-                    </svg>
-                    <figcaption>Example artefact: layered Fabric flow with reconciliation control points (non-confidential).</figcaption>
-                </figure>
+            <section class="cs-section">
+                <h2>Evidence / screenshots</h2>
+                <p>These screenshots show the migration delivery pattern in practice: orchestration in Fabric and validation logic implemented in PySpark.</p>
+                <div class="evidence-grid">
+                    <figure>
+                        <img src="../assets/Fabric Pipeline.PNG" alt="Fabric pipeline orchestration with validation and failure handling" loading="lazy">
+                        <figcaption>Fabric pipeline orchestration with validation/failure-handling structure.</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../assets/PySpark.PNG" alt="PySpark validation checks for row counts, distinct keys, null keys and freshness" loading="lazy">
+                        <figcaption>PySpark validation checks covering row counts, distinct keys, null keys and freshness logic.</figcaption>
+                    </figure>
+                </div>
             </section>
 
             <section class="cs-section">
                 <h2>Why this design / trade-offs</h2>
                 <ul>
-                    <li><strong>Layered model over quick patching:</strong> slightly higher up-front effort, but materially lower logic sprawl and easier support over time.</li>
-                    <li><strong>Controlled standardisation over one-off local rules:</strong> less short-term flexibility, but better cross-site comparability and KPI governance.</li>
-                    <li><strong>Incremental migration over big-bang cutover:</strong> slower in places, but reduced disruption risk for operational reporting.</li>
-                    <li><strong>Documented routines over tacit knowledge:</strong> additional delivery overhead, but stronger handover quality and lower key-person risk.</li>
+                    <li><strong>Fabric-aligned data products over report-by-report rebuilds:</strong> more upfront structure, but stronger reuse, auditability and supportability.</li>
+                    <li><strong>Validation controls over visual-only checking:</strong> additional delivery effort, but better confidence that migrated outputs were safe for operational use.</li>
+                    <li><strong>Incremental migration over big-bang cutover:</strong> slower in places, but reduced disruption risk for recurring BAU reporting.</li>
+                    <li><strong>Documented routines over tacit knowledge:</strong> more documentation overhead, but better handover quality and faster issue triage.</li>
                 </ul>
             </section>
 
@@ -183,19 +157,32 @@ deduped_df = (
                 <h2>Decision outcomes enabled</h2>
                 <ul>
                     <li>More consistent KPI interpretation across operational and leadership reporting conversations.</li>
-                    <li>Faster issue triage through clearer lineage and reconciliation checkpoints.</li>
-                    <li>Higher confidence in recurring performance packs because semantic logic was easier to validate and explain.</li>
-                    <li>Improved change confidence for future enhancements due to clearer ownership and runbook guidance.</li>
+                    <li>Reduced reporting drift during migration by using validation and reconciliation checkpoints before downstream use.</li>
+                    <li>Faster issue triage using clearer lineage, source-to-target notes and run-log evidence.</li>
+                    <li>Higher confidence in recurring leadership and operational reporting while migration work continued.</li>
+                    <li>Better handover/supportability after migration work through ERDs, data-flow notes and runbook guidance.</li>
                 </ul>
             </section>
 
             <section class="cs-section">
                 <h2>Results / impact</h2>
                 <ul>
-                    <li>Reduced duplicated reporting logic by consolidating key transformation/metric handling into a governed Fabric-aligned structure.</li>
-                    <li>Improved confidence in metrics through reconciliation checks and clearer semantic definitions in owned scope areas.</li>
-                    <li>Strengthened supportability through ERD/data-flow documentation, runbook updates, and explicit escalation guidance.</li>
-                    <li>Provided more reliable reporting foundations for BAU operations while the wider migration continued.</li>
+                    <li>Moved scoped reporting domains toward governed Fabric-aligned data products.</li>
+                    <li>Improved metric confidence through validation and reconciliation controls.</li>
+                    <li>Reduced logic duplication in owned areas by consolidating transformation and KPI-relevant definitions.</li>
+                    <li>Strengthened supportability through ERDs, data-flow notes, runbooks and explicit escalation routes.</li>
+                    <li>Improved BAU confidence while the wider migration continued.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>What this demonstrates</h2>
+                <ul>
+                    <li><strong>Fabric migration delivery:</strong> practical delivery within a live operational environment, not a standalone demo.</li>
+                    <li><strong>Data-quality and reconciliation mindset:</strong> row counts, key checks, freshness checks and source-to-semantic comparisons.</li>
+                    <li><strong>Semantic-layer governance:</strong> clearer KPI definitions, grains, relationships and supportable reporting outputs.</li>
+                    <li><strong>BAU reliability:</strong> modernising reporting foundations without disrupting critical recurring operational reporting.</li>
+                    <li><strong>Documentation discipline:</strong> ERDs, lineage notes, runbooks and escalation routes that improve handover and supportability.</li>
                 </ul>
             </section>
 
@@ -214,10 +201,11 @@ deduped_df = (
         <div class="footer-links">
             <a href="../index.html">Home</a>
             <a href="../projects.html">Projects</a>
-            <a href="../approach.html">My Approach</a>
-            <a href="../insights/">Insights</a>
+            <a href="../approach.html">Approach</a>
+            <a href="../index.html#connect">Contact</a>
+            <a href="../assets/cv/Arsalan-Iftikhar-CV.pdf" download>Download CV</a>
         </div>
-        <p>&copy; 2025 Arsalan Iftikhar. All rights reserved.</p>
+        <p>&copy; 2026 Arsalan Iftikhar. All rights reserved.</p>
     </footer>
 
     <script>
