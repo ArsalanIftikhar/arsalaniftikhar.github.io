@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floor Walk Power App Case Study | Arsalan Iftikhar</title>
-    <meta name="description" content="Case study: operational floor-walk digitisation using Power Apps, SharePoint, Power Query, and Power BI to reduce double handling and strengthen governed review.">
+    <title>Floor Walk Digitisation | Power Apps &amp; Power BI Case Study</title>
+    <meta name="description" content="Case study: Power Apps, SharePoint, Power Query and Power BI workflow for governed floor-walk capture, reduced double handling and estimated 4–8 staff hours/day saved.">
     <meta property="og:type" content="article">
-    <meta property="og:title" content="Floor Walk Power App Case Study | Arsalan Iftikhar">
-    <meta property="og:description" content="How manual floor-walk capture was standardised into governed mobile-first operational reporting with evidence-backed escalation.">
+    <meta property="og:title" content="Floor Walk Digitisation | Power Apps &amp; Power BI Case Study">
+    <meta property="og:description" content="Governed floor-walk capture using Power Apps, SharePoint, Power Query and Power BI to reduce double handling and improve operational issue visibility.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/projects/floor-walk-powerapp-case-study.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <link rel="stylesheet" href="../assets/css/site.css">
-    <style>.top-breadcrumb{font-size:.9rem;color:#6b7280;margin-bottom:1rem}.top-breadcrumb a{color:#6b7280;text-decoration:none}.top-breadcrumb a:hover{text-decoration:underline;color:#0066cc}</style>
+    <style>
+        .top-breadcrumb{font-size:.9rem;color:#6b7280;margin-bottom:1rem}
+        .top-breadcrumb a{color:#6b7280;text-decoration:none}
+        .top-breadcrumb a:hover{text-decoration:underline;color:#0066cc}
+        .control-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem;margin-top:1rem}
+        .control-card{border:1px solid var(--border-color);border-radius:12px;background:#f9fbff;padding:.9rem}
+        .control-card h3{font-size:.95rem;color:var(--accent-color);margin-bottom:.3rem}
+        .control-card p{color:var(--text-light);font-size:.92rem}
+        .scope-note{border-left:4px solid var(--accent-color);background:#f9fbff;border-radius:10px;padding:.9rem;color:var(--text-dark);margin-top:1rem}
+    </style>
 </head>
 <body class="case-study-body">
     <header>
@@ -32,51 +41,58 @@
 
     <main class="case-study-main">
         <article class="cs-container">
-            <p class="top-breadcrumb"><a href="../projects.html">← Back to Projects</a></p>
+            <p class="top-breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / Floor Walk Digitisation</p>
             <section class="cs-hero">
-                <h1>Floor Walk Power App Case Study</h1>
-                <p>I helped replace manual floor-walk capture and double handling with a governed mobile-first workflow. This improved issue logging consistency, clarified ownership, and made recurring operational risks easier to review and escalate.</p>
+                <h1>Floor Walk Digitisation with Power Apps &amp; Power BI</h1>
+                <p>Digitised a manual inventory/floor-walk process into a governed Power Apps and Power BI workflow, reducing double handling, improving issue visibility and saving an estimated 4–8 staff hours/day across c.30 users and 3 shifts.</p>
             </section>
 
             <section class="cs-summary-band" aria-label="Case study summary">
                 <article>
                     <h2>Original friction</h2>
-                    <p>Paper/spreadsheet capture created duplicate handling, inconsistent labels, and fragmented accountability.</p>
+                    <p>Manual floor-walk capture created double handling, inconsistent categories, delayed reporting visibility and fragmented accountability.</p>
                 </article>
                 <article>
                     <h2>What changed</h2>
-                    <p>Floor-walk observations moved to standardised mobile capture with governed fields and repeatable reporting.</p>
+                    <p>A governed Power Apps → SharePoint → Power Query → Power BI workflow standardised issue capture, evidence, ownership and operational review.</p>
                 </article>
                 <article>
                     <h2>My role / ownership</h2>
-                    <p>Senior BI Analyst delivering data/governance design, reporting model structure, and operational rollout support.</p>
+                    <p>Owned the BI-side data structure, reporting model, governance rules, review views and rollout feedback loops with operations.</p>
                 </article>
                 <article>
                     <h2>Measured impact</h2>
-                    <p>Estimated 4–8 staff hours/day saved from reduced manual collation and less rework in reporting preparation.</p>
+                    <p>Estimated 4–8 staff hours/day saved across c.30 users and 3 shifts by reducing manual collation, re-keying and reporting preparation effort.</p>
                 </article>
             </section>
 
             <section class="cs-section">
                 <h2>Problem</h2>
-                <p>Before digitisation, floor-walk issues were captured in mixed formats and then re-entered for reporting. This manual chain introduced double handling, delayed visibility, and variation in categories, location names, and action-owner fields.</p>
-                <p>As a result, senior review discussions often spent time reconciling wording and ownership rather than addressing recurring operational issues. The business needed practical, low-friction capture that produced analysis-ready data from the start.</p>
+                <p>Floor-walk issues were captured inconsistently across paper, notes and spreadsheets. Before the information could be used for reporting, it often had to be re-entered, manually cleaned or interpreted by someone who understood the original wording.</p>
+                <p>Categories, locations, owners and statuses were inconsistent, which meant senior review time could be spent reconciling wording and ownership rather than acting on recurring issues. The business needed low-friction capture that worked in a warehouse environment and produced analysis-ready data from the start.</p>
             </section>
 
             <section class="cs-section">
                 <h2>My role / ownership</h2>
                 <ul>
-                    <li>Defined the core capture structure needed for reliable trend reporting (category, location, severity context, owner, status, timestamps).</li>
-                    <li>Set governance guardrails for controlled values and naming consistency to reduce interpretation drift.</li>
-                    <li>Designed the reporting-ready shaping approach in Power Query and aligned outputs to Power BI review requirements.</li>
-                    <li>Supported rollout feedback loops with operations teams to keep the process practical for warehouse usage.</li>
-                    <li>Owned BI-side reporting logic and review views used in recurring operational and senior conversations.</li>
+                    <li>Defined the core capture fields needed for reliable trend reporting: category, location, owner, status, timestamp, issue detail and evidence/photo reference where applicable.</li>
+                    <li>Set governance guardrails for controlled values and naming consistency across categories, locations, owners and statuses.</li>
+                    <li>Designed the Power Query shaping and validation approach to reduce manual clean-up before reporting.</li>
+                    <li>Aligned the output structure to Power BI review requirements for recurring operational and senior conversations.</li>
+                    <li>Built or supported BI-side review views covering recurring issues, ownership, status and follow-through patterns.</li>
+                    <li>Worked with operations to keep the workflow practical for warehouse usage and supported feedback loops after rollout.</li>
                 </ul>
             </section>
 
             <section class="cs-section">
                 <h2>Solution</h2>
-                <p>The delivery used a simple four-part operating pattern: Power Apps for capture, SharePoint List for governed storage, Power Query for shaping/validation, and Power BI for repeatable operational review. The emphasis was reliability and adoption over feature-heavy complexity.</p>
+                <p>The delivery used a simple operating pattern designed for adoption and reporting consistency rather than unnecessary complexity:</p>
+                <ul>
+                    <li><strong>Power Apps:</strong> mobile/frontline issue capture with a structured form for floor-walk observations.</li>
+                    <li><strong>SharePoint List:</strong> governed storage with controlled fields and practical administration for business teams.</li>
+                    <li><strong>Power Query:</strong> shaping, cleaning, validation and reporting-ready outputs to reduce manual preparation.</li>
+                    <li><strong>Power BI:</strong> recurring review by area, category, shift, owner/status and follow-through.</li>
+                </ul>
 
                 <figure class="evidence-diagram">
                     <svg viewBox="0 0 980 240" role="img" aria-label="Floor walk data flow from Power App to Power BI">
@@ -100,8 +116,39 @@
                         <line x1="610" y1="106" x2="640" y2="106"></line>
                         <line x1="810" y1="106" x2="840" y2="106"></line>
                     </svg>
-                    <figcaption>Operational flow: mobile capture to governed storage and repeatable BI review.</figcaption>
+                    <figcaption>Operational flow: governed capture to reporting-ready review views.</figcaption>
                 </figure>
+            </section>
+
+            <section class="cs-section">
+                <h2>Governance and reporting controls</h2>
+                <p>The controls were designed to reduce interpretation drift and improve confidence in issue trends before records reached recurring review.</p>
+                <div class="control-grid" aria-label="Floor walk governance and reporting controls">
+                    <article class="control-card">
+                        <h3>Controlled categories</h3>
+                        <p>Standardised issue labels so recurring themes could be compared across teams and time periods.</p>
+                    </article>
+                    <article class="control-card">
+                        <h3>Location conventions</h3>
+                        <p>Consistent location naming reduced manual grouping and made area-level trends easier to review.</p>
+                    </article>
+                    <article class="control-card">
+                        <h3>Owner/status fields</h3>
+                        <p>Required ownership and status fields where appropriate supported follow-through and accountability.</p>
+                    </article>
+                    <article class="control-card">
+                        <h3>Timestamped records</h3>
+                        <p>Created a clearer timeline for issue capture, recurrence and follow-up activity.</p>
+                    </article>
+                    <article class="control-card">
+                        <h3>Power Query shaping</h3>
+                        <p>Reduced manual clean-up by standardising reporting inputs before semantic/reporting use.</p>
+                    </article>
+                    <article class="control-card">
+                        <h3>Reporting-ready structure</h3>
+                        <p>Aligned capture fields to recurring operational review needs by area, category, shift and owner/status.</p>
+                    </article>
+                </div>
             </section>
 
             <section class="cs-section">
@@ -110,39 +157,54 @@
                     <li><strong>Power Apps:</strong> low-friction mobile-first input suited to warehouse floor usage, improving adoption during live operations.</li>
                     <li><strong>SharePoint List:</strong> simple governed storage with controlled fields and practical administration for business teams.</li>
                     <li><strong>Power Query:</strong> consistent shaping and validation so reporting inputs were standardised before semantic use.</li>
-                    <li><strong>Power BI:</strong> repeatable operational review of recurring issues, ownership trends, and escalation evidence over time.</li>
+                    <li><strong>Power BI:</strong> repeatable operational review of recurring issues, ownership trends and escalation evidence over time.</li>
                 </ul>
             </section>
 
             <section class="cs-section">
                 <h2>Decision outcomes enabled</h2>
                 <ul>
-                    <li>Easier senior review of recurring issues by area/category with fewer debates about data consistency.</li>
-                    <li>Clearer ownership/accountability because issue records retained explicit owner and status fields.</li>
-                    <li>Evidence-backed escalation using trend and recurrence patterns instead of isolated anecdotes.</li>
-                    <li>Faster operational follow-up because teams could focus on actions rather than manual data preparation.</li>
+                    <li>Easier senior review of recurring issues by area/category/shift.</li>
+                    <li>Clearer ownership and follow-through on actions.</li>
+                    <li>Evidence-backed escalation using trend and recurrence patterns.</li>
+                    <li>Faster weekly/monthly review preparation because teams spent less time manually collating records.</li>
+                    <li>Better basis for continuous-improvement prioritisation.</li>
                 </ul>
             </section>
 
             <section class="cs-section">
                 <h2>Results / impact</h2>
                 <ul>
-                    <li>Estimated <strong>4–8 staff hours/day saved</strong> by reducing double handling and manual collation steps.</li>
-                    <li>Improved consistency of issue logging through standardised categories and location conventions.</li>
-                    <li>Stronger governance of floor-walk data through required fields, controlled values, and timestamped records.</li>
-                    <li>More reliable operational reporting foundation for recurring review, prioritisation, and continuous-improvement follow-through.</li>
+                    <li>Estimated <strong>4–8 staff hours/day saved</strong> across c.30 users and 3 shifts by reducing double handling, manual collation and reporting preparation.</li>
+                    <li>Improved consistency of issue logging through standardised categories, locations, owners and statuses.</li>
+                    <li>Increased confidence in floor-walk reporting by making capture more structured and analysis-ready.</li>
+                    <li>Improved visibility of recurring operational issues by area, category and shift.</li>
+                    <li>Supported evidence-based escalation and follow-through on recurring operational actions.</li>
                 </ul>
             </section>
 
             <section class="cs-section">
-                <h2>Next steps</h2>
+                <h2>What this demonstrates</h2>
                 <ul>
-                    <li>Add threshold-based alerts for high-frequency repeat issues by category/location.</li>
-                    <li>Introduce SLA-style follow-up measures for higher-severity findings.</li>
-                    <li>Review category taxonomy quarterly to keep labels aligned with operational reality.</li>
+                    <li><strong>Power Platform delivery:</strong> turning an operational process into a governed capture workflow.</li>
+                    <li><strong>BI governance:</strong> designing capture fields with downstream reporting and KPI consistency in mind.</li>
+                    <li><strong>Operational adoption:</strong> building around frontline/warehouse usability.</li>
+                    <li><strong>Commercial awareness:</strong> reducing manual admin and improving action visibility.</li>
+                    <li><strong>Stakeholder delivery:</strong> translating messy operational needs into a repeatable reporting process.</li>
                 </ul>
             </section>
 
+            <section class="cs-section">
+                <h2>Next steps / what I would improve</h2>
+                <ul>
+                    <li>Threshold-based alerts for high-frequency repeat issues by category/location.</li>
+                    <li>SLA-style follow-up measures for high-priority findings.</li>
+                    <li>Better closed-loop tracking from issue capture to action completion.</li>
+                    <li>Periodic review of category/location taxonomy to keep reporting aligned to operational reality.</li>
+                    <li>Optional manager/team views for accountability and coaching.</li>
+                </ul>
+                <p class="scope-note">Scope note: this case study focuses on process digitisation, governed capture and reporting visibility. It does not claim fully automated issue resolution or direct financial savings.</p>
+            </section>
         </article>
     </main>
 
