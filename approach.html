@@ -3,14 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Approach | Arsalan Iftikhar - Senior BI Delivery</title>
-    <meta name="description" content="How Arsalan Iftikhar runs discovery, KPI stewardship, semantic modelling, reliability checks, and delivery hygiene for senior BI outcomes.">
+    <title>Approach | BI, Automation &amp; Data Product Delivery</title>
+    <meta name="description" content="How Arsalan Iftikhar approaches BI, Microsoft Fabric, Power Platform automation, data-quality controls, stakeholder adoption and governed data product delivery.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Approach | Arsalan Iftikhar - Senior BI Delivery">
-    <meta property="og:description" content="How Arsalan Iftikhar runs discovery, KPI stewardship, semantic modelling, reliability checks, and delivery hygiene for senior BI outcomes.">
+    <meta property="og:title" content="Approach | BI, Automation &amp; Data Product Delivery">
+    <meta property="og:description" content="How Arsalan Iftikhar approaches BI, Microsoft Fabric, Power Platform automation, data-quality controls, stakeholder adoption and governed data product delivery.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/approach.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <link rel="stylesheet" href="assets/css/site.css">
+    <style>
+        .work-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0 2.5rem;
+        }
+        .work-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            min-height: 210px;
+        }
+        .work-card h3 {
+            font-size: 1.08rem;
+            margin-bottom: .45rem;
+        }
+        .work-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        .work-card a {
+            margin-top: auto;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .section-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            margin: 0 0 .45rem;
+        }
+        .section-intro {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            max-width: 860px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -31,11 +72,11 @@
 
     <main>
         <section class="hero">
-            <h1>Senior BI Delivery Sequence</h1>
-            <p>A practical sequence for delivering trusted reporting: clear framing, governed KPI logic, semantic model discipline, controlled validation, and reliable handover.</p>
+            <h1>BI, Automation &amp; Data Product Delivery Approach</h1>
+            <p>A practical delivery sequence for turning messy operational needs into governed BI, automation and data products: clear discovery, trusted KPI logic, fit-for-purpose modelling, validation controls, user adoption, documentation and iteration.</p>
         </section>
 
-        <section class="timeline" aria-label="BI delivery playbook timeline">
+        <section class="timeline" aria-label="BI and automation delivery playbook timeline">
             <article class="timeline-phase">
                 <span class="phase-marker" aria-hidden="true"></span>
                 <div class="phase-title">
@@ -45,21 +86,21 @@
                 <div class="phase-block">
                     <h3>What I need</h3>
                     <ul>
-                        <li>Priority business decisions and current reporting pain points.</li>
-                        <li>Source inventory, data owners, and refresh expectations.</li>
+                        <li>Priority business decisions, operational pain points and current workflow/reporting friction.</li>
+                        <li>Source inventory, process owners, users, refresh needs and adoption constraints.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
                     <h3>What I produce</h3>
                     <ul>
-                        <li>Agreed scope, outcomes, and non-goals.</li>
-                        <li>High-level source-to-semantic data flow.</li>
+                        <li>Agreed scope, outcomes, non-goals and success measures.</li>
+                        <li>High-level source-to-output/workflow map.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
                     <h3>Risk reduced</h3>
                     <ul>
-                        <li>Prevents scope drift and late discovery of missing data.</li>
+                        <li>Prevents scope drift, unclear ownership and late discovery of missing data/process constraints.</li>
                     </ul>
                 </div>
             </article>
@@ -68,26 +109,26 @@
                 <span class="phase-marker" aria-hidden="true"></span>
                 <div class="phase-title">
                     <span class="phase-number">Phase 2</span>
-                    <h2>KPI definition &amp; stewardship</h2>
+                    <h2>KPI, workflow &amp; data definition</h2>
                 </div>
                 <div class="phase-block">
                     <h3>What I need</h3>
                     <ul>
-                        <li>KPI definitions, grain, owners, and policy/finance rules.</li>
-                        <li>Agreement on inclusions, exclusions, and action expectations.</li>
+                        <li>KPI definitions, business rules, process steps, ownership points and exception paths.</li>
+                        <li>Agreement on inclusions, exclusions, approval logic and action expectations.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
                     <h3>What I produce</h3>
                     <ul>
-                        <li>Concise KPI dictionary with logic and lineage notes.</li>
-                        <li>Lightweight change-control log for definition updates.</li>
+                        <li>KPI/process dictionary with logic, grain, owners and lineage notes.</li>
+                        <li>Lightweight change-control log for definitions, workflow rules or reporting changes.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
                     <h3>Risk reduced</h3>
                     <ul>
-                        <li>Reduces metric drift and conflicting report interpretations.</li>
+                        <li>Reduces metric drift, workflow ambiguity and conflicting interpretations.</li>
                     </ul>
                 </div>
             </article>
@@ -96,26 +137,26 @@
                 <span class="phase-marker" aria-hidden="true"></span>
                 <div class="phase-title">
                     <span class="phase-number">Phase 3</span>
-                    <h2>Data modelling &amp; semantic layer</h2>
+                    <h2>Data modelling, capture design &amp; semantic layer</h2>
                 </div>
                 <div class="phase-block">
                     <h3>What I need</h3>
                     <ul>
-                        <li>Confirmed KPI logic and required reporting cuts.</li>
-                        <li>Business key/grain alignment across sources.</li>
+                        <li>Confirmed KPI/process logic, required reporting cuts and capture fields.</li>
+                        <li>Business key/grain alignment across source systems, apps and reporting outputs.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
                     <h3>What I produce</h3>
                     <ul>
-                        <li>Maintainable model structure (fact/dimension patterns, conformed keys, date strategy).</li>
-                        <li>Documented semantic relationships and measure ownership standards.</li>
+                        <li>Maintainable model structure, capture fields, relationships, date strategy and reusable semantic logic.</li>
+                        <li>Documented data flows from source/capture through transformation and reporting.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
                     <h3>Risk reduced</h3>
                     <ul>
-                        <li>Limits logic sprawl and improves consistency across reports.</li>
+                        <li>Limits logic sprawl and prevents downstream reporting problems caused by poor capture or unclear grain.</li>
                     </ul>
                 </div>
             </article>
@@ -129,21 +170,21 @@
                 <div class="phase-block">
                     <h3>What I need</h3>
                     <ul>
-                        <li>Trusted baselines or control totals for comparison.</li>
-                        <li>Exception thresholds and escalation owners.</li>
+                        <li>Trusted baselines, control totals, expected record counts and exception thresholds.</li>
+                        <li>Escalation owners for failures, data-quality issues or approval bottlenecks.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
                     <h3>What I produce</h3>
                     <ul>
-                        <li>Reconciliation checks from source to transformed to semantic output.</li>
-                        <li>Control routines for refresh failures, threshold breaches, and issue triage.</li>
+                        <li>Reconciliation checks from source/capture to transformed and semantic output.</li>
+                        <li>Control routines for refresh failures, validation breaches, workflow exceptions and issue triage.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
                     <h3>Risk reduced</h3>
                     <ul>
-                        <li>Prevents silent data issues and improves confidence in reported metrics.</li>
+                        <li>Prevents silent data issues and improves confidence in operational outputs before users rely on them.</li>
                     </ul>
                 </div>
             </article>
@@ -152,26 +193,26 @@
                 <span class="phase-marker" aria-hidden="true"></span>
                 <div class="phase-title">
                     <span class="phase-number">Phase 5</span>
-                    <h2>Performance review</h2>
+                    <h2>Adoption, usability &amp; performance review</h2>
                 </div>
                 <div class="phase-block">
                     <h3>What I need</h3>
                     <ul>
-                        <li>Real user journeys and high-cost report interactions.</li>
-                        <li>Baseline timings from model checks and DAX Studio traces.</li>
+                        <li>Real user journeys, frontline/manager workflows and high-cost report interactions.</li>
+                        <li>Usage patterns, feedback, performance bottlenecks and adoption blockers.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
                     <h3>What I produce</h3>
                     <ul>
-                        <li>Targeted tuning notes for model, measures, and visual patterns.</li>
-                        <li>Documented trade-offs so optimisations remain maintainable.</li>
+                        <li>Usability improvements, targeted model/report tuning, simplified user flows and documented trade-offs.</li>
+                        <li>Adoption notes or feedback backlog prioritised by business value and friction.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
                     <h3>Risk reduced</h3>
                     <ul>
-                        <li>Reduces slow, fragile reports and late-stage performance surprises.</li>
+                        <li>Reduces slow, fragile or unused solutions and improves practical adoption.</li>
                     </ul>
                 </div>
             </article>
@@ -185,15 +226,15 @@
                 <div class="phase-block">
                     <h3>What I need</h3>
                     <ul>
-                        <li>UAT sign-off, support ownership, and production-readiness checks.</li>
-                        <li>Clear cadence for post-release review and enhancements.</li>
+                        <li>UAT sign-off, support ownership, documentation expectations and post-release review cadence.</li>
+                        <li>Clear handover routes for analysts, managers or junior contributors.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
                     <h3>What I produce</h3>
                     <ul>
-                        <li>Release notes, runbook, and handover pack with support paths.</li>
-                        <li>Prioritised improvement backlog based on value and risk.</li>
+                        <li>Release notes, runbook, handover pack, support paths and prioritised improvement backlog.</li>
+                        <li>Where relevant, mentoring notes or delivery standards that help junior contributors maintain quality.</li>
                     </ul>
                 </div>
                 <div class="phase-block">
@@ -205,10 +246,32 @@
             </article>
         </section>
 
+        <section aria-label="Where this approach shows up in my work">
+            <h2 class="section-heading">Where this shows up in my work</h2>
+            <p class="section-intro">Three flagship examples show this delivery approach across self-service BI, Fabric modernisation and operational process digitisation.</p>
+            <div class="work-showcase">
+                <article class="work-card lift-on-hover">
+                    <h3>Self-Service Kiosk</h3>
+                    <p>Product-minded BI and automation: Power BI, Power Apps, Power Automate, Raspberry Pi and VuePilot used to improve frontline self-service access.</p>
+                    <a href="projects/self-service-kiosk-case-study.html">View case study →</a>
+                </article>
+                <article class="work-card lift-on-hover">
+                    <h3>Fabric Modernisation</h3>
+                    <p>Governed data product delivery: Fabric, SQL/PySpark, validation controls, lineage, runbooks and BAU supportability.</p>
+                    <a href="projects/fabric-modernisation-case-study.html">View case study →</a>
+                </article>
+                <article class="work-card lift-on-hover">
+                    <h3>Floor Walk Digitisation</h3>
+                    <p>Operational process digitisation: Power Apps, SharePoint, Power Query and Power BI used to standardise capture and reduce manual reporting effort.</p>
+                    <a href="projects/floor-walk-powerapp-case-study.html">View case study →</a>
+                </article>
+            </div>
+        </section>
+
         <section class="cta-card" aria-label="Playbook call to action">
             <h2>Let's connect</h2>
-            <p>If this delivery approach fits your BI priorities, I'm happy to discuss where I can help.</p>
-            <a href="index.html#connect" class="btn">Connect</a>
+            <p>If this delivery approach fits your BI, Fabric, Power Platform or data automation priorities, I’m happy to discuss where I can help.</p>
+            <a href="index.html#connect" class="btn">Contact</a>
         </section>
     </main>
 
