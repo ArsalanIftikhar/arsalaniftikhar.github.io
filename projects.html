@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Arsalan Iftikhar - BI & Data Case Studies</title>
-    <meta name="description" content="Selective BI case studies evidencing operational reporting delivery, Microsoft Fabric modernisation, and governed decision-support analytics.">
+    <title>Projects | Arsalan Iftikhar - BI, Fabric & Automation Delivery</title>
+    <meta name="description" content="Selected project proof across real-world BI, Microsoft Fabric, Power Platform, reporting automation, operational delivery, and supporting technical BI work.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Projects | Arsalan Iftikhar - BI & Data Case Studies">
-    <meta property="og:description" content="Selective BI case studies evidencing operational reporting delivery, Microsoft Fabric modernisation, and governed decision-support analytics.">
+    <meta property="og:title" content="Projects | Arsalan Iftikhar - BI, Fabric & Automation Delivery">
+    <meta property="og:description" content="Selected project proof across real-world BI, Microsoft Fabric, Power Platform, reporting automation, operational delivery, and supporting technical BI work.">
     <meta property="og:url" content="https://arsalaniftikhar.github.io/projects.html">
     <meta property="og:site_name" content="Arsalan Iftikhar">
     <style>
@@ -26,6 +26,11 @@
         .group-title { font-family:'Montserrat',sans-serif; font-size:1.45rem; margin:2rem 0 .9rem; }
         .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap:1rem; }
         .project-card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:1.25rem; display:flex; flex-direction:column; min-height:240px; }
+        .secondary-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 0.75fr)); }
+        .project-card.secondary { min-height:190px; background:#fcfcfd; border-style:dashed; }
+        .project-card.secondary h2 { font-size:1.08rem; }
+        .project-card.secondary p { font-size:.92rem; }
+        .current-work-card { min-height:190px; background:#fff; border-left:4px solid var(--accent); }
         .lift-on-hover { transition: transform 200ms ease, box-shadow 200ms ease; }
         .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform: translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,.12); }
         @media (prefers-reduced-motion: reduce) { .lift-on-hover { transition:none; } .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform:none; } }
@@ -58,46 +63,58 @@
     </header>
 
     <main>
-        <h1>Projects Gallery</h1>
-        <p class="subtitle">A selective set of case studies demonstrating operational BI delivery, modern reporting platform work, and governed decision-support reporting for business stakeholders.</p>
+        <h1>Projects</h1>
+        <p class="subtitle">Real-world proof across BI delivery, Microsoft Fabric, Power Platform, automation and operational reporting, with supporting technical projects clearly separated from primary delivery work.</p>
 
-        <h2 class="group-title">Primary BI case studies</h2>
+        <h2 class="group-title">Primary operational BI projects</h2>
         <section class="grid">
             <article class="project-card lift-on-hover">
                 <h2>Self-Service Kiosk</h2>
-                <p>Built self-service operational reporting for frontline colleagues, improving access to performance information and reducing dependency on manual report requests.</p>
+                <p>Built a self-service kiosk that allowed frontline colleagues to check performance ratings and submit downtime incidents without waiting for manager availability, reaching c.200 report views/day.</p>
                 <div class="tags">
-                    <span class="tag">Power BI</span><span class="tag">Self-Service BI</span><span class="tag">Frontline Adoption</span><span class="tag">Operational Reporting</span><span class="tag">Stakeholders</span>
+                    <span class="tag">Power BI</span><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">Raspberry Pi</span><span class="tag">VuePilot</span>
                 </div>
                 <a href="projects/self-service-kiosk-case-study.html" class="project-link">View case study →</a>
             </article>
             <article class="project-card lift-on-hover">
                 <h2>GXO Fabric Modernisation</h2>
-                <p>Modernised reporting foundations in Microsoft Fabric with clearer data flow, reconciliation checks, and semantic model performance improvements for reliable reporting.</p>
+                <p>Supported migration from legacy on-premise SQL Server reporting toward governed Microsoft Fabric data products with validation, lineage and supportability controls.</p>
                 <div class="tags">
-                    <span class="tag">Microsoft Fabric</span><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">PySpark</span><span class="tag">Governance</span>
+                    <span class="tag">Microsoft Fabric</span><span class="tag">PySpark</span><span class="tag">SQL</span><span class="tag">Data Validation</span><span class="tag">Governance</span>
                 </div>
                 <a href="projects/fabric-modernisation-case-study.html" class="project-link">View case study →</a>
             </article>
             <article class="project-card lift-on-hover">
                 <h2>Floor Walk Power App</h2>
-                <p>Digitised floor-walk operations and created governed reporting visibility, improving data quality, speed of issue tracking, and operational follow-through.</p>
+                <p>Digitised manual floor-walk issue capture into a governed Power Apps and Power BI workflow, saving 4–8 staff hours/day and improving issue visibility.</p>
                 <div class="tags">
-                    <span class="tag">Power Apps</span><span class="tag">Power BI</span><span class="tag">Power Query</span><span class="tag">SharePoint List</span><span class="tag">Operations</span>
+                    <span class="tag">Power Apps</span><span class="tag">SharePoint</span><span class="tag">Power Query</span><span class="tag">Power BI</span><span class="tag">Process Digitisation</span>
                 </div>
                 <a href="projects/floor-walk-powerapp-case-study.html" class="project-link">View case study →</a>
             </article>
         </section>
 
+        <h2 class="group-title">Supporting technical BI project</h2>
+        <section class="grid secondary-grid">
+            <article class="project-card secondary lift-on-hover">
+                <h2>Sales Analytics Dashboard</h2>
+                <p>Supporting technical BI project demonstrating semantic modelling, DAX organisation and report usability.</p>
+                <div class="tags">
+                    <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Star Schema</span><span class="tag">Power Query</span>
+                </div>
+                <a href="projects/sales_analysis_case_study.html" class="project-link">View technical project →</a>
+            </article>
+        </section>
+
         <h2 class="group-title">Current AI &amp; automation work</h2>
-        <section class="grid">
-            <article class="project-card lift-on-hover">
+        <section class="grid secondary-grid">
+            <article class="project-card current-work-card lift-on-hover">
                 <h2>NexAura AI &amp; Automation Delivery</h2>
-                <p>Part-time product and delivery work across AI-enabled QA, healthcare workflow systems, and reporting automation, strengthening delivery leadership and requirements translation.</p>
+                <p>Compact current-work summary covering practical AI, automation and reporting delivery; detailed case studies are not being published yet.</p>
                 <div class="tags">
                     <span class="tag">AI Automation</span><span class="tag">Product Delivery</span><span class="tag">Requirements</span><span class="tag">Dashboards</span><span class="tag">Mentoring</span>
                 </div>
-                <a href="index.html#nexaura" class="project-link">View current work →</a>
+                <a href="index.html#nexaura" class="project-link">View current work summary →</a>
             </article>
         </section>
     </main>
