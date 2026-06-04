@@ -28,7 +28,10 @@
         nav { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
         .nav-brand { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; text-decoration: none; color: var(--primary); }
         .nav-links { list-style: none; display: flex; gap: 2rem; }
-        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; }
+        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 500; position: relative; }
+        .nav-links a:hover, .nav-links a:focus-visible { color: var(--accent); }
+        .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--accent); transition: width 160ms ease; }
+        .nav-links a:hover::after, .nav-links a:focus-visible::after { width: 100%; }
 
         .hero { margin-top: 60px; background: var(--dark-grad); color: #fff; text-align: center; padding: 5.5rem 1.5rem 4.5rem; }
         .hero img { width: 126px; height: 126px; border-radius: 50%; object-fit: cover; border: 4px solid rgba(255,255,255,.2); margin-bottom: 1.1rem; }
@@ -87,6 +90,8 @@
         .mobile-menu-toggle { display: none; background: none; border: none; cursor: pointer; }
         .mobile-menu-toggle span { display: block; width: 25px; height: 3px; background: var(--primary); margin: 5px 0; }
 
+        @media (prefers-reduced-motion: reduce) { .nav-links a::after { transition: none; } }
+
         @media (max-width:768px) {
             .mobile-menu-toggle { display: block; }
             .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #fff; flex-direction: column; padding: 1rem; box-shadow: 0 10px 20px rgba(0,0,0,.1); }
@@ -115,7 +120,7 @@
         <img src="assets/profile.jpeg" alt="Arsalan Iftikhar profile photo">
         <h1>Arsalan Iftikhar</h1>
         <p class="role">BI Developer / Senior Data Analyst | Power BI, SQL, Microsoft Fabric, Automation &amp; Data/AI Delivery</p>
-        <p class="summary">I build governed BI, reporting automation and data products that help operational teams and senior leaders make better decisions. My work combines Power BI, SQL, Microsoft Fabric, Power Platform and stakeholder-led delivery, with practical exposure to LLM-enabled workflows, AI-assisted automation and small-team technical leadership.</p>
+        <p class="summary">I build governed BI, reporting automation and data products that improve operational visibility, metric trust and decision-making. My work combines Power BI, SQL, Microsoft Fabric, Power Platform, stakeholder-led delivery and practical AI-enabled workflow experience.</p>
         <div class="hero-pillars">
             <span>Power BI</span>
             <span>SQL</span>
@@ -145,21 +150,18 @@
             </article>
             <article class="card outcome-card">
                 <h3>4–8 staff hours/day saved</h3>
-                <p>Saved 4–8 staff hours/day through process digitisation and cleaner operational capture for frontline teams.</p>
+                <p>Reduced manual handling through Power Apps, SharePoint and Power BI process digitisation.</p>
             </article>
             <article class="card outcome-card">
                 <h3>10+ recurring reports automated</h3>
-                <p>Automated 10+ recurring reports, saving c.6 hours/day while reducing manual handling and reporting risk.</p>
+                <p>Automated recurring operational reporting, reducing manual effort and standardising reporting logic.</p>
             </article>
             <article class="card outcome-card">
                 <h3>c.200 report views/day</h3>
-                <p>Built self-service reporting adopted by frontline colleagues, reaching c.200 report views/day.</p>
-            </article>
-            <article class="card outcome-card">
-                <h3>4 junior contributors coordinated</h3>
-                <p>Mentored/coordinated 4 junior contributors across data, AI and software delivery tasks.</p>
+                <p>Delivered frontline self-service reporting that reached c.200 daily report views.</p>
             </article>
         </div>
+        <p class="leadership-note">Also mentoring/coordinating 4 junior contributors across data, AI and software delivery tasks.</p>
     </section>
 
     <section id="value">
@@ -168,25 +170,22 @@
         <div class="cards">
             <article class="card">
                 <h3>Governed BI &amp; Semantic Modelling</h3>
-                <p>Power BI, DAX, modelling, KPI definitions, row-level security and stakeholder-ready reporting that keeps decisions aligned to trusted metrics.</p>
-            </article>
-            <article class="card">
-                <h3>Reporting Automation &amp; Power Platform Delivery</h3>
-                <p>Power Apps, Power Automate, SharePoint, Excel automation, operational workflows and frontline adoption for practical reporting improvements.</p>
+                <p>Power BI, DAX, semantic modelling, KPI definitions, RLS and stakeholder-ready reporting aligned to trusted metrics.</p>
             </article>
             <article class="card">
                 <h3>Fabric, SQL &amp; Data Quality Controls</h3>
-                <p>Microsoft Fabric, SQL/PySpark, pipelines, validation checks, reconciliation, lineage and controlled cutover for reliable data products.</p>
+                <p>Microsoft Fabric, SQL/PySpark, notebooks, pipelines, reconciliation, validation checks, lineage and controlled cutover patterns.</p>
             </article>
             <article class="card">
-                <h3>Stakeholder Leadership, Adoption &amp; Mentoring</h3>
-                <p>Requirements discovery, senior stakeholder communication, UAT/sign-off, documentation, handover and mentoring junior contributors.</p>
+                <h3>Power Platform &amp; Reporting Automation</h3>
+                <p>Power Apps, Power Automate, SharePoint, Excel automation and operational workflows that reduce manual handling and improve adoption.</p>
             </article>
             <article class="card">
-                <h3>AI-Assisted Delivery &amp; LLM Workflows</h3>
-                <p>Practical use of LLM tools for documentation, debugging, solution design support and faster iteration, alongside client-facing AI projects involving transcription, scoring, SOAP-note generation and workflow automation.</p>
+                <h3>Stakeholder Delivery &amp; Adoption</h3>
+                <p>Requirements discovery, senior stakeholder communication, UAT/sign-off, documentation, handover and mentoring.</p>
             </article>
         </div>
+        <p class="leadership-note">I use AI-assisted development tools for documentation, debugging, code-review support and prototyping, while retaining ownership of solution design, validation and final outputs.</p>
     </section>
 
     <section id="featured">
@@ -213,32 +212,31 @@
 
     <section id="nexaura">
         <h2 class="section-title">Current AI &amp; Automation Work / NexAura</h2>
-        <p class="section-sub">In parallel with my BI/data work, I co-founded NexAura and lead part-time delivery across practical AI, automation and reporting projects. This work strengthens my ability to scope ambiguous problems, coordinate small teams, translate business workflows into technical requirements, and deliver client-facing AI/automation solutions.</p>
+        <p class="section-sub">Alongside my BI/data roles, I contribute to practical AI, automation and reporting projects through NexAura. This work strengthens my requirements discovery, technical scoping, stakeholder communication and small-team delivery experience.</p>
         <div class="cards">
             <article class="card">
                 <h3>AI QA &amp; Call-Centre Coaching</h3>
-                <p>Leading delivery input for an AI-enabled QA tool covering multilingual transcription, rubric-based scoring and dashboard-ready outputs for call-centre operations. The product has progressed from MVP toward contract-signing stage in collaboration with a government body.</p>
+                <p>Supporting delivery input for an AI-enabled QA tool covering multilingual transcription, rubric-based scoring and dashboard-ready outputs for call-centre operations. The work has progressed beyond MVP into stakeholder review and commercial discussion.</p>
                 <div class="tag-list"><span>AI QA</span><span>Transcription</span><span>Scoring Logic</span><span>Dashboards</span><span>Product Delivery</span></div>
             </article>
             <article class="card">
                 <h3>Healthcare Management System</h3>
-                <p>Leading delivery of a modular healthcare management system for a private clinic, including an LLM-enabled consultation workflow to help generate structured SOAP notes for clinician review. The system is being designed for future rollout to additional clinics and healthcare providers.</p>
+                <p>Supporting delivery of a modular healthcare management system for a private clinic, including an LLM-enabled consultation workflow to help generate structured SOAP notes for clinician review.</p>
                 <div class="tag-list"><span>Healthcare Systems</span><span>LLM Workflows</span><span>SOAP Notes</span><span>Workflow Design</span><span>Product Delivery</span></div>
             </article>
             <article class="card">
                 <h3>E-commerce Reporting Automation</h3>
-                <p>Leading reporting automation and dashboard discovery for a US e-commerce business serving 7- to 8-figure Amazon brands, translating operational workflows into data requirements, dashboard concepts and LLM-assisted automation opportunities. A future phase may explore RAG-style retrieval over internal process and product-research knowledge.</p>
+                <p>Supporting reporting automation and dashboard discovery for a US e-commerce business serving established Amazon brands, translating operational workflows into data requirements, dashboard concepts and LLM-assisted automation opportunities. A future phase may explore RAG-style retrieval over internal process and product-research knowledge.</p>
                 <div class="tag-list"><span>Automation</span><span>E-commerce</span><span>LLM Workflows</span><span>Dashboard Discovery</span><span>RAG Exploration</span></div>
             </article>
         </div>
         <p class="leadership-note">Also mentoring and coordinating 4 junior contributors across data, AI and software delivery tasks, including requirements, documentation, testing, solution structure and client-readiness.</p>
-        <p class="leadership-note">I also use AI-assisted development tools such as Codex and Claude Code for documentation, debugging, code-review support and faster iteration, while retaining ownership of solution structure, validation and final outputs. This portfolio refresh has also been managed through a GitHub/Codex-assisted workflow.</p>
     </section>
 
     <section id="connect">
         <div class="connect-card">
             <h2 class="section-title">Contact</h2>
-            <p class="section-sub">Open to Senior BI Analyst, BI Developer, Senior Data Analyst and Data/AI Delivery Lead roles, including Power BI / Fabric / Power Platform delivery, automation and operational reporting opportunities.</p>
+            <p class="section-sub">Open to Senior BI Analyst, BI Developer and Senior Data Analyst roles across the UK and UAE/Gulf markets, with a focus on Power BI, Microsoft Fabric, SQL, Power Platform automation and operational reporting.</p>
             <div class="connect-cta">
                 <a href="projects.html" class="btn">View Projects</a>
                 <a href="assets/cv/Arsalan-Iftikhar-CV.pdf" class="btn" download>Download CV</a>

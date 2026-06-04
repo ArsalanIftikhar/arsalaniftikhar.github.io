@@ -19,7 +19,10 @@
         nav { max-width:1200px; margin:0 auto; padding:1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
         .nav-brand { font-family:'Montserrat',sans-serif; font-size:1.5rem; font-weight:700; color:var(--primary); text-decoration:none; }
         .nav-links { display:flex; gap:2rem; list-style:none; }
-        .nav-links a { text-decoration:none; color:var(--primary); font-weight:500; }
+        .nav-links a { text-decoration:none; color:var(--primary); font-weight:500; position:relative; }
+        .nav-links a:hover, .nav-links a:focus-visible { color:var(--accent); }
+        .nav-links a::after { content:''; position:absolute; left:0; bottom:-4px; width:0; height:2px; background:var(--accent); transition:width 160ms ease; }
+        .nav-links a:hover::after, .nav-links a:focus-visible::after { width:100%; }
         main { max-width:1200px; margin:0 auto; padding:3rem 2rem 4rem; }
         h1 { font-family:'Montserrat',sans-serif; font-size:2.4rem; margin-bottom:.65rem; text-align:center; }
         .subtitle { text-align:center; color:var(--muted); margin:0 auto 2rem; max-width:860px; }
@@ -33,7 +36,7 @@
         .current-work-card { min-height:190px; background:#fff; border-left:4px solid var(--accent); }
         .lift-on-hover { transition: transform 200ms ease, box-shadow 200ms ease; }
         .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform: translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,.12); }
-        @media (prefers-reduced-motion: reduce) { .lift-on-hover { transition:none; } .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform:none; } }
+        @media (prefers-reduced-motion: reduce) { .nav-links a::after { transition:none; } .lift-on-hover { transition:none; } .lift-on-hover:hover, .lift-on-hover:focus-visible, .lift-on-hover:focus-within { transform:none; } }
         .project-card h2 { font-size:1.2rem; margin-bottom:.45rem; }
         .project-card p { color:var(--muted); margin-bottom:.8rem; }
         .tags { display:flex; flex-wrap:wrap; gap:.4rem; margin-bottom:1rem; }
@@ -69,20 +72,20 @@
         <h2 class="group-title">Primary operational BI projects</h2>
         <section class="grid">
             <article class="project-card lift-on-hover">
-                <h2>Self-Service Kiosk</h2>
-                <p>Built a self-service kiosk that allowed frontline colleagues to check performance ratings and submit downtime incidents without waiting for manager availability, reaching c.200 report views/day.</p>
-                <div class="tags">
-                    <span class="tag">Power BI</span><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">Raspberry Pi</span><span class="tag">VuePilot</span>
-                </div>
-                <a href="projects/self-service-kiosk-case-study.html" class="project-link">View case study →</a>
-            </article>
-            <article class="project-card lift-on-hover">
                 <h2>GXO Fabric Modernisation</h2>
                 <p>Supported migration from legacy on-premise SQL Server reporting toward governed Microsoft Fabric data products with validation, lineage and supportability controls.</p>
                 <div class="tags">
                     <span class="tag">Microsoft Fabric</span><span class="tag">PySpark</span><span class="tag">SQL</span><span class="tag">Data Validation</span><span class="tag">Governance</span>
                 </div>
                 <a href="projects/fabric-modernisation-case-study.html" class="project-link">View case study →</a>
+            </article>
+            <article class="project-card lift-on-hover">
+                <h2>Self-Service Kiosk</h2>
+                <p>Built a self-service kiosk that allowed frontline colleagues to check performance ratings and submit downtime incidents without waiting for manager availability, reaching c.200 report views/day.</p>
+                <div class="tags">
+                    <span class="tag">Power BI</span><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">Raspberry Pi</span><span class="tag">VuePilot</span>
+                </div>
+                <a href="projects/self-service-kiosk-case-study.html" class="project-link">View case study →</a>
             </article>
             <article class="project-card lift-on-hover">
                 <h2>Floor Walk Power App</h2>
@@ -97,20 +100,28 @@
         <h2 class="group-title">Supporting technical and analytical projects</h2>
         <section class="grid secondary-grid">
             <article class="project-card secondary lift-on-hover">
-                <h2>Sales Analytics Dashboard</h2>
-                <p>Supporting technical BI project demonstrating semantic modelling, DAX organisation and report usability.</p>
+                <h2>Fabric Timecard Ingestion Pipeline</h2>
+                <p>Microsoft Fabric notebook case study covering API ingestion, shift reconstruction, historical backfill, daily incremental loads and Delta upsert patterns for Power BI-ready Lakehouse data.</p>
                 <div class="tags">
-                    <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Star Schema</span><span class="tag">Power Query</span>
+                    <span class="tag">Microsoft Fabric</span><span class="tag">API Ingestion</span><span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">Delta Lake</span><span class="tag">Power BI</span>
                 </div>
-                <a href="projects/sales_analysis_case_study.html" class="project-link">View technical project →</a>
+                <a href="projects/fabric-timecard-pipeline-case-study.html" class="project-link">View data-platform project →</a>
             </article>
             <article class="project-card secondary lift-on-hover">
                 <h2>Warehouse Assignment Similarity Analysis</h2>
-                <p>Python EDA project analysing SKU and location similarity across multi-container warehouse assignments to identify potential batching inefficiencies and operational improvement opportunities.</p>
+                <p>Applied Python EDA using pandas and Jaccard similarity to evaluate warehouse assignment quality and identify batching-efficiency improvement opportunities.</p>
                 <div class="tags">
                     <span class="tag">Python</span><span class="tag">pandas</span><span class="tag">EDA</span><span class="tag">Similarity Analysis</span><span class="tag">Warehouse Analytics</span>
                 </div>
                 <a href="projects/warehouse-assignment-similarity-analysis.html" class="project-link">View analytical project →</a>
+            </article>
+            <article class="project-card secondary lift-on-hover">
+                <h2>Sales Analytics Dashboard</h2>
+                <p>Power BI fundamentals project demonstrating star-schema modelling, DAX organisation, Power Query staging and report usability.</p>
+                <div class="tags">
+                    <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Star Schema</span><span class="tag">Power Query</span>
+                </div>
+                <a href="projects/sales_analysis_case_study.html" class="project-link">View technical project →</a>
             </article>
         </section>
 

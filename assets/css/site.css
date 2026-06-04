@@ -61,6 +61,28 @@ nav {
     color: var(--text-dark);
     text-decoration: none;
     font-weight: 500;
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    color: var(--accent-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 160ms ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+    width: 100%;
 }
 
 main {
@@ -245,6 +267,10 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .nav-links a::after {
+        transition: none;
+    }
+
     .lift-on-hover {
         transition: none;
     }
