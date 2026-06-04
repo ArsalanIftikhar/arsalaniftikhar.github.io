@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabric Timecard Ingestion &amp; Shift Reconstruction Pipeline | Arsalan Iftikhar</title>
+    <meta name="description" content="Microsoft Fabric notebook case study covering API-based timecard ingestion, shift reconstruction, historical backfill, daily incremental loading, Delta MERGE/upsert logic and Lakehouse output for Power BI reporting.">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Fabric Timecard Ingestion &amp; Shift Reconstruction Pipeline | Arsalan Iftikhar">
+    <meta property="og:description" content="Microsoft Fabric notebook case study covering API-based timecard ingestion, shift reconstruction, historical backfill, daily incremental loading, Delta MERGE/upsert logic and Lakehouse output for Power BI reporting.">
+    <meta property="og:url" content="https://arsalaniftikhar.github.io/projects/fabric-timecard-pipeline-case-study.html">
+    <meta property="og:site_name" content="Arsalan Iftikhar">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <style>
+        .top-breadcrumb{font-size:.9rem;color:#6b7280;margin-bottom:1rem}
+        .top-breadcrumb a{color:#6b7280;text-decoration:none}
+        .top-breadcrumb a:hover{text-decoration:underline;color:#0066cc}
+        .workflow-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:.65rem;margin-top:1rem}
+        .workflow-step{border:1px solid var(--border-color);border-radius:12px;background:#f9fbff;padding:.85rem;position:relative}
+        .workflow-step strong{display:block;color:var(--accent-color);font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.25rem}
+        .workflow-step span{color:var(--text-dark);font-weight:600;font-size:.95rem}
+        .workflow-step p{margin-top:.25rem;color:var(--text-light);font-size:.88rem}
+        .snippet-card{border:1px solid var(--border-color);border-radius:12px;background:#fcfdff;margin-top:.85rem;overflow:hidden}
+        .snippet-card h3{font-size:1rem;padding:.8rem .9rem .2rem;color:var(--text-dark)}
+        .snippet-card p{padding:0 .9rem .65rem;color:var(--text-light)}
+        .snippet-card pre{margin:0;overflow-x:auto;background:#111827;color:#e5e7eb;padding:1rem;font-size:.86rem;line-height:1.55}
+        .snippet-card code{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace}
+        .governance-note{border-left:4px solid var(--accent-color);background:#f9fbff;border-radius:10px;padding:.9rem;color:var(--text-dark);margin-top:1rem}
+        .pill-list{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.7rem}
+        .pill-list span{background:#eef2ff;border:1px solid #c7d2fe;color:#3730a3;border-radius:999px;padding:.2rem .62rem;font-size:.82rem;font-weight:500}
+        @media (max-width:768px){.workflow-strip{grid-template-columns:1fr}.snippet-card pre{font-size:.78rem}}
+    </style>
+</head>
+<body class="case-study-body">
+    <header>
+        <nav>
+            <a class="nav-brand" href="../index.html">⌂ Arsalan Iftikhar</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../approach.html">Approach</a></li>
+                <li><a href="../index.html#connect">Contact</a></li>
+                <li><a href="../assets/cv/Arsalan-Iftikhar-CV.pdf" download>Download CV</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="case-study-main">
+        <article class="cs-container">
+            <p class="top-breadcrumb"><a href="../index.html">Home</a> / <a href="../projects.html">Projects</a> / Fabric Timecard Pipeline</p>
+            <section class="cs-hero">
+                <h1>Fabric Timecard Ingestion &amp; Shift Reconstruction Pipeline</h1>
+                <p>Built a Microsoft Fabric notebook pipeline to ingest workforce timecard/punch data via API, reconstruct shift-level clock-in/out and break records, and load curated outputs into a Lakehouse Delta table for downstream Power BI reporting.</p>
+                <div class="pill-list" aria-label="Technologies and patterns">
+                    <span>Microsoft Fabric</span>
+                    <span>API Ingestion</span>
+                    <span>Python</span>
+                    <span>PySpark</span>
+                    <span>Delta Lake</span>
+                    <span>Power BI</span>
+                </div>
+            </section>
+
+            <section class="cs-summary-band" aria-label="Case study summary">
+                <article>
+                    <h2>Business need</h2>
+                    <p>Raw workforce punch data needed to be transformed into reporting-ready shift records for recurring workforce and operational reporting.</p>
+                </article>
+                <article>
+                    <h2>What changed</h2>
+                    <p>API-sourced punch events were reconstructed into curated clock-in/out, break and audit-ready shift-level records in a Fabric Lakehouse table.</p>
+                </article>
+                <article>
+                    <h2>Technical delivery</h2>
+                    <p>Implemented API ingestion, historical backfill, daily incremental loading and Delta MERGE/upsert logic in a Microsoft Fabric notebook.</p>
+                </article>
+                <article>
+                    <h2>Reporting value</h2>
+                    <p>Created a more reliable Lakehouse foundation for downstream Power BI reporting while reducing duplicate-load risk.</p>
+                </article>
+            </section>
+
+            <section class="cs-section">
+                <h2>Business problem</h2>
+                <p>Raw punch events from workforce systems are not directly reporting-ready. Clock-in, clock-out and break fields often need to be inferred from event sequences before analysts can build reliable operational reporting on top of the data.</p>
+                <p>Manual exports or ad hoc pulls can create repeatability issues, especially when reporting needs to refresh every day. A scheduled load can also create duplicate shift records if it blindly appends the same worker and shift combination after a rerun.</p>
+                <p>The reporting layer needed a curated table at the right grain: one row per reconstructed shift, with consistent start/end fields, break fields and load-audit information for downstream Power BI reporting.</p>
+            </section>
+
+            <section class="cs-section">
+                <h2>Architecture / workflow</h2>
+                <p>The workflow was designed as a practical Fabric notebook pattern that moves API-sourced timecard events into a curated Lakehouse output. API behaviour and request structure were investigated with Postman first, then implemented in an OAuth-aware notebook workflow using Python/PySpark transformations.</p>
+                <p>The solution sat within a medallion-style Fabric environment, with a lightweight Dev/Prod split to support safer release control for a small BI/data team.</p>
+                <div class="workflow-strip" aria-label="Timecard pipeline workflow">
+                    <article class="workflow-step">
+                        <strong>01</strong>
+                        <span>Timecard API</span>
+                        <p>Workforce punch events used as the source feed.</p>
+                    </article>
+                    <article class="workflow-step">
+                        <strong>02</strong>
+                        <span>Postman investigation</span>
+                        <p>Validated authentication behaviour and safe request structure.</p>
+                    </article>
+                    <article class="workflow-step">
+                        <strong>03</strong>
+                        <span>Fabric Notebook</span>
+                        <p>Orchestrated extraction, transformation and loading logic.</p>
+                    </article>
+                    <article class="workflow-step">
+                        <strong>04</strong>
+                        <span>Python/PySpark</span>
+                        <p>Reconstructed shifts and shaped reporting-ready fields.</p>
+                    </article>
+                    <article class="workflow-step">
+                        <strong>05</strong>
+                        <span>Lakehouse Delta table</span>
+                        <p>Stored curated records using an upsert-friendly pattern.</p>
+                    </article>
+                    <article class="workflow-step">
+                        <strong>06</strong>
+                        <span>Power BI reporting</span>
+                        <p>Supported recurring reporting from curated data.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="cs-section">
+                <h2>Transformation logic</h2>
+                <ul>
+                    <li>Punch events are sorted chronologically per <code>worker_id</code>.</li>
+                    <li>Shift boundaries are inferred using a time-gap rule between consecutive events.</li>
+                    <li>The first and last punch in a sequence are shaped into <code>shift_start</code> and <code>shift_end</code>.</li>
+                    <li>Break events are mapped into <code>break_start</code> and <code>break_end</code> using sanitised <code>event_type</code> category logic.</li>
+                    <li>The output is shaped into shift-level grain for reporting consumption.</li>
+                    <li>A <code>loaded_at</code> audit timestamp supports traceability without exposing raw operational output.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Idempotent loading and Delta upsert</h2>
+                <p>The notebook pattern supports historical backfill for initial loading and daily incremental mode for scheduled refresh. To reduce duplicate-load risk, the curated output is deduplicated around a composite business key such as worker plus shift start.</p>
+                <p>Delta MERGE/upsert logic prevents recurring loads from blindly appending duplicate shifts and makes reruns safer. This does not claim perfect data quality; it is a practical loading control that should be paired with validation checks for missing punches, unusual shift durations and other operational exceptions.</p>
+            </section>
+
+            <section class="cs-section">
+                <h2>Implementation excerpts</h2>
+                <p>These snippets are manually sanitised examples of the implementation pattern. They intentionally avoid raw endpoints, request bodies, internal field names, worker identifiers and environment metadata.</p>
+
+                <article class="snippet-card">
+                    <h3>1. API call pattern</h3>
+                    <p>Generic OAuth-aware API request pattern for a single report date.</p>
+                    <pre><code>def fetch_timecard_data(report_date):
+    token = get_access_token()
+    payload = {
+        "where": {
+            "dateRange": {
+                "startDate": report_date,
+                "endDate": next_day(report_date)
+            }
+        },
+        "select": ["PUNCH_EVENTS"]
+    }
+
+    response = requests.post(
+        TIMEKEEPING_API_URL,
+        headers={"Authorization": f"Bearer {token}"},
+        json=payload,
+        timeout=60
+    )
+    response.raise_for_status()
+    return response.json()</code></pre>
+                </article>
+
+                <article class="snippet-card">
+                    <h3>2. Shift reconstruction logic</h3>
+                    <p>Generic sequence logic for reconstructing reporting-ready shifts from punch events.</p>
+                    <pre><code>def reconstruct_shifts(punch_events):
+    shifts = []
+
+    for worker_id, events in group_by_worker(punch_events):
+        ordered = sorted(events, key=lambda x: x["punch_time"])
+        current_shift = []
+
+        for idx, event in enumerate(ordered):
+            current_shift.append(event)
+
+            is_last = idx == len(ordered) - 1
+            starts_new_shift = (
+                not is_last and
+                ordered[idx + 1]["punch_time"] - event["punch_time"] &gt; SHIFT_GAP_THRESHOLD
+            )
+
+            if is_last or starts_new_shift:
+                shifts.append(build_shift_record(worker_id, current_shift))
+                current_shift = []
+
+    return shifts</code></pre>
+                </article>
+
+                <article class="snippet-card">
+                    <h3>3. Delta MERGE/upsert pattern</h3>
+                    <p>Generic Delta pattern for updating existing shift records and inserting new ones.</p>
+                    <pre><code>spark_df.createOrReplaceTempView("staged_timecard")
+
+spark.sql("""
+MERGE INTO curated_timecard AS target
+USING staged_timecard AS source
+ON target.worker_id = source.worker_id
+AND target.shift_start = source.shift_start
+
+WHEN MATCHED THEN UPDATE SET *
+WHEN NOT MATCHED THEN INSERT *
+""")</code></pre>
+                </article>
+            </section>
+
+            <section class="cs-section">
+                <h2>My role</h2>
+                <ul>
+                    <li>Investigated API behaviour and request structure using Postman.</li>
+                    <li>Designed the notebook pipeline logic.</li>
+                    <li>Built the API extraction and transformation workflow.</li>
+                    <li>Implemented historical backfill and daily incremental loading patterns.</li>
+                    <li>Implemented the Delta MERGE/upsert pattern.</li>
+                    <li>Aligned curated output to Power BI reporting needs.</li>
+                    <li>Worked within a lightweight Dev/Prod Fabric environment suitable for a small BI/data team.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>Results / impact</h2>
+                <ul>
+                    <li>Created a repeatable API-to-Lakehouse ingestion pattern for workforce/timecard data.</li>
+                    <li>Converted raw punch events into shift-level reporting records.</li>
+                    <li>Reduced duplicate-load risk through Delta MERGE/upsert logic.</li>
+                    <li>Supported recurring Power BI reporting from curated Lakehouse data.</li>
+                    <li>Strengthened Fabric/data engineering capability within the BI reporting environment.</li>
+                </ul>
+            </section>
+
+            <section class="cs-section">
+                <h2>What this demonstrates</h2>
+                <ul>
+                    <li>Microsoft Fabric notebook delivery.</li>
+                    <li>API ingestion and endpoint investigation.</li>
+                    <li>Python/PySpark transformation logic.</li>
+                    <li>Lakehouse/Delta table design.</li>
+                    <li>Incremental and backfill pipeline design.</li>
+                    <li>Idempotent upsert logic.</li>
+                    <li>Data modelling around reporting grain.</li>
+                    <li>Dev/Prod operating awareness.</li>
+                    <li>BI/data engineering bridge capability.</li>
+                </ul>
+                <p class="governance-note">This case study is intentionally summarised. Raw notebook outputs, employee identifiers, endpoint details, workspace metadata and internal operational qualifiers are excluded to protect sensitive workforce and operational data.</p>
+            </section>
+
+            <section class="cs-section">
+                <h2>Future improvements</h2>
+                <ul>
+                    <li>Continue or ensure managed secret storage such as Azure Key Vault where appropriate.</li>
+                    <li>Add retry/error logging around API failures.</li>
+                    <li>Add validation checks for missing punches, odd punch counts and extreme shift durations.</li>
+                    <li>Partition by reporting date where useful.</li>
+                    <li>Align Power BI incremental refresh with the curated timecard output.</li>
+                    <li>Add monitoring/alerting for scheduled load failures.</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <a href="../index.html">Home</a>
+            <a href="../projects.html">Projects</a>
+            <a href="../approach.html">Approach</a>
+            <a href="../index.html#connect">Contact</a>
+            <a href="../assets/cv/Arsalan-Iftikhar-CV.pdf" download>Download CV</a>
+        </div>
+        <p>&copy; 2026 Arsalan Iftikhar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navLinks = document.getElementById('navLinks');
+            if (mobileMenuToggle && navLinks) {
+                mobileMenuToggle.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
