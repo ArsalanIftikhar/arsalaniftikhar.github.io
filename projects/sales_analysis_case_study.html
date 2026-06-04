@@ -21,6 +21,11 @@
         .top-breadcrumb { font-size: .9rem; color: #6b7280; margin-bottom: 1rem; }
         .top-breadcrumb a { color: #6b7280; text-decoration: none; }
         .top-breadcrumb a:hover, .top-breadcrumb a:focus-visible { color: var(--accent-color); text-decoration: underline; }
+        .site-footer { background: #1f2937; color: #fff; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem; }
+        .footer-links a { color: rgba(255,255,255,.85); text-decoration: none; }
+        .footer-links a:hover, .footer-links a:focus-visible { color: #fff; text-decoration: underline; }
+        .footer-note { color: rgba(255,255,255,.85); }
         @media (prefers-reduced-motion: reduce) { .nav-links a::after { transition: none; } }
     </style>
 </head>
@@ -175,16 +180,16 @@
         </div>
     </main>
 
-    <footer class="bg-white mt-12 py-6">
-        <div class="container mx-auto text-center text-gray-500">
-            <div class="flex justify-center gap-6 flex-wrap mb-3">
-                <a href="../index.html" class="hover:text-blue-600 hover:underline">Home</a>
-                <a href="../projects.html" class="hover:text-blue-600 hover:underline">Projects</a>
-                <a href="../approach.html" class="hover:text-blue-600 hover:underline">Approach</a>
-                <a href="../index.html#connect" class="hover:text-blue-600 hover:underline">Contact</a>
-                <a href="../assets/cv/Arsalan-Iftikhar-CV.pdf" download class="hover:text-blue-600 hover:underline">Download CV</a>
+    <footer class="site-footer mt-12 py-8">
+        <div class="container mx-auto text-center">
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../projects.html">Projects</a>
+                <a href="../approach.html">Approach</a>
+                <a href="../index.html#connect">Contact</a>
+                <a href="../assets/cv/Arsalan-Iftikhar-CV.pdf" download>Download CV</a>
             </div>
-            <p>&copy; 2026 Arsalan Iftikhar. All Rights Reserved.</p>
+            <p class="footer-note">&copy; 2026 Arsalan Iftikhar. All Rights Reserved.</p>
         </div>
     </footer>
 
