@@ -18,6 +18,12 @@
         .tag-strip{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:.9rem}
         .tag-strip span{background:#eef2ff;border:1px solid #c7d2fe;color:#3730a3;border-radius:999px;padding:.22rem .62rem;font-size:.78rem;font-weight:600}
         .note{border-left:4px solid var(--accent-color);background:#f9fbff;border-radius:10px;padding:.9rem;color:var(--text-dark);margin-top:1rem}
+        .snippet-card{border:1px solid var(--border-color);border-radius:12px;background:#fcfdff;margin-top:.85rem;overflow:hidden}
+        .snippet-card h3{font-size:1rem;padding:.8rem .9rem .2rem;color:var(--text-dark)}
+        .snippet-card p{padding:0 .9rem .65rem;color:var(--text-light)}
+        .snippet-card pre{margin:0;overflow-x:auto;background:#111827;color:#e5e7eb;padding:1rem;font-size:.86rem;line-height:1.55}
+        .snippet-card code{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace}
+        @media (max-width:768px){.snippet-card pre{font-size:.78rem}}
     </style>
 </head>
 <body class="case-study-body">
@@ -65,7 +71,7 @@
                     <li>Analysis focused on valid assignments containing exactly 3 containers.</li>
                     <li>Final comparison covered approximately 37,659 assignments.</li>
                 </ul>
-                <p class="note">The underlying notebook/export is not publicly linked from this case study because it contains operational field names and low-level working detail. This page summarises the anonymised business problem, method and findings only.</p>
+                <p class="note">The raw notebook/export has been removed from the public repository. This page presents a sanitised summary and representative code snippets only, excluding raw operational identifiers, non-public file names, source-system details and sensitive data.</p>
             </section>
 
             <section class="cs-section">
@@ -83,6 +89,99 @@
             </section>
 
             <section class="cs-section">
+                <h2>Implementation excerpts</h2>
+                <p>The snippets below are sanitised representative excerpts. They show the analytical pattern used for assignment-level similarity analysis while excluding raw operational identifiers, non-public file names and sensitive data.</p>
+
+                <article class="snippet-card">
+                    <h3>1. Preparing assignment-level sets</h3>
+                    <p>Container-level sets make each assignment comparable by product, location and aisle overlap.</p>
+                    <pre><code>import pandas as pd
+
+# Sanitised example structure:
+# assignment_id | container_id | sku | pick_location | aisle | duration_minutes
+
+df = raw_picks.copy()
+
+df["sku"] = df["sku"].astype(str)
+df["aisle"] = df["pick_location"].str.extract(r"([A-Z]\d+)")
+
+container_sets = (
+    df.groupby(["assignment_id", "container_id"])
+    .agg(
+        sku_set=("sku", lambda x: set(x.dropna())),
+        location_set=("pick_location", lambda x: set(x.dropna())),
+        aisle_set=("aisle", lambda x: set(x.dropna())),
+        duration_minutes=("duration_minutes", "max")
+    )
+    .reset_index()
+)</code></pre>
+                </article>
+
+                <article class="snippet-card">
+                    <h3>2. Jaccard similarity and pairwise comparison</h3>
+                    <p>Pairwise comparison allows each container in an assignment to be compared against the others.</p>
+                    <pre><code>from itertools import combinations
+
+def jaccard_similarity(a, b):
+    if not a and not b:
+        return 1.0
+
+    union = a | b
+    if not union:
+        return 0.0
+
+    return len(a &amp; b) / len(union)
+
+def compare_containers(group):
+    comparisons = []
+
+    for left, right in combinations(group.to_dict("records"), 2):
+        comparisons.append({
+            "sku_similarity": jaccard_similarity(left["sku_set"], right["sku_set"]),
+            "location_similarity": jaccard_similarity(left["location_set"], right["location_set"]),
+            "aisle_similarity": jaccard_similarity(left["aisle_set"], right["aisle_set"])
+        })
+
+    return pd.DataFrame(comparisons)</code></pre>
+                </article>
+
+                <article class="snippet-card">
+                    <h3>3. Assignment-level scoring and exploratory visualisation</h3>
+                    <p>Average and minimum similarity scores support assignment-level interpretation and visual checks.</p>
+                    <pre><code>import matplotlib.pyplot as plt
+
+assignment_scores = (
+    pairwise_results.groupby("assignment_id")
+    .agg(
+        avg_sku_similarity=("sku_similarity", "mean"),
+        min_sku_similarity=("sku_similarity", "min"),
+        avg_location_similarity=("location_similarity", "mean"),
+        min_location_similarity=("location_similarity", "min"),
+        avg_duration_minutes=("duration_minutes", "mean")
+    )
+    .reset_index()
+)
+
+assignment_scores["has_poor_match"] = (
+    assignment_scores["min_sku_similarity"] &lt; 0.10
+)
+
+plt.figure(figsize=(8, 5))
+plt.scatter(
+    assignment_scores["avg_sku_similarity"],
+    assignment_scores["avg_duration_minutes"],
+    alpha=0.4
+)
+plt.xlabel("Average SKU similarity")
+plt.ylabel("Assignment duration minutes")
+plt.title("Assignment duration vs SKU similarity")
+plt.tight_layout()</code></pre>
+                </article>
+
+                <p class="note">These excerpts are intentionally simplified. The original analysis included additional filtering, assignment-size controls, minimum-similarity checks and interpretation of SKU/location/aisle similarity as operational efficiency signals.</p>
+            </section>
+
+            <section class="cs-section">
                 <h2>Key findings</h2>
                 <ul>
                     <li>Average SKU similarity was approximately 12.5%, suggesting weak product clustering across assignments.</li>
@@ -96,10 +195,12 @@
             <section class="cs-section">
                 <h2>Tools and techniques</h2>
                 <ul>
-                    <li>Python for exploratory analysis and repeatable calculation logic.</li>
-                    <li>pandas for filtering, grouping, joining and feature engineering.</li>
-                    <li>Jaccard similarity for SKU, location and aisle-set comparison.</li>
-                    <li>matplotlib and seaborn for exploratory visualisation and distribution checks.</li>
+                    <li>Python for repeatable operational analysis.</li>
+                    <li>pandas for grouping, set construction, feature engineering and aggregation.</li>
+                    <li>Jaccard similarity for comparing SKU, location and aisle overlap.</li>
+                    <li>matplotlib/seaborn for exploratory visualisation and distribution checks.</li>
+                    <li>Assignment-level scoring using average and minimum similarity.</li>
+                    <li>Minimum similarity as a useful inefficiency signal because one poorly matched container can weaken the whole assignment.</li>
                 </ul>
             </section>
 
@@ -126,12 +227,12 @@
             <section class="cs-section">
                 <h2>What this demonstrates</h2>
                 <ul>
-                    <li>Python EDA in a workplace setting.</li>
-                    <li>pandas-based data preparation and feature engineering.</li>
-                    <li>Similarity metrics/Jaccard similarity.</li>
-                    <li>Analytical framing of an operational efficiency problem.</li>
-                    <li>Translating technical outputs into business recommendations.</li>
-                    <li>Awareness of limitations and operational context.</li>
+                    <li>Workplace Python EDA, not just a personal exercise.</li>
+                    <li>pandas-based preparation of operational data.</li>
+                    <li>Similarity metrics and pairwise comparison logic.</li>
+                    <li>Analytical judgement around operational efficiency.</li>
+                    <li>Translating technical findings into business-facing recommendations.</li>
+                    <li>Responsible sanitisation of sensitive operational analysis.</li>
                 </ul>
             </section>
         </article>
