@@ -1,0 +1,16 @@
+{
+  "career": {
+    "label": "Career and professional enquiries",
+    "email": "arsalan.iftikhar1@hotmail.com",
+    "href": "mailto:arsalan.iftikhar1@hotmail.com"
+  },
+  "consulting": {
+    "label": "Consulting and NexAura enquiries",
+    "email": "arsalan.iftikhar@nexauragroup.co.uk",
+    "href": "mailto:arsalan.iftikhar@nexauragroup.co.uk"
+  },
+  "linkedin": {
+    "label": "LinkedIn",
+    "url": "https://www.linkedin.com/in/arsalaniftikhar1/"
+  }
+}

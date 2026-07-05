@@ -1,0 +1,29 @@
+[
+  {
+    "label": "Home",
+    "url": "/",
+    "primary": true
+  },
+  {
+    "label": "Work",
+    "url": "/projects.html",
+    "primary": true
+  },
+  {
+    "label": "About",
+    "url": "/about.html",
+    "primary": true
+  },
+  {
+    "label": "Contact",
+    "url": "/contact.html",
+    "primary": true
+  },
+  {
+    "label": "Download CV",
+    "url": "/assets/cv/Arsalan-Iftikhar-CV.pdf",
+    "primary": true,
+    "isDownload": true,
+    "isCta": true
+  }
+]

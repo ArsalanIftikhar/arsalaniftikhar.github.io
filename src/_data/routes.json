@@ -1,0 +1,26 @@
+{
+  "home": {
+    "label": "Home",
+    "url": "/",
+    "canonicalPath": "/"
+  },
+  "work": {
+    "label": "Work",
+    "url": "/projects.html",
+    "canonicalPath": "/projects.html"
+  },
+  "about": {
+    "label": "About",
+    "url": "/about.html",
+    "canonicalPath": "/about.html",
+    "title": "About",
+    "description": "About Arsalan Iftikhar, Senior BI & Data Analyst in West Yorkshire, UK, working across BI, analytics, data engineering, automation and applied AI delivery."
+  },
+  "contact": {
+    "label": "Contact",
+    "url": "/contact.html",
+    "canonicalPath": "/contact.html",
+    "title": "Contact",
+    "description": "Contact Arsalan Iftikhar for career and professional enquiries or NexAura consulting enquiries using the appropriate public route."
+  }
+}

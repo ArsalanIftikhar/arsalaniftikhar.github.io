@@ -1,0 +1,40 @@
+---
+layout: layouts/base.njk
+permalink: /contact.html
+title: Contact
+description: Contact Arsalan Iftikhar for career and professional enquiries or NexAura consulting enquiries using the appropriate public route.
+canonicalPath: /contact.html
+---
+<section class="hero">
+  <h1>Contact</h1>
+  <p>Use the route that best matches the enquiry. Career and professional messages should use the personal email or LinkedIn. Consulting and NexAura enquiries should use the NexAura email route.</p>
+</section>
+
+<section class="shell-section" aria-labelledby="career-heading">
+  <h2 id="career-heading">{{ contacts.career.label }}</h2>
+  <p>For senior BI, data analytics, BI engineering, analytics-engineering or related professional conversations, use the personal email route or LinkedIn.</p>
+  <ul class="shell-contact-list">
+    <li><strong>Email:</strong> <a href="{{ contacts.career.href }}">{{ contacts.career.email }}</a></li>
+    <li><strong>LinkedIn:</strong> <a href="{{ contacts.linkedin.url }}" target="_blank" rel="noopener noreferrer">{{ contacts.linkedin.label }}</a></li>
+  </ul>
+  <div class="shell-actions">
+    <a class="btn" href="{{ cv.url }}" download>{{ cv.label }}</a>
+  </div>
+</section>
+
+<section class="shell-section" aria-labelledby="consulting-heading">
+  <h2 id="consulting-heading">{{ contacts.consulting.label }}</h2>
+  <p>For NexAura, consulting, automation or delivery enquiries, use the business email route so the message is kept separate from career conversations.</p>
+  <ul class="shell-contact-list">
+    <li><strong>Email:</strong> <a href="{{ contacts.consulting.href }}">{{ contacts.consulting.email }}</a></li>
+  </ul>
+</section>
+
+<section class="cta-card" aria-labelledby="location-heading">
+  <h2 id="location-heading">{{ profile.location }}</h2>
+  <p>{{ profile.relocation }}. Review the Work page for selected portfolio evidence or use LinkedIn for a professional overview.</p>
+  <div class="shell-actions">
+    <a class="btn" href="{{ routes.work.url }}">View Work</a>
+    <a class="btn" href="{{ contacts.linkedin.url }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+</section>

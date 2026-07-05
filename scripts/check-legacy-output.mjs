@@ -18,6 +18,7 @@ const topLevelPublicFiles = [
 ];
 
 const publicDirectories = ["assets", "projects", "insights"];
+const approvedGeneratedHtmlRoutes = new Set(["about.html", "contact.html"]);
 
 async function listFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -67,6 +68,11 @@ async function main() {
   }
 
   const failures = [];
+  const missingLegacyFiles = [];
+  const missingLegacyRoutes = [];
+  const differingLegacyFiles = [];
+  const missingApprovedGeneratedRoutes = [];
+  const unexpectedGeneratedRoutes = [];
   const sourceFiles = new Map();
   const htmlRoutes = new Set();
 
@@ -98,6 +104,7 @@ async function main() {
     const outputPath = path.join(outputRoot, relativePath);
 
     if (!existsSync(outputPath)) {
+      missingLegacyFiles.push(relativePath);
       failures.push(`Missing copied output: ${relativePath}`);
       continue;
     }
@@ -108,6 +115,7 @@ async function main() {
     ]);
 
     if (sourceHash !== outputHash) {
+      differingLegacyFiles.push(relativePath);
       failures.push(`Output differs from source: ${relativePath}`);
     }
   }
@@ -120,14 +128,38 @@ async function main() {
 
   for (const route of htmlRoutes) {
     if (!generatedHtmlRoutes.has(route)) {
+      missingLegacyRoutes.push(route);
       failures.push(`Missing HTML route: ${route}`);
     }
   }
 
+  for (const route of approvedGeneratedHtmlRoutes) {
+    if (!generatedHtmlRoutes.has(route)) {
+      missingApprovedGeneratedRoutes.push(route);
+      failures.push(`Missing approved generated HTML route: ${route}`);
+    }
+  }
+
   for (const route of generatedHtmlRoutes) {
-    if (!htmlRoutes.has(route)) {
+    if (!htmlRoutes.has(route) && !approvedGeneratedHtmlRoutes.has(route)) {
+      unexpectedGeneratedRoutes.push(route);
       failures.push(`Unexpected generated HTML route: ${route}`);
     }
+  }
+
+  const approvedGeneratedRoutesFound = [...approvedGeneratedHtmlRoutes].filter((route) =>
+    generatedHtmlRoutes.has(route),
+  );
+
+  function printSummary(log = console.log) {
+    log(`Legacy files checked: ${sourceFiles.size}`);
+    log(`Legacy HTML routes checked: ${htmlRoutes.size}`);
+    log(`Approved generated routes found: ${approvedGeneratedRoutesFound.length}`);
+    log(`Unexpected generated routes found: ${unexpectedGeneratedRoutes.length}`);
+    log(`Missing legacy routes: ${missingLegacyRoutes.length}`);
+    log(`Differing legacy files: ${differingLegacyFiles.length}`);
+    log(`Missing legacy files: ${missingLegacyFiles.length}`);
+    log(`Missing approved generated routes: ${missingApprovedGeneratedRoutes.length}`);
   }
 
   if (failures.length > 0) {
@@ -135,13 +167,14 @@ async function main() {
     for (const failure of failures) {
       console.error(`- ${failure}`);
     }
+    printSummary(console.error);
     process.exitCode = 1;
     return;
   }
 
-  console.log(
-    `Legacy output validation passed: ${sourceFiles.size} files checked, ${htmlRoutes.size} HTML routes checked, copied output matches current source byte-for-byte.`,
-  );
+  console.log("Legacy output validation passed.");
+  printSummary();
+  console.log("Copied legacy output matches current source byte-for-byte.");
   console.log("Relative file paths are preserved in _site.");
 }
 
