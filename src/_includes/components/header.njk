@@ -1,0 +1,15 @@
+<header>
+  <nav class="shell-nav" aria-label="Primary navigation">
+    <a href="{{ routes.home.url }}" class="nav-brand">{{ profile.fullName }}</a>
+    <ul class="shell-nav-list">
+      {% for item in navigation %}
+        {% if item.primary %}
+          {% set isCurrent = item.url == page.url or (item.url == "/" and page.url == "/index.html") %}
+          <li>
+            <a href="{{ item.url }}"{% if isCurrent %} aria-current="page"{% endif %}{% if item.isDownload %} download{% endif %}>{{ item.label }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

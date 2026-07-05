@@ -6,7 +6,8 @@
     "dev": "eleventy --serve",
     "clean": "node -e \"require('node:fs').rmSync('_site', { recursive: true, force: true })\"",
     "check:legacy": "node scripts/check-legacy-output.mjs",
-    "test": "npm run clean && npm run build && npm run check:legacy"
+    "check:shell": "node scripts/check-shared-shell.mjs",
+    "test": "npm run clean && npm run build && npm run check:legacy && npm run check:shell"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6"

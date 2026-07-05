@@ -1,0 +1,13 @@
+<footer>
+  <nav aria-label="Footer navigation">
+    <div class="footer-links">
+      <a href="{{ routes.home.url }}">Home</a>
+      <a href="{{ routes.work.url }}">Work</a>
+      <a href="{{ routes.about.url }}">About</a>
+      <a href="{{ routes.contact.url }}">Contact</a>
+      <a href="{{ contacts.linkedin.url }}" target="_blank" rel="noopener noreferrer">{{ contacts.linkedin.label }}</a>
+      <a href="{{ cv.url }}" download>{{ cv.label }}</a>
+    </div>
+  </nav>
+  <p>&copy; {{ site.copyrightStartYear }} {{ profile.fullName }}. {{ profile.primaryTitle }}. {{ profile.location }}.</p>
+</footer>
