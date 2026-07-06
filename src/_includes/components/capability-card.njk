@@ -1,0 +1,15 @@
+<article class="capability-card panel" aria-labelledby="capability-{{ capability.id }}">
+  <div class="capability-card__header">
+    <span class="icon-badge">
+      {% set icon = capability.iconKey %}
+      {% include "components/icon.njk" %}
+    </span>
+    <h3 id="capability-{{ capability.id }}">{{ capability.title }}</h3>
+  </div>
+  <p>{{ capability.description }}</p>
+  <ul class="tag-list" aria-label="Representative technologies and methods for {{ capability.title }}">
+    {% for method in capability.methods %}
+      <li>{{ method }}</li>
+    {% endfor %}
+  </ul>
+</article>

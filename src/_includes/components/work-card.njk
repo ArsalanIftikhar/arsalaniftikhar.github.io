@@ -1,0 +1,43 @@
+{% set cardVariant = variant or "selected" %}
+{% if item.primaryCapability == "Data Engineering & Automation" %}
+  {% set workIcon = "pipeline" %}
+{% elif item.primaryCapability == "Applied AI & Technical Delivery" %}
+  {% set workIcon = "cloud" %}
+{% elif item.category == "Machine learning" %}
+  {% set workIcon = "automation" %}
+{% else %}
+  {% set workIcon = "analytics" %}
+{% endif %}
+<article class="work-card work-card--{{ cardVariant }} panel" aria-labelledby="work-{{ item.id }}">
+  <div class="work-card__header">
+    <span class="icon-badge icon-badge--small">
+      {% set icon = workIcon %}
+      {% include "components/icon.njk" %}
+    </span>
+    <div class="work-card__heading">
+      <h3 id="work-{{ item.id }}">{{ item.title }}</h3>
+      <p class="work-card__meta">
+        {% if item.primaryCapability %}
+          <span>{{ item.primaryCapability }}</span>
+        {% elif item.category %}
+          <span>{{ item.category }}</span>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+  {% if item.publicNote %}
+    <p class="work-card__note">{{ item.publicNote }}</p>
+  {% endif %}
+  <p>{{ item.summary }}</p>
+  {% if item.contribution %}
+    <p class="work-card__contribution">{{ item.contribution }}</p>
+  {% endif %}
+  {% if item.technologies %}
+    <ul class="tag-list" aria-label="Technologies and methods for {{ item.title }}">
+      {% for technology in item.technologies %}
+        <li>{{ technology }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <a class="card-link" href="{{ item.url }}" aria-label="{{ item.ctaLabel }}: {{ item.title }}">{{ item.ctaLabel }}</a>
+</article>

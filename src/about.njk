@@ -2,41 +2,28 @@
 layout: layouts/base.njk
 permalink: /about.html
 title: About
-description: About Arsalan Iftikhar, Senior BI & Data Analyst in West Yorkshire, UK, working across BI, analytics, data engineering, automation and applied AI delivery.
+description: About Arsalan Iftikhar, Senior BI & Data Analyst building reporting, automation and data products across logistics operations and consultancy work.
 canonicalPath: /about.html
 ---
 <section class="page-intro section">
   <p class="eyebrow">{{ profile.locationLine }}</p>
-  <h1>About Arsalan Iftikhar</h1>
-  <p class="lede">{{ profile.primaryTitle }}. {{ profile.coreProposition }}</p>
+  <h1>About</h1>
+  <p class="lede">I’m a Senior BI & Data Analyst with four years of experience building reporting, automation and data products across logistics operations and consultancy work.</p>
 </section>
 
-<section class="section panel panel--spacious content-stack" aria-labelledby="positioning-heading">
-  <h2 id="positioning-heading">Professional Positioning</h2>
-  <p>I work across business intelligence, analytics, data engineering and automation, with applied AI and cloud delivery treated as practical extensions of that foundation. The emphasis is on turning operational ambiguity into reporting, workflows and decision support that stakeholders can understand and maintain.</p>
-</section>
-
-<section class="section panel panel--spacious content-stack" aria-labelledby="approach-heading">
-  <h2 id="approach-heading">Approach To Ambiguous Data Problems</h2>
-  <p>I start by clarifying the decision, the workflow and the metric logic before choosing tools. That means mapping sources, owners, business rules, exception paths and user expectations early, then building the simplest structure that can be validated and supported.</p>
-</section>
-
-<section class="section panel panel--spacious content-stack" aria-labelledby="delivery-heading">
-  <h2 id="delivery-heading">Delivery Focus</h2>
-  <ul class="list">
-    <li>Business intelligence and analytics that make KPI definitions, reporting logic and operational context easier to trust.</li>
-    <li>Engineering and automation patterns that reduce repeated manual handling while keeping ownership, handover and supportability clear.</li>
-    <li>Applied AI and cloud delivery used where they improve workflow quality, documentation, review or decision support.</li>
-    <li>Stakeholder validation, maintainability and adoption treated as part of the build rather than an afterthought.</li>
-  </ul>
+<section class="section panel panel--spacious content-stack" aria-labelledby="about-work-heading">
+  <h2 id="about-work-heading">Analysis, engineering and adoption</h2>
+  <p>My work sits between analysis and engineering. I clarify the question, resolve issues in metric definitions and source data, build the reporting, pipeline or workflow, and work with users until the solution is trusted and adopted.</p>
+  <p>I work primarily with Power BI, SQL, Microsoft Fabric, Python, PySpark and Power Platform. I also use applied AI and Azure delivery patterns where they add practical value.</p>
+  <p>The common thread is turning ambiguous operational problems into maintainable systems that support real decisions.</p>
 </section>
 
 <section class="section panel panel--spacious content-stack" aria-labelledby="next-heading">
   <h2 id="next-heading">{{ profile.locationLine }}</h2>
-  <p>For employment history and role detail, the CV remains the canonical source. For portfolio proof, start with the Work page or get in touch through the Contact page.</p>
+  <p>For project examples, start with the Work page. For roles, interviews or professional conversations, use the Contact page.</p>
   <div class="actions">
-    <a class="button" href="{{ cv.url }}" download>{{ cv.label }}</a>
-    <a class="button--secondary" href="{{ routes.work.url }}">View Work</a>
+    <a class="button" href="{{ routes.work.url }}">View Work</a>
     <a class="button--secondary" href="{{ routes.contact.url }}">Contact</a>
+    <a class="button--secondary" href="{{ cv.url }}" download>{{ cv.label }}</a>
   </div>
 </section>

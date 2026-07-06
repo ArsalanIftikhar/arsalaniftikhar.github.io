@@ -8,8 +8,6 @@ const root = process.cwd();
 const outputRoot = path.join(root, "_site");
 
 const topLevelPublicFiles = [
-  "index.html",
-  "projects.html",
   "approach.html",
   "experience.html",
   "404.html",
@@ -18,12 +16,17 @@ const topLevelPublicFiles = [
 ];
 
 const publicDirectories = ["assets", "projects", "insights"];
-const approvedGeneratedHtmlRoutes = new Set(["about.html", "contact.html"]);
+const approvedGeneratedHtmlRoutes = new Set(["index.html", "projects.html", "about.html", "contact.html"]);
 const approvedGeneratedAssetRoutes = new Set([
   "assets/css/portfolio.css",
   "assets/js/theme.js",
   "assets/js/navigation.js",
 ]);
+const expectedLegacyFileCount = 82;
+const expectedLegacyHtmlRouteCount = 19;
+const expectedGeneratedHtmlRouteCount = 23;
+const expectedGeneratedEleventyRouteCount = 4;
+const expectedGeneratedAssetCount = 3;
 
 async function listFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -180,6 +183,30 @@ async function main() {
   const approvedGeneratedAssetsFound = [...approvedGeneratedAssetRoutes].filter((route) =>
     generatedOutputFiles.includes(route),
   );
+
+  if (sourceFiles.size !== expectedLegacyFileCount) {
+    failures.push(`Expected ${expectedLegacyFileCount} unchanged legacy files but checked ${sourceFiles.size}.`);
+  }
+
+  if (htmlRoutes.size !== expectedLegacyHtmlRouteCount) {
+    failures.push(`Expected ${expectedLegacyHtmlRouteCount} unchanged legacy HTML routes but checked ${htmlRoutes.size}.`);
+  }
+
+  if (generatedHtmlRoutes.size !== expectedGeneratedHtmlRouteCount) {
+    failures.push(`Expected ${expectedGeneratedHtmlRouteCount} total generated HTML files but found ${generatedHtmlRoutes.size}.`);
+  }
+
+  if (approvedGeneratedRoutesFound.length !== expectedGeneratedEleventyRouteCount) {
+    failures.push(
+      `Expected ${expectedGeneratedEleventyRouteCount} generated Eleventy HTML pages but found ${approvedGeneratedRoutesFound.length}.`,
+    );
+  }
+
+  if (approvedGeneratedAssetsFound.length !== expectedGeneratedAssetCount) {
+    failures.push(
+      `Expected ${expectedGeneratedAssetCount} approved generated design assets but found ${approvedGeneratedAssetsFound.length}.`,
+    );
+  }
 
   function printSummary(log = console.log) {
     log(`Legacy files checked: ${sourceFiles.size}`);

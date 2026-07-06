@@ -1,0 +1,26 @@
+[
+  {
+    "id": "business-intelligence-analytics",
+    "title": "Business Intelligence & Analytics",
+    "description": "I define metrics, build semantic models and create operational reporting that helps teams compare performance and act with confidence.",
+    "methods": ["Power BI", "SQL", "DAX", "Semantic modelling", "KPI definition"],
+    "iconKey": "analytics",
+    "order": 1
+  },
+  {
+    "id": "data-engineering-automation",
+    "title": "Data Engineering & Automation",
+    "description": "I build repeatable ingestion, transformation and automation workflows that reduce manual handling and keep reporting outputs maintainable.",
+    "methods": ["Microsoft Fabric", "Python", "PySpark", "REST APIs", "Power Automate"],
+    "iconKey": "pipeline",
+    "order": 2
+  },
+  {
+    "id": "applied-ai-technical-delivery",
+    "title": "Applied AI & Technical Delivery",
+    "description": "I use applied AI, Azure delivery patterns and technical leadership where they improve review quality, delivery clarity and product decisions.",
+    "methods": ["Azure delivery", "Human review", "Technical governance", "Documentation", "Product coordination"],
+    "iconKey": "cloud",
+    "order": 3
+  }
+]

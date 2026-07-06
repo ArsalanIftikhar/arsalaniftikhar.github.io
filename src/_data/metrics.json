@@ -1,0 +1,32 @@
+[
+  {
+    "id": "contract-supported",
+    "number": "£200M",
+    "label": "Logistics contract",
+    "order": 1
+  },
+  {
+    "id": "bi-data-experience",
+    "number": "4 years",
+    "label": "BI & data experience",
+    "order": 2
+  },
+  {
+    "id": "inventory-time-saved",
+    "number": "4–8 hrs/day",
+    "label": "Process time saved",
+    "order": 3
+  },
+  {
+    "id": "kiosk-report-views",
+    "number": "200/day",
+    "label": "Self-service report views",
+    "order": 4
+  },
+  {
+    "id": "operational-savings-analysis",
+    "number": "£500k",
+    "label": "Annual savings supported",
+    "order": 5
+  }
+]

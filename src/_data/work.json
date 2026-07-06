@@ -1,0 +1,118 @@
+{
+  "selectedWork": [
+    {
+      "id": "fabric-workforce-data-pipeline",
+      "title": "Microsoft Fabric Workforce-Data Pipeline",
+      "summary": "Workforce-data ingestion in Microsoft Fabric, with shift and break reconstruction, incremental loading, and controlled reporting outputs for Power BI-ready use.",
+      "url": "/projects/fabric-timecard-pipeline-case-study.html",
+      "classification": "Selected Work",
+      "primaryCapability": "Data Engineering & Automation",
+      "technologies": ["Microsoft Fabric", "Python", "PySpark", "REST APIs", "Delta tables"],
+      "contribution": "Pipeline engineering and reporting-output control",
+      "includeOnHome": true,
+      "order": 1,
+      "ctaLabel": "View case study"
+    },
+    {
+      "id": "operational-bi-performance-reporting",
+      "title": "Operational BI and Performance Reporting",
+      "summary": "Trusted operational reporting built around KPI and metric definition, repeatable reporting logic, validation and stakeholder decision support.",
+      "url": "/projects/fabric-modernisation-case-study.html",
+      "classification": "Selected Work",
+      "primaryCapability": "Business Intelligence & Analytics",
+      "technologies": ["Power BI", "SQL", "Microsoft Fabric", "Semantic modelling", "Validation"],
+      "contribution": "BI delivery, metric definition and reporting controls",
+      "includeOnHome": true,
+      "order": 2,
+      "ctaLabel": "View case study"
+    },
+    {
+      "id": "inventory-check-process-digitisation",
+      "title": "Inventory-Check Process Digitisation",
+      "summary": "Structured operational capture through Power Apps and SharePoint, turning manual inventory checks into reporting-ready data and reducing repeated manual effort.",
+      "url": "/projects/floor-walk-powerapp-case-study.html",
+      "classification": "Selected Work",
+      "primaryCapability": "Business Intelligence & Analytics",
+      "technologies": ["Power Apps", "SharePoint", "Power Query", "Power BI", "Power Automate"],
+      "contribution": "Process digitisation and BI-ready capture design",
+      "includeOnHome": true,
+      "order": 3,
+      "ctaLabel": "View case study"
+    },
+    {
+      "id": "nexaura-healthcare-management-system",
+      "title": "NexAura Healthcare Management System",
+      "summary": "In progress healthcare management system supported through technical and delivery leadership, including MVP requirements translation, contributor coordination, Azure environment planning and delivery-governance review.",
+      "url": "/contact.html",
+      "classification": "Selected Work",
+      "primaryCapability": "Applied AI & Technical Delivery",
+      "technologies": ["Azure environments", "GitHub", "Trello", "Delivery governance", "Architecture review"],
+      "contribution": "Technical and delivery leadership",
+      "publicNote": "In progress",
+      "includeOnHome": false,
+      "order": 4,
+      "ctaLabel": "Discuss this work"
+    },
+    {
+      "id": "multilingual-quality-assurance-product",
+      "title": "Multilingual Quality-Assurance Product",
+      "summary": "A quality-assurance product shaped around multilingual transcription, rubric-based scoring, human review and dashboard-ready outputs for service operations.",
+      "url": "/projects/ai-qa-coaching-case-study.html",
+      "classification": "Selected Work",
+      "primaryCapability": "Applied AI & Technical Delivery",
+      "technologies": ["Multilingual QA", "Transcription", "Rubric-based scoring", "Human review", "Dashboard-ready outputs"],
+      "contribution": "Requirements translation and product-delivery support",
+      "includeOnHome": false,
+      "order": 5,
+      "ctaLabel": "View case study"
+    },
+    {
+      "id": "employee-self-service-reporting-kiosk",
+      "title": "Employee Self-Service Reporting Kiosk",
+      "summary": "Frontline self-service reporting and downtime capture through a kiosk experience designed for adoption, operational accessibility and easier performance visibility.",
+      "url": "/projects/self-service-kiosk-case-study.html",
+      "classification": "Selected Work",
+      "primaryCapability": "Business Intelligence & Analytics",
+      "technologies": ["Power BI", "Power Apps", "Power Automate", "Raspberry Pi", "VuePilot"],
+      "contribution": "Self-service reporting, capture workflow and adoption support",
+      "includeOnHome": true,
+      "order": 6,
+      "ctaLabel": "View case study"
+    }
+  ],
+  "supportingProjects": [
+    {
+      "id": "warehouse-assignment-similarity-analysis",
+      "title": "Warehouse Assignment Similarity Analysis",
+      "summary": "Python analysis comparing warehouse assignment overlap to spot batching patterns and operational-efficiency opportunities.",
+      "url": "/projects/warehouse-assignment-similarity-analysis.html",
+      "classification": "Supporting Project",
+      "category": "Python analysis",
+      "technologies": ["Python", "pandas", "EDA", "Similarity analysis"],
+      "order": 1,
+      "ctaLabel": "View project"
+    },
+    {
+      "id": "house-price-prediction-machine-learning-comparison",
+      "title": "House-Price Prediction and Machine-Learning Comparison",
+      "summary": "Regression and machine-learning comparison focused on feature preparation, model evaluation and practical limitations.",
+      "url": "/projects/house_prices_case_study.html",
+      "classification": "Supporting Project",
+      "category": "Machine learning",
+      "technologies": ["Python", "Regression", "Model comparison", "Feature preparation"],
+      "order": 2,
+      "ctaLabel": "View project"
+    },
+    {
+      "id": "sales-analytics-dashboard",
+      "title": "Sales Analytics Dashboard",
+      "summary": "Power BI dashboard project covering star-schema modelling, Power Query shaping, DAX measures and report usability.",
+      "url": "/projects/sales_analysis_case_study.html",
+      "classification": "Supporting Project",
+      "category": "Power BI",
+      "technologies": ["Power BI", "DAX", "Power Query", "Star schema"],
+      "order": 3,
+      "ctaLabel": "View project"
+    }
+  ]
+}
