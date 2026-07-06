@@ -1,15 +1,42 @@
-<header>
-  <nav class="shell-nav" aria-label="Primary navigation">
-    <a href="{{ routes.home.url }}" class="nav-brand">{{ profile.fullName }}</a>
-    <ul class="shell-nav-list">
-      {% for item in navigation %}
-        {% if item.primary %}
-          {% set isCurrent = item.url == page.url or (item.url == "/" and page.url == "/index.html") %}
-          <li>
-            <a href="{{ item.url }}"{% if isCurrent %} aria-current="page"{% endif %}{% if item.isDownload %} download{% endif %}>{{ item.label }}</a>
-          </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </nav>
+<header class="site-header" data-site-header>
+  <div class="site-header__inner container">
+    <a href="{{ routes.home.url }}" class="site-brand">
+      <span class="site-brand__name">{{ profile.fullName }}</span>
+      <span class="site-brand__role">{{ profile.primaryTitle }}</span>
+    </a>
+    <div class="site-header__actions">
+      {% include "components/theme-toggle.njk" %}
+      <button
+        class="nav-toggle"
+        type="button"
+        data-nav-toggle
+        data-label-open="Open primary navigation"
+        data-label-close="Close primary navigation"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Open primary navigation"
+      >
+        <svg class="nav-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <nav id="primary-navigation" class="site-nav" data-nav-menu aria-label="Primary navigation">
+      <ul class="site-nav__list">
+        {% for item in navigation %}
+          {% if item.primary %}
+            {% set isCurrent = item.url == page.url or (item.url == "/" and page.url == "/index.html") %}
+            <li class="site-nav__item">
+              <a
+                class="site-nav__link{% if item.isCta %} site-nav__link--action{% endif %}"
+                href="{{ item.url }}"
+                {% if isCurrent %}aria-current="page"{% endif %}
+                {% if item.isDownload %}download{% endif %}
+              >{{ item.label }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
 </header>

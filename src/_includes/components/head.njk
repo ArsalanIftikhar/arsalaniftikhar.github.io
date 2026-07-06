@@ -10,6 +10,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
   <title>{{ fullTitle }}</title>
   <meta name="description" content="{{ metaDescription }}">
   <link rel="canonical" href="{{ canonicalUrl }}">
@@ -18,117 +19,25 @@
   <meta property="og:description" content="{{ metaDescription }}">
   <meta property="og:url" content="{{ canonicalUrl }}">
   <meta property="og:site_name" content="{{ site.name }}">
-  <link rel="stylesheet" href="/assets/css/site.css">
-  <style>
-    .skip-link {
-      position: absolute;
-      left: 1rem;
-      top: 0.5rem;
-      z-index: 1100;
-      transform: translateY(-150%);
-      background: var(--bg-white, #fff);
-      color: var(--accent-color, #0066cc);
-      border: 1px solid var(--border-color, #e5e7eb);
-      border-radius: 6px;
-      padding: 0.45rem 0.7rem;
-      font-weight: 600;
-    }
-
-    .skip-link:focus {
-      transform: translateY(0);
-    }
-
-    .shell-nav {
-      flex-wrap: wrap;
-      gap: 0.75rem 1rem;
-    }
-
-    .shell-nav-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.25rem;
-      align-items: center;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .shell-nav-list a {
-      color: var(--text-dark, #1f2937);
-      font-weight: 500;
-      text-decoration: none;
-    }
-
-    .shell-nav-list a:hover,
-    .shell-nav-list a:focus-visible,
-    .shell-nav-list a[aria-current="page"] {
-      color: var(--accent-color, #0066cc);
-      text-decoration: underline;
-      text-underline-offset: 0.24em;
-    }
-
-    .shell-page {
-      max-width: 900px;
-    }
-
-    .shell-section {
-      margin-bottom: 1.75rem;
-    }
-
-    .shell-section h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.35rem;
-      margin-bottom: 0.45rem;
-    }
-
-    .shell-section p,
-    .shell-section li {
-      color: var(--text-light, #6b7280);
-    }
-
-    .shell-list {
-      padding-left: 1.2rem;
-    }
-
-    .shell-list li + li {
-      margin-top: 0.4rem;
-    }
-
-    .shell-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .shell-contact-list {
-      display: grid;
-      gap: 0.75rem;
-      list-style: none;
-      margin: 0.75rem 0 0;
-      padding: 0;
-    }
-
-    .shell-contact-list li {
-      background: var(--bg-white, #fff);
-      border: 1px solid var(--border-color, #e5e7eb);
-      border-radius: 8px;
-      padding: 0.85rem;
-      overflow-wrap: anywhere;
-    }
-
-    .shell-contact-list a {
-      overflow-wrap: anywhere;
-    }
-
-    @media (max-width: 768px) {
-      .shell-nav {
-        align-items: flex-start;
-      }
-
-      .shell-nav-list {
-        gap: 0.55rem 0.85rem;
-      }
-    }
-  </style>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var key = "portfolio-theme";
+      var stored = null;
+      root.classList.add("js");
+      try {
+        stored = window.localStorage.getItem(key);
+      } catch (error) {}
+      var theme = stored === "dark" || stored === "light"
+        ? stored
+        : window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      root.setAttribute("data-theme", theme);
+      root.style.colorScheme = theme;
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/css/portfolio.css">
+  <script src="/assets/js/theme.js" defer></script>
+  <script src="/assets/js/navigation.js" defer></script>
 </head>

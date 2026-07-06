@@ -17,6 +17,12 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy(publicDirectory);
   });
 
+  eleventyConfig.addPassthroughCopy({
+    "src/assets/css/portfolio.css": "assets/css/portfolio.css",
+    "src/assets/js/theme.js": "assets/js/theme.js",
+    "src/assets/js/navigation.js": "assets/js/navigation.js",
+  });
+
   return {
     dir: {
       input: "src",
