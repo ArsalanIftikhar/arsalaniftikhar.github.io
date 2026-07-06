@@ -49,6 +49,33 @@ async function main() {
 
   const pages = [
     {
+      file: "index.html",
+      route: routes.home,
+      extraChecks(html, decoded, failures) {
+        addCheck(failures, decoded.includes(profile.fullName), "index.html must include the profile name.");
+        addCheck(failures, decoded.includes(profile.primaryTitle), "index.html must include the confirmed primary title.");
+        addCheck(
+          failures,
+          decoded.includes("Senior BI Analyst at GXO Logistics") &&
+            decoded.includes("Data & AI Lead at NexAura") &&
+            decoded.includes("trusted reporting, data pipelines and automation"),
+          "index.html must include the approved current-position hero introduction.",
+        );
+        addCheck(failures, decoded.includes(profile.location), "index.html must include West Yorkshire, UK.");
+        addCheck(failures, decoded.includes(profile.relocation), "index.html must include Open to relocation.");
+      },
+    },
+    {
+      file: "projects.html",
+      route: routes.work,
+      extraChecks(html, decoded, failures) {
+        addCheck(failures, /<h1[^>]*>\s*Work\s*<\/h1>/i.test(decoded), "projects.html must have Work as its h1.");
+        addCheck(failures, decoded.includes("Selected work"), "projects.html must include Selected work.");
+        addCheck(failures, decoded.includes("Additional projects"), "projects.html must include Additional projects.");
+        addCheck(failures, !decoded.includes("Technical Notes"), "projects.html must not surface Technical Notes.");
+      },
+    },
+    {
       file: "about.html",
       route: routes.about,
       extraChecks(html, decoded, failures) {
@@ -102,6 +129,22 @@ async function main() {
     /unresolved[-\s]?metric/i,
   ];
 
+  const planningLanguagePatterns = [
+    /Focused Technical Breadth/i,
+    /core capability story/i,
+    /without competing/i,
+    /Use the Right Route/i,
+    /Career route/i,
+    /Consulting route/i,
+    /Qualified public metrics/i,
+    /evidence layer/i,
+    /primary evidence/i,
+    /secondary evidence/i,
+    /content hierarchy/i,
+    /portfolio strategy/i,
+    /visitor route/i,
+  ];
+
   const failures = [];
   const checked = [];
 
@@ -151,6 +194,14 @@ async function main() {
         pageFailures,
         !pattern.test(decoded),
         `${page.file} must not contain evidence, verification, approval, readiness, or draft-status terminology.`,
+      );
+    }
+
+    for (const pattern of planningLanguagePatterns) {
+      addCheck(
+        pageFailures,
+        !pattern.test(decoded),
+        `${page.file} must not contain internal planning language.`,
       );
     }
 

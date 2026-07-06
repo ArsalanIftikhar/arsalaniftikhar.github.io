@@ -8,7 +8,8 @@
     "check:legacy": "node scripts/check-legacy-output.mjs",
     "check:shell": "node scripts/check-shared-shell.mjs",
     "check:design": "node scripts/check-design-system.mjs",
-    "test": "npm run clean && npm run build && npm run check:legacy && npm run check:shell && npm run check:design"
+    "check:home-work": "node scripts/check-home-work.mjs",
+    "test": "npm run clean && npm run build && npm run check:legacy && npm run check:shell && npm run check:design && npm run check:home-work"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6"

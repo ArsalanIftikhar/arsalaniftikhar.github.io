@@ -1,0 +1,38 @@
+---
+layout: layouts/base.njk
+permalink: /projects.html
+title: Work
+description: Professional case studies and technical projects across business intelligence, data engineering, automation and applied AI.
+canonicalPath: /projects.html
+---
+<section class="page-intro section work-intro" aria-labelledby="work-heading">
+  <p class="eyebrow">{{ profile.primaryTitle }}</p>
+  <h1 id="work-heading">Work</h1>
+  <p class="lede">Professional case studies and technical projects across business intelligence, data engineering, automation and applied AI.</p>
+</section>
+
+<section class="section work-group work-group--selected" aria-labelledby="selected-work-heading">
+  <div class="section-heading">
+    <h2 id="selected-work-heading">Selected work</h2>
+  </div>
+  <div class="work-grid work-grid--selected">
+    {% for project in work.selectedWork %}
+      {% set item = project %}
+      {% set variant = "selected" %}
+      {% include "components/work-card.njk" %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section work-group" id="additional-projects" aria-labelledby="additional-projects-heading">
+  <div class="section-heading">
+    <h2 id="additional-projects-heading">Additional projects</h2>
+  </div>
+  <div class="work-grid work-grid--supporting">
+    {% for project in work.supportingProjects %}
+      {% set item = project %}
+      {% set variant = "supporting" %}
+      {% include "components/work-card.njk" %}
+    {% endfor %}
+  </div>
+</section>

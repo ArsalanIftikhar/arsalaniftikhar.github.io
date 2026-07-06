@@ -2,21 +2,20 @@
 layout: layouts/base.njk
 permalink: /contact.html
 title: Contact
-description: Contact Arsalan Iftikhar for career and professional enquiries or NexAura consulting enquiries using the appropriate public route.
+description: Contact Arsalan Iftikhar for career and professional enquiries or NexAura consulting enquiries.
 canonicalPath: /contact.html
 ---
 <section class="page-intro section">
   <p class="eyebrow">{{ profile.locationLine }}</p>
   <h1>Contact</h1>
-  <p class="lede">Use the route that best matches the enquiry. Career and professional messages should use the personal email or LinkedIn. Consulting and NexAura enquiries should use the NexAura email route.</p>
+  <p class="lede">Based in West Yorkshire, UK, and open to relocation.</p>
 </section>
 
-<section class="section contact-grid" aria-label="Contact routes">
-  <article class="contact-card panel" aria-labelledby="career-heading">
+<section class="section contact-grid" aria-label="Contact options">
+  <article class="contact-card panel" id="career" aria-labelledby="career-heading">
     <div class="content-stack">
-      <p class="contact-card__meta">Career route</p>
-      <h2 id="career-heading">{{ contacts.career.label }}</h2>
-      <p>For senior BI, data analytics, BI engineering, analytics-engineering or related professional conversations, use the personal email route or LinkedIn.</p>
+      <h2 id="career-heading">Career and professional enquiries</h2>
+      <p>For roles, interviews or professional conversations, email me or connect on LinkedIn.</p>
     </div>
     <div class="contact-card__links">
       <a href="{{ contacts.career.href }}">{{ contacts.career.email }}</a>
@@ -27,23 +26,13 @@ canonicalPath: /contact.html
     </div>
   </article>
 
-  <article class="contact-card panel" aria-labelledby="consulting-heading">
+  <article class="contact-card panel" id="consulting" aria-labelledby="consulting-heading">
     <div class="content-stack">
-      <p class="contact-card__meta">Consulting route</p>
-      <h2 id="consulting-heading">{{ contacts.consulting.label }}</h2>
-      <p>For NexAura, consulting, automation or delivery enquiries, use the business email route so the message is kept separate from career conversations.</p>
+      <h2 id="consulting-heading">NexAura consulting enquiries</h2>
+      <p>For business intelligence, automation and data-product consulting, use my NexAura email.</p>
     </div>
     <div class="contact-card__links">
       <a href="{{ contacts.consulting.href }}">{{ contacts.consulting.email }}</a>
     </div>
   </article>
-</section>
-
-<section class="section panel panel--spacious content-stack" aria-labelledby="location-heading">
-  <h2 id="location-heading">{{ profile.location }}</h2>
-  <p>{{ profile.relocation }}. Review the Work page for selected portfolio evidence or use LinkedIn for a professional overview.</p>
-  <div class="actions">
-    <a class="button" href="{{ routes.work.url }}">View Work</a>
-    <a class="button--secondary" href="{{ contacts.linkedin.url }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-  </div>
 </section>

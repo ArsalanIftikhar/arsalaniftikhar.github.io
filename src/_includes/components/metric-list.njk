@@ -1,0 +1,8 @@
+<ul class="impact-list">
+  {% for metric in metrics %}
+    <li class="impact-item">
+      <span class="impact-item__number">{{ metric.number }}</span>
+      <span class="impact-item__label">{{ metric.label }}</span>
+    </li>
+  {% endfor %}
+</ul>

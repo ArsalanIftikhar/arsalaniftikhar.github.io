@@ -1,0 +1,101 @@
+---
+layout: layouts/base.njk
+permalink: /
+title: Senior BI & Data Analyst
+description: Senior BI Analyst at GXO Logistics and part-time Data & AI Lead at NexAura, building trusted reporting, data pipelines and automation for operational decisions.
+canonicalPath: /
+seo:
+  titlePattern: "Arsalan Iftikhar | %s"
+  baseCanonicalUrl: "https://arsalaniftikhar.github.io"
+  defaultDescription: "Turning complex operational data into trusted decision systems using business intelligence, data engineering and automation."
+  defaultOpenGraphType: "website"
+---
+<section class="home-hero section" aria-labelledby="home-hero-heading">
+  <div class="home-hero__content">
+    <p class="eyebrow">{{ profile.fullName }}</p>
+    <h1 id="home-hero-heading">{{ profile.primaryTitle }}</h1>
+    <p class="lede"><strong>Senior BI Analyst at GXO Logistics</strong> and part-time <strong>Data &amp; AI Lead at NexAura</strong>. I build trusted reporting, data pipelines and automation that turn complex operational data into practical decisions.</p>
+    <div class="actions">
+      <a class="button" href="{{ routes.work.url }}">View Work</a>
+      <a class="button--secondary" href="{{ cv.url }}" download>{{ cv.label }}</a>
+    </div>
+  </div>
+  <figure class="profile-figure">
+    <img class="profile-image" src="/assets/profile.jpeg" alt="Illustration of a data analyst working with dashboards and charts" width="1536" height="1024">
+  </figure>
+</section>
+
+<div class="impact-strip" aria-label="Key impact metrics">
+  {% include "components/metric-list.njk" %}
+</div>
+
+<section class="section" aria-labelledby="capabilities-heading">
+  <div class="section-heading">
+    <h2 id="capabilities-heading">What I do</h2>
+  </div>
+  <div class="capability-grid">
+    {% for capability in capabilities %}
+      {% include "components/capability-card.njk" %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="home-work-heading">
+  <div class="section-heading section-heading--split">
+    <div>
+      <h2 id="home-work-heading">Selected work</h2>
+      <p>BI, data engineering and automation projects built around real operational problems.</p>
+    </div>
+    <a class="text-link" href="{{ routes.work.url }}">View the full Work page</a>
+  </div>
+  <div class="work-grid work-grid--home">
+    {% for project in work.selectedWork %}
+      {% if project.includeOnHome %}
+        {% set item = project %}
+        {% set variant = "selected" %}
+        {% include "components/work-card.njk" %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="additional-projects-heading">
+  <div class="section-heading section-heading--split">
+    <div>
+      <h2 id="additional-projects-heading">Additional projects</h2>
+      <p>Python, machine-learning and Power BI projects demonstrating broader analytical and technical range.</p>
+    </div>
+    <a class="text-link" href="{{ routes.work.url }}#additional-projects">View additional projects</a>
+  </div>
+  <div class="work-grid work-grid--supporting">
+    {% for project in work.supportingProjects %}
+      {% set item = project %}
+      {% set variant = "supporting" %}
+      {% include "components/work-card.njk" %}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section preview-grid" aria-label="About and contact previews">
+  <article class="preview-card panel panel--spacious" aria-labelledby="about-preview-heading">
+    <div class="content-stack">
+      <h2 id="about-preview-heading">How I work</h2>
+      <p>I start with the decision that needs to be made, then define the metrics, data and controls required to support it. My work combines analysis, engineering and stakeholder delivery so the final product is useful, maintainable and trusted.</p>
+      <div class="actions">
+        <a class="button--secondary" href="{{ routes.about.url }}">About me</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="preview-card panel panel--spacious" aria-labelledby="contact-preview-heading">
+    <div class="content-stack">
+      <p class="eyebrow">{{ profile.locationLine }}</p>
+      <h2 id="contact-preview-heading">Get in touch</h2>
+      <p>Based in West Yorkshire and open to relocation. I’m open to conversations about senior BI, data analytics, BI engineering and analytics-engineering roles. NexAura consulting enquiries can be sent through the business contact.</p>
+      <div class="actions">
+        <a class="button" href="{{ routes.contact.url }}#career">Career enquiries</a>
+        <a class="button--secondary" href="{{ routes.contact.url }}#consulting">Consulting enquiries</a>
+      </div>
+    </div>
+  </article>
+</section>

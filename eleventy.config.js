@@ -1,9 +1,7 @@
 module.exports = function (eleventyConfig) {
-  // Temporary Phase 1 passthrough build: current root files remain the public source.
-  // Later migration phases will replace these copies incrementally with src templates.
+  // Transitional passthrough build: migrated routes are generated from src templates,
+  // while non-migrated legacy files remain byte-identical copies.
   [
-    "index.html",
-    "projects.html",
     "approach.html",
     "experience.html",
     "404.html",

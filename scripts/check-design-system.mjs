@@ -5,7 +5,7 @@ import process from "node:process";
 
 const root = process.cwd();
 const outputRoot = path.join(root, "_site");
-const pages = ["about.html", "contact.html"];
+const pages = ["index.html", "projects.html", "about.html", "contact.html"];
 const cssPath = path.join(outputRoot, "assets/css/portfolio.css");
 const themeScriptPath = path.join(outputRoot, "assets/js/theme.js");
 const navigationScriptPath = path.join(outputRoot, "assets/js/navigation.js");
@@ -41,6 +41,26 @@ function getAttribute(tag, attribute) {
   return match ? match[1] : "";
 }
 
+function getCssBlock(css, selector) {
+  const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return css.match(new RegExp(`${escaped}\\s*\\{([^}]*)\\}`, "i"))?.[1] || "";
+}
+
+function getHexToken(css, tokenName) {
+  return css.match(new RegExp(`${tokenName}\\s*:\\s*(#[0-9a-f]{6})`, "i"))?.[1] || "";
+}
+
+function isNearWhite(hex) {
+  if (!/^#[0-9a-f]{6}$/i.test(hex)) {
+    return false;
+  }
+
+  const red = Number.parseInt(hex.slice(1, 3), 16);
+  const green = Number.parseInt(hex.slice(3, 5), 16);
+  const blue = Number.parseInt(hex.slice(5, 7), 16);
+  return red >= 242 && green >= 242 && blue >= 242;
+}
+
 function validateHtml(page, html, failures) {
   const decoded = decodeHtml(html);
   const themeButton = getSingleButton(html, "data-theme-toggle", page, failures);
@@ -65,6 +85,13 @@ function validateHtml(page, html, failures) {
     (hasAriaPressed && !usesSwitch && !hasAriaChecked) || (!hasAriaPressed && usesSwitch && hasAriaChecked),
     `${page} theme toggle must use exactly one accessible state pattern.`,
   );
+  addCheck(failures, /aria-label="Switch to (?:dark|light) theme"/i.test(themeButton), `${page} theme toggle must retain an accessible action label.`);
+  addCheck(failures, !/data-theme-toggle-text/i.test(html) && !/>\s*(?:Light|Dark)\s*</i.test(html), `${page} theme toggle must not visibly show Light or Dark.`);
+  if (page === "index.html") {
+    addCheck(failures, /class="profile-image"[^>]*src="\/assets\/profile\.jpeg"/i.test(html), "Homepage must include the restored profile image.");
+    addCheck(failures, !/data-hero-visual/i.test(html), "Homepage must not include the removed animated hero visual.");
+    addCheck(failures, /class="impact-item__number"/i.test(html), "Homepage metric numerals must use the compact impact strip number element.");
+  }
   addCheck(failures, /href="#main-content"/i.test(html), `${page} must include a skip link.`);
   addCheck(failures, /<main\b[^>]*id="main-content"/i.test(html), `${page} must include main#main-content.`);
   addCheck(failures, countMatches(html, /<h1\b/gi) === 1, `${page} must contain exactly one h1.`);
@@ -95,6 +122,12 @@ function validateHtml(page, html, failures) {
 function validateCss(css, failures) {
   const purePageBackground = /(?:body|html|:root|\[data-theme="light"\])[^{}]*\{[^}]*background(?:-color)?\s*:\s*(?:#fff\b|#ffffff\b|white\b|rgb\(\s*255\s*,\s*255\s*,\s*255\s*\))/i;
   const pureCanvasToken = /--color-canvas\s*:\s*(?:#fff\b|#ffffff\b|white\b|rgb\(\s*255\s*,\s*255\s*,\s*255\s*\))/i;
+  const lightCanvas = getHexToken(css, "--color-canvas");
+  const panelBlock = getCssBlock(css, ".panel");
+  const desktopHeaderBlock = css.match(/@media\s*\(min-width:\s*769px\)[\s\S]*?\.site-header__inner\s*\{[^}]*grid-template-columns:\s*auto\s+minmax\(0,\s*1fr\)\s+auto/i);
+  const themeToggleBlock = getCssBlock(css, ".theme-toggle");
+  const impactNumberBlock = getCssBlock(css, ".impact-item__number");
+  const impactItemBlock = getCssBlock(css, ".impact-item");
 
   addCheck(failures, /--color-canvas\s*:/.test(css), "CSS must define --color-canvas.");
   addCheck(failures, /--color-surface\s*:/.test(css), "CSS must define --color-surface.");
@@ -119,6 +152,17 @@ function validateCss(css, failures) {
     !purePageBackground.test(css) && !pureCanvasToken.test(css),
     "CSS must not assign a pure page background to the primary canvas.",
   );
+  addCheck(failures, lightCanvas.length > 0 && !isNearWhite(lightCanvas), "Light canvas must be visibly tinted, not near-white.");
+  addCheck(failures, /var\(--gradient-surface\)\s+padding-box/i.test(panelBlock) && /var\(--gradient-border\)\s+border-box/i.test(panelBlock), "Cards must use tinted surfaces with gradient borders instead of plain white cards.");
+  addCheck(failures, Boolean(desktopHeaderBlock) && /\.site-nav\s*\{[^}]*grid-column:\s*2/i.test(css) && /\.site-header__actions\s*\{[^}]*grid-column:\s*3/i.test(css), "Desktop header must align brand, navigation and controls in one row.");
+  addCheck(failures, /inline-size:\s*44px/i.test(themeToggleBlock) && /block-size:\s*44px/i.test(themeToggleBlock) && /padding:\s*0/i.test(themeToggleBlock), "Theme toggle must be compact while retaining a 44px touch target.");
+  addCheck(failures, /\.profile-image\b/.test(css) && /\.profile-figure\b/.test(css), "CSS must style the restored hero image and figure.");
+  addCheck(failures, !/data-hero|hero-line|hero-bar|hero-flow|heroPulse|heroLineDraw/i.test(css), "CSS must not retain removed animated hero visual selectors.");
+  addCheck(failures, /var\(--gradient-accent\)/i.test(impactNumberBlock) && /background-clip:\s*text/i.test(impactNumberBlock), "Impact numerals must use gradient or comparable accent treatment.");
+  addCheck(failures, /\.impact-list\s*\{[^}]*grid-template-columns:\s*repeat\(5,\s*minmax\(0,\s*1fr\)\)/i.test(css), "Impact strip must use a five-column desktop layout.");
+  addCheck(failures, !/box-shadow/i.test(impactItemBlock) && !/border-radius/i.test(impactItemBlock), "Impact strip items must not be styled as cards.");
+  addCheck(failures, /\.capability-card__header\s+h3/i.test(css) && /\.work-card__header\s+h3/i.test(css), "Capability and project cards must use inline icon-title header rows.");
+  addCheck(failures, !/note-card|note-grid|theme-toggle__text|impact-card|impact-card__/i.test(css), "CSS must not retain removed note-card, visible theme text, or old impact-card selectors.");
   addCheck(
     failures,
     !/(--[a-z-]*(status|evidence|approval|confidentiality|readiness)|evidence[-\s]?status|approval[-\s]?status|confidentiality[-\s]?status|readiness[-\s]?system)/i.test(css),
