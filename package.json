@@ -7,7 +7,8 @@
     "clean": "node -e \"require('node:fs').rmSync('_site', { recursive: true, force: true })\"",
     "check:legacy": "node scripts/check-legacy-output.mjs",
     "check:shell": "node scripts/check-shared-shell.mjs",
-    "test": "npm run clean && npm run build && npm run check:legacy && npm run check:shell"
+    "check:design": "node scripts/check-design-system.mjs",
+    "test": "npm run clean && npm run build && npm run check:legacy && npm run check:shell && npm run check:design"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6"
