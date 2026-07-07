@@ -1071,6 +1071,62 @@ ol {
   line-height: 1.42;
 }
 
+.case-study-workflow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-2);
+  list-style: none;
+  margin-block: var(--space-5) 0;
+  padding: 0;
+}
+
+.case-study-workflow li {
+  position: relative;
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+  min-width: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--color-surface-raised) 74%, transparent), color-mix(in srgb, var(--color-surface-recessed) 82%, transparent));
+  padding: var(--space-3);
+}
+
+.case-study-workflow li:not(:last-child)::after {
+  position: absolute;
+  inset-block-start: 1.2rem;
+  inset-inline-end: calc(var(--space-2) * -0.75);
+  inline-size: var(--space-2);
+  block-size: 1px;
+  background: var(--color-border-strong);
+  content: "";
+}
+
+.case-study-workflow li:nth-child(3n)::after {
+  display: none;
+}
+
+.case-study-workflow__number {
+  color: var(--color-accent-strong);
+  font-size: 0.78rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.case-study-workflow strong {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  line-height: 1.18;
+}
+
+.case-study-workflow p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.86rem;
+  line-height: 1.42;
+}
+
 .case-study-callout,
 .case-study-result {
   border-inline-start: 4px solid var(--color-accent-cyan);
@@ -1085,6 +1141,7 @@ ol {
 }
 
 .case-study-control-grid,
+.case-study-definition-grid,
 .case-study-figure-grid {
   display: grid;
   gap: var(--space-3);
@@ -1095,7 +1152,22 @@ ol {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.case-study-definition-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .case-study-control {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface-recessed) 78%, transparent);
+  padding: var(--space-4);
+}
+
+.case-study-definition {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  min-width: 0;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: color-mix(in srgb, var(--color-surface-recessed) 78%, transparent);
@@ -1106,7 +1178,73 @@ ol {
   font-size: var(--font-size-h3);
 }
 
+.case-study-definition h3 {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  font-size: var(--font-size-h3);
+}
+
+.case-study-definition h3::before {
+  inline-size: 0.55rem;
+  block-size: 0.55rem;
+  border-radius: 50%;
+  background: var(--color-accent-cyan);
+  content: "";
+}
+
 .case-study-control p {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.case-study-definition p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.case-study-metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin-block-start: var(--space-5);
+}
+
+.case-study-metric {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  min-width: 0;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--color-surface-raised) 90%, transparent), color-mix(in srgb, var(--color-surface-recessed) 74%, transparent)) padding-box,
+    linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 58%, transparent), color-mix(in srgb, var(--color-accent-violet) 34%, transparent)) border-box;
+  padding: clamp(1rem, 2.4vw, 1.35rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.case-study-metric--outcome {
+  grid-column: 1 / -1;
+}
+
+.case-study-metric__value {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(1.7rem, 4vw, 2.65rem);
+  font-weight: 900;
+  line-height: 0.98;
+}
+
+.case-study-metric h3 {
+  font-size: var(--font-size-h3);
+}
+
+.case-study-metric p {
+  margin: 0;
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
 }
@@ -1314,9 +1452,21 @@ ol {
   }
 
   .case-study-process,
+  .case-study-workflow,
   .case-study-control-grid,
+  .case-study-definition-grid,
+  .case-study-metric-grid,
   .case-study-figure-grid {
     grid-template-columns: 1fr;
+  }
+
+  .case-study-workflow li:not(:last-child)::after {
+    display: block;
+    inset-block-start: auto;
+    inset-block-end: calc(var(--space-2) * -0.5);
+    inset-inline: var(--space-3) auto;
+    inline-size: 1px;
+    block-size: var(--space-2);
   }
 
   .impact-item:nth-child(3n + 1) {
@@ -1376,7 +1526,7 @@ ol {
 
   .case-study-hero__inner {
     gap: var(--space-4);
-    padding-block: var(--space-5);
+    padding-block: var(--space-4);
   }
 
   .case-study-hero h1 {
@@ -1386,11 +1536,12 @@ ol {
 
   .case-study-hero__subtitle {
     font-size: 1rem;
+    line-height: 1.28;
   }
 
   .case-study-hero .lede {
     font-size: 1rem;
-    line-height: 1.48;
+    line-height: 1.42;
   }
 
   .case-study-meta {
@@ -1421,7 +1572,8 @@ ol {
 
   .case-study-role p {
     margin-block-start: var(--space-2);
-    line-height: 1.42;
+    font-size: 0.9rem;
+    line-height: 1.36;
   }
 
   .case-study-role .text-link {

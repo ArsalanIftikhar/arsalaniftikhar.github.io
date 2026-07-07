@@ -53,6 +53,7 @@ module.exports = function (eleventyConfig) {
 
   addDirectoryPassthroughExcept(eleventyConfig, "projects", [
     "projects/fabric-timecard-pipeline-case-study.html",
+    "projects/fabric-modernisation-case-study.html",
   ]);
 
   eleventyConfig.addPassthroughCopy({
