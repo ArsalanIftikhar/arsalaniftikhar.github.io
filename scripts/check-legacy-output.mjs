@@ -16,23 +16,27 @@ const topLevelPublicFiles = [
 ];
 
 const publicDirectories = ["assets", "projects", "insights"];
-const migratedLegacyFiles = new Set(["projects/fabric-timecard-pipeline-case-study.html"]);
+const migratedLegacyFiles = new Set([
+  "projects/fabric-timecard-pipeline-case-study.html",
+  "projects/fabric-modernisation-case-study.html",
+]);
 const approvedGeneratedHtmlRoutes = new Set([
   "index.html",
   "projects.html",
   "about.html",
   "contact.html",
   "projects/fabric-timecard-pipeline-case-study.html",
+  "projects/fabric-modernisation-case-study.html",
 ]);
 const approvedGeneratedAssetRoutes = new Set([
   "assets/css/portfolio.css",
   "assets/js/theme.js",
   "assets/js/navigation.js",
 ]);
-const expectedLegacyFileCount = 81;
-const expectedLegacyHtmlRouteCount = 18;
+const expectedLegacyFileCount = 80;
+const expectedLegacyHtmlRouteCount = 17;
 const expectedGeneratedHtmlRouteCount = 23;
-const expectedGeneratedEleventyRouteCount = 5;
+const expectedGeneratedEleventyRouteCount = 6;
 const expectedGeneratedAssetCount = 3;
 
 async function listFiles(directory) {
