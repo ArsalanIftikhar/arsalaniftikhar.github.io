@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+{% include "components/head.njk" %}
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  {% include "components/header.njk" %}
+  <main id="main-content" class="site-main case-study-main" tabindex="-1">
+    <article class="case-study">
+      <header class="case-study-hero">
+        <div class="case-study-hero__inner container">
+          <div class="case-study-hero__content">
+            <p class="eyebrow">{{ caseStudy.label }}</p>
+            <h1>{{ title }}</h1>
+            {% if caseStudy.subtitle %}
+              <p class="case-study-hero__subtitle">{{ caseStudy.subtitle }}</p>
+            {% endif %}
+            <p class="lede">{{ caseStudy.summary }}</p>
+            <dl class="case-study-meta" aria-label="Case study metadata">
+              <div>
+                <dt>Primary capability</dt>
+                <dd>{{ caseStudy.primaryCapability }}</dd>
+              </div>
+              {% if caseStudy.supportingCapabilities %}
+                <div>
+                  <dt>Supporting capabilities</dt>
+                  <dd>{{ caseStudy.supportingCapabilities | join(", ") }}</dd>
+                </div>
+              {% endif %}
+            </dl>
+            {% if caseStudy.technologies %}
+              <ul class="tag-list case-study-tags" aria-label="Technologies and methods">
+                {% for technology in caseStudy.technologies %}
+                  <li>{{ technology }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+          <aside class="case-study-role" aria-label="Personal contribution">
+            <h2>My role</h2>
+            <p>{{ caseStudy.roleStatement }}</p>
+            <a class="text-link" href="{{ routes.work.url }}">Back to Work</a>
+          </aside>
+        </div>
+      </header>
+
+      <div class="container case-study-content">
+        {{ content | safe }}
+      </div>
+    </article>
+  </main>
+  {% include "components/footer.njk" %}
+</body>
+</html>

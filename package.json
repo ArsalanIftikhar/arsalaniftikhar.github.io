@@ -9,7 +9,8 @@
     "check:shell": "node scripts/check-shared-shell.mjs",
     "check:design": "node scripts/check-design-system.mjs",
     "check:home-work": "node scripts/check-home-work.mjs",
-    "test": "npm run clean && npm run build && npm run check:legacy && npm run check:shell && npm run check:design && npm run check:home-work"
+    "check:fabric-case-study": "node scripts/check-fabric-case-study.mjs",
+    "test": "npm run clean && npm run build && npm run check:legacy && npm run check:shell && npm run check:design && npm run check:home-work && npm run check:fabric-case-study"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6"
